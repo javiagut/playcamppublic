@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@media only screen and (min-width: 501px) {
+    .mobile{
+        display: none;
+    }
+    .noMobile{
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .noMobile{
+        display: none;
+    }
+}
