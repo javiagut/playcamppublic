@@ -211,9 +211,6 @@
             </div>
         </div>
     </div>
-    <div class="p-4 border rounded w-ful min-h-36 bg-white shadow-lg flex items-center justify-center">
-        PUBLICIDAD
-    </div>
     <script>
         function changeImage(id, url){
             document.getElementById(id).style.backgroundImage = `url(${url})`;

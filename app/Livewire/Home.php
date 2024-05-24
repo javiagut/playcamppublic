@@ -14,7 +14,7 @@ class Home extends Component
     {
         return view('livewire.home',
             [
-                'montanas' => Empresa::whereJsonContains('etiquetas', 'Montana')->get(),
+                'montanas' => Empresa::whereJsonContains('etiquetas', 'montana')->get(),
                 'playas' => Empresa::whereJsonContains('etiquetas', 'playa')->get(),
                 'relaxs' => Empresa::whereJsonContains('etiquetas', 'relax')->get(),
                 'deportes' => Empresa::whereJsonContains('etiquetas', 'deporte')->get(),
