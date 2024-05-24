@@ -12,4 +12,7 @@ class AppController extends Controller
     function tipo(){
         return view('tipo');
     }
+    function añadirEmpresa(){
+        return view('añadirEmpresa');
+    }
 }

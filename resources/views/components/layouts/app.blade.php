@@ -12,10 +12,9 @@
         <link rel="icon" type="image/x-icon" href="{{asset('vectors/playa.png')}}">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        @vite('resources/css/app.css')
+        @vite(['resources/css/app.css','resources/js/app.js'])
         @livewireStyles
     </head>
     <body class="font-sans antialiased bg-gray-100 dark:bg-black dark:text-white/50 min-h-screen flex flex-col justify-between">
