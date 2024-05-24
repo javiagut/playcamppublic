@@ -9,12 +9,10 @@
                 <div class="w-full flex flex-col gap-4">
                     @foreach ($montanas as $montana)
                         <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="montana-{{$montana->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')">
-                                <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/02.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/03.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/04.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/05.jpg')"></div>                            
+                            <div id="montana-{{$montana->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$montana->code.'/1.jpg')}}')">
+                                @for ($i = 0; $i < 5; $i++)
+                                    <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->id}}','{{asset('storage/'.$montana->code.'/'.$i.'.jpg')}}')"></div>                            
+                                @endfor
                             </div>
                             <div class="w-1/2 p-2 grid content-between">
                                 <div>
@@ -44,12 +42,10 @@
                 <div class="w-full flex flex-col gap-4 ">
                     @foreach ($playas as $playa)
                         <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="playa-{{$playa->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')">
-                                <div class="w-1/5" onmouseover="changeImage('playa-{{$playa->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('playa-{{$playa->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/02.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('playa-{{$playa->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/03.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('playa-{{$playa->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/04.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('playa-{{$playa->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/05.jpg')"></div>                            
+                            <div id="playa-{{$playa->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$playa->code.'/1.jpg')}}')">
+                                @for ($i = 0; $i < 5; $i++)
+                                    <div class="w-1/5" onmouseover="changeImage('playa-{{$playa->id}}','{{asset('storage/'.$playa->code.'/'.$i.'.jpg')}}')"></div>                            
+                                @endfor
                             </div>
                             <div class="w-1/2 p-2 grid content-between">
                                 <div>
@@ -79,12 +75,10 @@
                 <div class="w-full flex flex-col gap-4 ">
                     @foreach ($relaxs as $relax)
                         <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="relax-{{$relax->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')">
-                                <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/02.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/03.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/04.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/05.jpg')"></div>                            
+                            <div id="relax-{{$relax->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$relax->code.'/1.jpg')}}')">
+                                @for ($i = 0; $i < 5; $i++)
+                                    <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->id}}','{{asset('storage/'.$relax->code.'/'.$i.'.jpg')}}')"></div>                            
+                                @endfor
                             </div>
                             <div class="w-1/2 p-2 grid content-between">
                                 <div>
@@ -114,12 +108,10 @@
                 <div class="w-full flex flex-col gap-4 ">
                     @foreach ($fiestas as $fiesta)
                         <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="fiesta-{{$fiesta->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')">
-                                <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/02.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/03.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/04.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/05.jpg')"></div>                            
+                            <div id="fiesta-{{$fiesta->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$fiesta->code.'/1.jpg')}}')">
+                                @for ($i = 0; $i < 5; $i++)
+                                    <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->id}}','{{asset('storage/'.$fiesta->code.'/'.$i.'.jpg')}}')"></div>                            
+                                @endfor
                             </div>
                             <div class="w-1/2 p-2 grid content-between">
                                 <div>
@@ -149,12 +141,10 @@
                 <div class="w-full flex flex-col gap-4 ">
                     @foreach ($deportes as $deporte)
                         <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="deporte-{{$deporte->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')">
-                                <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/02.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/03.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/04.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/05.jpg')"></div>                            
+                            <div id="deporte-{{$deporte->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$deporte->code.'/1.jpg')}}')">
+                                @for ($i = 0; $i < 5; $i++)
+                                    <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->id}}','{{asset('storage/'.$deporte->code.'/'.$i.'.jpg')}}')"></div>                            
+                                @endfor
                             </div>
                             <div class="w-1/2 p-2 grid content-between">
                                 <div>
@@ -184,12 +174,10 @@
                 <div class="w-full flex flex-col gap-4 ">
                     @foreach ($familias as $familia)
                         <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="familia-{{$familia->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')">
-                                <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/01.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/02.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/03.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/04.jpg')"></div>                            
-                                <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->id}}','https://www.capfun.es/photo/DURAVEL/Web/moyennes/05.jpg')"></div>                            
+                            <div id="familia-{{$familia->id}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$familia->code.'/1.jpg')}}')">
+                                @for ($i = 0; $i < 5; $i++)
+                                    <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->id}}','{{asset('storage/'.$familia->code.'/'.$i.'.jpg')}}')"></div>                            
+                                @endfor
                             </div>
                             <div class="w-1/2 p-2 grid content-between">
                                 <div>

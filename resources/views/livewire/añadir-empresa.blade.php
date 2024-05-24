@@ -159,11 +159,19 @@
                 x-on:livewire-upload-finish="isUploading = false"
                 x-on:livewire-upload-error="isUploading = false"
                 x-on:livewire-upload-progress="progress = $event.detail.progress">
-                <input wire:model="file" type="file" class="px-3 py-1 outline-none w-full border shadow">
+                <input wire:model="files" type="file" class="px-3 py-1 outline-none w-full border shadow" multiple>
                 <div x-show="isUploading">
                     <progress max="100" x-bind:value="progress" class="w-full"></progress>
                 </div>
             </div>
+            @error('files') <span class="error text-xs text-red-400">{{ $message }}</span> @enderror
+            @if ($files && count($files)==5)
+                <div class="flex justify-around w-full">
+                    @foreach ($files as $file)
+                        <img class="px-2 w-1/5" src="{{ $file->temporaryUrl() }}">
+                    @endforeach
+                </div>
+            @endif
             <button type="submit" class="px-4 py-1 rounded bg-red-400 border border-red-400 hover:bg-white hover:text-red-400 text-white w-full mt-8">Añadir</button>
             </div>
         </form>

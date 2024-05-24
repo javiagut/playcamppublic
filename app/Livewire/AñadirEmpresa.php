@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Empresa;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class AñadirEmpresa extends Component
 {
@@ -15,7 +16,7 @@ class AñadirEmpresa extends Component
     public $code = '';
     public $empresa;
     public $phones;
-    public $file;
+    public $files = [];
 
     public function __construct(){
 
@@ -63,8 +64,12 @@ class AñadirEmpresa extends Component
             'empresa.provincia' => 'required',
             'empresa.etiquetas' => 'required',
             'empresa.email' => 'email',
+            'files' => 'required|array|min:5|max:5'
         ]);
         Empresa::create($this->empresa);
-        // Storage::disk('avatars')->put($this->files->getClientOriginalName(), $this->files);
+        for ($i=0; $i < 5 ; $i++) {
+            Storage::disk('public')->put($this->empresa['code'].'/'.$i.'.jpg', file_get_contents($this->files[$i]->getRealPath()));
+        }
+        toastr()->success('Empresa añadida');
     }
 }
