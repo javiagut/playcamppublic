@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Servicio;
 
 class Empresa extends Model
 {
@@ -31,6 +32,10 @@ class Empresa extends Model
             'etiquetas' => 'array',
             'telefono' => 'array'
         ];
+    }
+    public function servicios()
+    {
+        return $this->hasMany(Servicio::class, 'empresa', 'code');
     }
 
 }

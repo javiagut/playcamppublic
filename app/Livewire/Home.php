@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\Empresa;
 use Illuminate\Database\Query\Builder;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
+use App\Models\ServicioTipo;
 
 class Home extends Component
 {
@@ -15,9 +17,16 @@ class Home extends Component
     public $search='';
     public $province = [];
     public $perPage = 10;
+    public $servicioTipo;
 
     public function paginationView()
     {
+        $this->servicioTipo = ServicioTipo::get();
+        $this->servicioTipo = ServicioTipo::get()->mapWithKeys(function ($item) {
+            $id = $item['id'];
+            unset($item['id']);
+            return [$id => $item];
+        })->toArray();
         return 'vendor.livewire.home';
     }
 

@@ -1,6 +1,6 @@
 <div class="fixed lg:relative w-full h-16 bg-white shadow flex items-center px-8 z-50" style="font-family: Righteous">
     <div class="hidden lg:flex lg:w-5/12 text-gray-700">
-        Todos los <b>Campings</b> de España en un mismo lugar
+        Todos los <b class="mx-1">Campings</b> de España en un mismo lugar
     </div>
     <div class="flex flex-col items-center h-16 lg:w-2/12 w-11/12">
         <a href="{{route('home')}}">

@@ -360,9 +360,14 @@
                                 @endfor
                             </div>
                             <div class="w-1/2 p-2 grid content-between">
-                                <div>
+                                <div style="font-family: Righteous">
                                     <p class="text-xl font-bold cursor-pointer">{{$playa->nombre}}</p>
-                                    <p class="text-base">{{$playa->provincia}}</p>
+                                    <p class="">{{$playa->provincia}}</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    @foreach ($playa->servicios as $servicio)
+                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                    @endforeach
                                 </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
                                     @if ($playa->tripadvisor && $playa->tripadvisor!='')

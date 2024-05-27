@@ -7,6 +7,8 @@ use App\Models\Empresa;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
+use App\Models\ServicioTipo;
+use App\Models\Servicio;
 
 class AñadirEmpresa extends Component
 {
@@ -17,9 +19,11 @@ class AñadirEmpresa extends Component
     public $empresa;
     public $phones;
     public $files = [];
+    public $servicioTipo = [];
+    public $servicios = [];
 
     public function __construct(){
-
+        $this->servicioTipo = ServicioTipo::all();
         $this->empresa = [
             'code' => Str::upper(Str::random(10)),
             'nombre' => '',
@@ -33,7 +37,6 @@ class AñadirEmpresa extends Component
             'web' => '',
             'tripadvisor' => '',
         ];
-        
     }
 
     public function render()
@@ -45,6 +48,16 @@ class AñadirEmpresa extends Component
     {
         if ($this->code == env('passAdmin')) $this->valid = true;
     }
+    public function servicio($servicio)
+    {
+        $index = array_search($servicio, $this->servicios);
+        if (!in_array($servicio, $this->servicios)) {
+            $this->servicios[] = $servicio;
+        } else {
+            unset($this->servicios[$index]);
+            toastr()->warning('Servicio eliminado');
+        }
+    }
     public function etiqueta($etiqueta)
     {
         $index = array_search($etiqueta, $this->empresa['etiquetas']);
@@ -53,7 +66,6 @@ class AñadirEmpresa extends Component
                 toastr()->error('Solo puedes añadir dos etiquetas');
             }else{
                 $this->empresa['etiquetas'][] = $etiqueta;
-                toastr()->success('Etiqueta añadida');
             }
         } else {
             unset($this->empresa['etiquetas'][$index]);
@@ -75,7 +87,16 @@ class AñadirEmpresa extends Component
         for ($i=0; $i < 5 ; $i++) {
             Storage::disk('public')->put($this->empresa['code'].'/'.$i.'.jpg', file_get_contents($this->files[$i]->getRealPath()));
         }
+        foreach ($this->servicios as $servicio) {
+            Servicio::create([
+                'empresa' => $this->empresa['code'],
+                'tipo' => $servicio,
+                'visible' => true,
+                'descripcion' => ''
+            ]);
+        }
         toastr()->success('Empresa añadida');
+        $this->servicios=[];
         $this->files=[];
         $this->phones='';
         $this->empresa = [

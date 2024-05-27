@@ -18,15 +18,23 @@
             @error('empresa.nombre') <span class="error text-xs text-red-400">{{ $message }}</span> @enderror
             @error('empresa.provincia') <span class="error text-xs text-red-400">{{ $message }}</span> @enderror
             <div class="w-full flex gap-2">
+                <p class="w-full text-red-400 font-bold">Servicios</p>
+            </div>
+            <div class="w-full flex gap-2 mb-4 flex-wrap py-2">
+                @foreach ($servicioTipo as $tipo)
+                    <p class="{{in_array($tipo->id, $servicios) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="servicio('{{$tipo->id}}')">{{$tipo->nombre}}</p>
+                @endforeach
+            </div>
+            <div class="w-full flex gap-2">
                 <p class="w-full text-red-400 font-bold">Etiquetas</p>
             </div>
             <div class="w-full flex gap-2 mb-4 flex-wrap py-2">
-                <p class="{{in_array('montana', $this->empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('montana')">montana</p>
-                <p class="{{in_array('playa', $this->empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('playa')">playa</p>
-                <p class="{{in_array('relax', $this->empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('relax')">relax</p>
-                <p class="{{in_array('fiesta', $this->empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('fiesta')">fiesta</p>
-                <p class="{{in_array('deporte', $this->empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('deporte')">deporte</p>
-                <p class="{{in_array('familia', $this->empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('familia')">familia</p>
+                <p class="{{in_array('montana', $empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('montana')">montana</p>
+                <p class="{{in_array('playa', $empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('playa')">playa</p>
+                <p class="{{in_array('relax', $empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('relax')">relax</p>
+                <p class="{{in_array('fiesta', $empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('fiesta')">fiesta</p>
+                <p class="{{in_array('deporte', $empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('deporte')">deporte</p>
+                <p class="{{in_array('familia', $empresa['etiquetas']) ? 'bg-red-400 text-white' : 'border  text-red-400 hover:bg-red-400 hover:text-white'}} border border-red-400 transition-all py-1 px-2 text-xs rounded cursor-pointer" wire:click="etiqueta('familia')">familia</p>
             </div>
             @error('empresa.etiquetas') <span class="error text-xs text-red-400">{{ $message }}</span> @enderror
             <div class="w-full flex gap-2">
@@ -82,7 +90,7 @@
                     @endforeach
                 </div>
             @endif
-            <button type="submit" class="px-4 py-1 rounded bg-red-400 border border-red-400 hover:bg-white hover:text-red-400 text-white w-full mt-8">Añadir</button>
+            <button type="submit" class="transition-all px-4 py-1 rounded bg-red-400 border border-red-400 hover:bg-white hover:text-red-400 text-white w-full mt-8">Añadir</button>
             </div>
         </form>
     @endif
