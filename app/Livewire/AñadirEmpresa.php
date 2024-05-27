@@ -49,8 +49,12 @@ class AñadirEmpresa extends Component
     {
         $index = array_search($etiqueta, $this->empresa['etiquetas']);
         if (!in_array($etiqueta, $this->empresa['etiquetas'])) {
-            $this->empresa['etiquetas'][] = $etiqueta;
-            toastr()->success('Etiqueta añadida');
+            if (count($this->empresa['etiquetas'])==2) {
+                toastr()->error('Solo puedes añadir dos etiquetas');
+            }else{
+                $this->empresa['etiquetas'][] = $etiqueta;
+                toastr()->success('Etiqueta añadida');
+            }
         } else {
             unset($this->empresa['etiquetas'][$index]);
             toastr()->warning('Etiqueta eliminada');
@@ -58,6 +62,7 @@ class AñadirEmpresa extends Component
     }
     public function añadirEmpresa()
     {
+        // dd($this->empresa);
         if($this->phones!='') $this->empresa['telefono'] = explode(',', $this->phones);
         $this->validate([
             'empresa.nombre' => 'required',
@@ -71,5 +76,20 @@ class AñadirEmpresa extends Component
             Storage::disk('public')->put($this->empresa['code'].'/'.$i.'.jpg', file_get_contents($this->files[$i]->getRealPath()));
         }
         toastr()->success('Empresa añadida');
+        $this->files=[];
+        $this->phones='';
+        $this->empresa = [
+            'code' => Str::upper(Str::random(10)),
+            'nombre' => '',
+            'email' => '',
+            'direccion' => '',
+            'provincia' => '',
+            'etiquetas' => [],
+            'telefono' => [],
+            'mapa' => false,
+            'tipo' => 1,
+            'web' => '',
+            'tripadvisor' => '',
+        ];
     }
 }

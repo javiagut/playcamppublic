@@ -1,5 +1,5 @@
-<div class="w-full h-16 bg-white shadow flex items-center px-8" style="font-family: Righteous">
-    <div class="lg:w-5/12 text-gray-700">
+<div class="fixed lg:relative w-full h-16 bg-white shadow flex items-center px-8 z-50" style="font-family: Righteous">
+    <div class="hidden lg:flex lg:w-5/12 text-gray-700">
         Todos los <b>Campings</b> de España en un mismo lugar
     </div>
     <div class="flex flex-col items-center h-16 lg:w-2/12 w-11/12">
@@ -10,19 +10,19 @@
     </div>
     <div class="h-16 flex justify-end items-center w-1/12 lg:w-5/12">
         <div class="lg:hidden">
-            <x-dropdown>
+            <x-dropdown maintain="false">
                 <x-slot name="trigger">
                     <span class="material-symbols-outlined text-red-400 text-2xl cursor-pointer hover:text-red-600">menu</span>
                 </x-slot>
             
                 <x-slot name="content">
                     <div class="py-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Montaña</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Playa</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relax</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fiesta</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Deporte</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Familia</a>
+                        <a href="#playa" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Playa</a>
+                        <a href="#relax" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relax</a>
+                        <a href="#fiesta" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fiesta</a>
+                        <a href="#deporte" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Deporte</a>
+                        <a href="#familia" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Familia</a>
+                        <a href="#montana" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Montaña</a>
                     </div>
                 </x-slot>
             </x-dropdown>

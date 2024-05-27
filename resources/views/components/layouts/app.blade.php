@@ -17,7 +17,7 @@
         @vite(['resources/css/app.css','resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class="font-sans antialiased bg-gray-100 dark:bg-black dark:text-white/50 min-h-screen flex flex-col justify-between">
+    <body class="font-sans antialiased bg-gray-100 min-h-screen flex flex-col justify-between">
         @livewire('header')
         {{ $slot }}
         @livewireScripts

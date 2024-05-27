@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white', 'dropdownClasses' => ''])
+@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white max-h-80 overflow-y-scroll', 'dropdownClasses' => '', 'maintain' => isset($maintain) ? 'true' : 'false'])
 
 @php
 switch ($align) {
@@ -20,7 +20,18 @@ switch ($align) {
 
 switch ($width) {
     case '48':
-        $width = 'w-48';
+        $width = 'w-480';
+        break;
+}
+switch ($maintain) {
+    case 'true':
+        $maintain = 'open = true';
+        break;
+    case 'false':
+        $maintain = 'open = false';
+        break;
+    default:
+        $maintain = 'open = false';
         break;
 }
 @endphp
@@ -39,7 +50,7 @@ switch ($width) {
             x-transition:leave-end="transform opacity-0 scale-95"
             class="absolute z-50 mt-2 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }} {{ $dropdownClasses }}"
             style="display: none;"
-            @click="open = false">
+            @click="{{$maintain}}">
         <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
             {{ $content }}
         </div>
