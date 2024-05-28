@@ -1,11 +1,11 @@
-<div class="w-full flex-col gap-4 px-4 pb-4 mt-16 lg:mt-0">
+<div class="w-full flex-col gap-4 lg:px-4 pb-4 mt-16 lg:mt-0">
     <div class="w-full flex lg:flex-row flex-col pb-4 lg:flex-wrap">
-        <div class="w-full pt-8 flex flex-col lg:flex-row gap-4 justify-center">
+        <div class="w-full px-4 lg:px-0 pt-8 flex flex-col lg:flex-row gap-4 justify-center">
             <div class="bg-white flex items-center px-2 rounded shadow-lg">
                 <span class="material-symbols-outlined text-red-400">search</span>
                 <input type="text" wire:model.live.debounce.100ms="search" placeholder="Buscar por Nombre" class="py-1 px-2 outline-none">
             </div>
-            <div class="bg-white flex justify-between items-center px-2 rounded shadow-lg">
+            <div class="bg-white flex justify-between items-center px-2 rounded shadow-lg py-1">
                 <span class="material-symbols-outlined text-red-400">location_city</span>
                 <x-dropdown maintain="true" align="left">
                     <x-slot name="trigger">
@@ -311,15 +311,15 @@
                 <span wire:click="$set('province',[])" class="text-base material-symbols-outlined text-red-400 ml-2 hover:text-black transition-all cursor-pointer">close</span>
             </div>
         </div>
-        <div class="p-2 w-full lg:w-1/3 order-1 lg:order-none" id="montana">
-            <div class="flex flex-col gap-4 p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'montana'])}}" class="text-xl flex items-end gap-2" style="font-family: Righteous">
+        <div class="lg:p-2 w-full lg:w-1/3 order-1 lg:order-none" id="montana">
+            <div class="flex flex-col gap-4 lg:p-2 w-full">
+                <a href="{{route('tipo',['tipo' => 'montana'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
                     <span>porque te mueve la <b class="text-2xl">Montaña</b></span>
                     <img src="{{asset('vectors/montaña.png')}}" alt="" class="h-12">
                 </a>
-                <div class="w-full flex flex-col gap-4">
+                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($montanas as $montana)
-                        <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
+                        <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
                             <div id="montana-{{$montana->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$montana->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->code}}','{{asset('storage/'.$montana->code.'/'.$i.'.jpg')}}')"></div>                            
@@ -332,7 +332,7 @@
                                 </div>
                                 <div class="flex gap-2">
                                     @foreach ($montana->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
@@ -350,15 +350,15 @@
                 </div>
             </div>
         </div>
-        <div class="p-2 w-full lg:w-1/3" id="playa">
-            <div class="flex flex-col gap-4 p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'playa'])}}" class="text-xl flex items-end gap-2" style="font-family: Righteous">
+        <div class="lg:p-2 w-full lg:w-1/3" id="playa">
+            <div class="flex flex-col gap-4 lg:p-2 w-full">
+                <a href="{{route('tipo',['tipo' => 'playa'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
                     <span>porque te mueve la <b class="text-2xl">Playa</b></span>
                     <img src="{{asset('vectors/playa.png')}}" alt="" class="h-12">
                 </a>
-                <div class="w-full flex flex-col gap-4 ">
+                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($playas as $playa)
-                        <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
+                        <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
                             <div id="playa-{{$playa->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$playa->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('playa-{{$playa->code}}','{{asset('storage/'.$playa->code.'/'.$i.'.jpg')}}')"></div>                            
@@ -371,7 +371,7 @@
                                 </div>
                                 <div class="flex gap-2">
                                     @foreach ($playa->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
@@ -389,15 +389,15 @@
                 </div>
             </div>
         </div>
-        <div class="p-2 w-full lg:w-1/3" id="relax">
-            <div class="flex flex-col gap-4 p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'relax'])}}" class="text-xl flex items-end gap-2" style="font-family: Righteous">
+        <div class="lg:p-2 w-full lg:w-1/3" id="relax">
+            <div class="flex flex-col gap-4 lg:p-2 w-full">
+                <a href="{{route('tipo',['tipo' => 'relax'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
                     <span>porque te mueve el <b class="text-2xl">Relax</b></span>
                     <img src="{{asset('vectors/relax.png')}}" alt="" class="h-12">
                 </a>
-                <div class="w-full flex flex-col gap-4 ">
+                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($relaxs as $relax)
-                        <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
+                        <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
                             <div id="relax-{{$relax->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$relax->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->code}}','{{asset('storage/'.$relax->code.'/'.$i.'.jpg')}}')"></div>                            
@@ -410,7 +410,7 @@
                                 </div>
                                 <div class="flex gap-2">
                                     @foreach ($relax->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
@@ -428,15 +428,15 @@
                 </div>
             </div>
         </div>
-        <div class="p-2 w-full lg:w-1/3" id="fiesta">
-            <div class="flex flex-col gap-4 p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'fiesta'])}}" class="text-xl flex items-end gap-2" style="font-family: Righteous">
+        <div class="lg:p-2 w-full lg:w-1/3" id="fiesta">
+            <div class="flex flex-col gap-4 lg:p-2 w-full">
+                <a href="{{route('tipo',['tipo' => 'fiesta'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
                     <span>porque te mueve la <b class="text-2xl">Fiesta</b></span>
                     <img src="{{asset('vectors/fiesta.png')}}" alt="" class="h-12">
                 </a>
-                <div class="w-full flex flex-col gap-4 ">
+                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 ">
                     @foreach ($fiestas as $fiesta)
-                        <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
+                        <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
                             <div id="fiesta-{{$fiesta->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$fiesta->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->code}}','{{asset('storage/'.$fiesta->code.'/'.($i).'.jpg')}}')"></div>                            
@@ -449,7 +449,7 @@
                                 </div>
                                 <div class="flex gap-2">
                                     @foreach ($fiesta->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
@@ -467,15 +467,15 @@
                 </div>
             </div>
         </div>
-        <div class="p-2 w-full lg:w-1/3" id="deporte">
-            <div class="flex flex-col gap-4 p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'deporte'])}}" class="text-xl flex items-end gap-2" style="font-family: Righteous" >
+        <div class="lg:p-2 w-full lg:w-1/3" id="deporte">
+            <div class="flex flex-col gap-4 lg:p-2 w-full">
+                <a href="{{route('tipo',['tipo' => 'deporte'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous" >
                     <span>porque te mueve el <b class="text-2xl">Deporte</b></span>
                     <img src="{{asset('vectors/deporte.png')}}" alt="" class="h-12">
                 </a>
-                <div class="w-full flex flex-col gap-4 ">
+                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($deportes as $deporte)
-                        <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
+                        <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
                             <div id="deporte-{{$deporte->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$deporte->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->code}}','{{asset('storage/'.$deporte->code.'/'.$i.'.jpg')}}')"></div>                            
@@ -488,7 +488,7 @@
                                 </div>
                                 <div class="flex gap-2">
                                     @foreach ($deporte->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
@@ -506,15 +506,15 @@
                 </div>
             </div>
         </div>
-        <div class="p-2 w-full lg:w-1/3" id="familia">
-            <div class="flex flex-col gap-4 p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'familia'])}}" class="text-xl flex items-end gap-2" style="font-family: Righteous">
+        <div class="lg:p-2 w-full lg:w-1/3" id="familia">
+            <div class="flex flex-col gap-4 lg:p-2 w-full">
+                <a href="{{route('tipo',['tipo' => 'familia'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
                     <span>porque te mueve la <b class="text-2xl">Familia</b></span>
                     <img src="{{asset('vectors/familia.png')}}" alt="" class="h-12">
                 </a>
-                <div class="w-full flex flex-col gap-4 ">
+                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($familias as $familia)
-                        <div class="w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
+                        <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
                             <div id="familia-{{$familia->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$familia->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->code}}','{{asset('storage/'.$familia->code.'/'.$i.'.jpg')}}')"></div>                            
@@ -527,7 +527,7 @@
                                 </div>
                                 <div class="flex gap-2">
                                     @foreach ($familia->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
