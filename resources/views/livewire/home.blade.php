@@ -330,6 +330,11 @@
                                     <p class="text-xl font-bold cursor-pointer">{{$montana->nombre}}</p>
                                     <p class="text-base">{{$montana->provincia}}</p>
                                 </div>
+                                <div class="flex gap-2">
+                                    @foreach ($montana->servicios as $servicio)
+                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                    @endforeach
+                                </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
                                     @if ($montana->tripadvisor && $montana->tripadvisor!='')
                                         <a href="{{$montana->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
@@ -403,6 +408,11 @@
                                     <p class="text-xl font-bold cursor-pointer">{{$relax->nombre}}</p>
                                     <p class="text-base">{{$relax->provincia}}</p>
                                 </div>
+                                <div class="flex gap-2">
+                                    @foreach ($relax->servicios as $servicio)
+                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                    @endforeach
+                                </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
                                     @if ($relax->tripadvisor && $relax->tripadvisor!='')
                                         <a href="{{$relax->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
@@ -436,6 +446,11 @@
                                 <div>
                                     <p class="text-xl font-bold cursor-pointer">{{$fiesta->nombre}}</p>
                                     <p class="text-base">{{$fiesta->provincia}}</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    @foreach ($fiesta->servicios as $servicio)
+                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                    @endforeach
                                 </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
                                     @if ($fiesta->tripadvisor && $fiesta->tripadvisor!='')
@@ -471,6 +486,11 @@
                                     <p class="text-xl font-bold cursor-pointer">{{$deporte->nombre}}</p>
                                     <p class="text-base">{{$deporte->provincia}}</p>
                                 </div>
+                                <div class="flex gap-2">
+                                    @foreach ($deporte->servicios as $servicio)
+                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                    @endforeach
+                                </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
                                     @if ($deporte->tripadvisor && $deporte->tripadvisor!='')
                                         <a href="{{$deporte->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
@@ -504,6 +524,11 @@
                                 <div>
                                     <p class="text-xl font-bold cursor-pointer">{{$familia->nombre}}</p>
                                     <p class="text-base">{{$familia->provincia}}</p>
+                                </div>
+                                <div class="flex gap-2">
+                                    @foreach ($familia->servicios as $servicio)
+                                        <span class="material-symbols-outlined w-8 h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                    @endforeach
                                 </div>
                                 <div class="flex gap-2 items-center justify-end w-full">
                                     @if ($familia->tripadvisor && $familia->tripadvisor!='')
