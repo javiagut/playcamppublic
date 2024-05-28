@@ -330,7 +330,7 @@
                                     <p class="text-xl font-bold cursor-pointer">{{$montana->nombre}}</p>
                                     <p class="text-base">{{$montana->provincia}}</p>
                                 </div>
-                                <div class="flex gap-2">
+                                <div class="flex">
                                     @foreach ($montana->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -369,7 +369,7 @@
                                     <p class="text-xl font-bold cursor-pointer">{{$playa->nombre}}</p>
                                     <p class="">{{$playa->provincia}}</p>
                                 </div>
-                                <div class="flex gap-2">
+                                <div class="flex">
                                     @foreach ($playa->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -408,7 +408,7 @@
                                     <p class="text-xl font-bold cursor-pointer">{{$relax->nombre}}</p>
                                     <p class="text-base">{{$relax->provincia}}</p>
                                 </div>
-                                <div class="flex gap-2">
+                                <div class="flex">
                                     @foreach ($relax->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -447,7 +447,7 @@
                                     <p class="text-xl font-bold cursor-pointer">{{$fiesta->nombre}}</p>
                                     <p class="text-base">{{$fiesta->provincia}}</p>
                                 </div>
-                                <div class="flex gap-2">
+                                <div class="flex">
                                     @foreach ($fiesta->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -486,7 +486,7 @@
                                     <p class="text-xl font-bold cursor-pointer">{{$deporte->nombre}}</p>
                                     <p class="text-base">{{$deporte->provincia}}</p>
                                 </div>
-                                <div class="flex gap-2">
+                                <div class="flex">
                                     @foreach ($deporte->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -525,7 +525,7 @@
                                     <p class="text-xl font-bold cursor-pointer">{{$familia->nombre}}</p>
                                     <p class="text-base">{{$familia->provincia}}</p>
                                 </div>
-                                <div class="flex gap-2">
+                                <div class="flex">
                                     @foreach ($familia->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
