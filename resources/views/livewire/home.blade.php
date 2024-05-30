@@ -386,7 +386,7 @@
                                                     @if ($playa->telefono[$i][0]==9 || strpos($playa->telefono[$i],'+349') == true || strpos($playa->telefono[$i],'+34 9') == true)
                                                         <a href="tel:{{$playa->telefono[$i]}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{$playa->telefono[$i]}}" class="material-symbols-rounded">call</a>
+                                                        <a href="https://wa.me/{{$playa->telefono[$i]}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
