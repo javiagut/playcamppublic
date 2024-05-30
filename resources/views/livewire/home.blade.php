@@ -328,16 +328,16 @@
                             </div>
                             <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div>
-                                    <p class="text-xl font-bold cursor-pointer">{{$montana->nombre}}</p>
-                                    <p class="text-base">{{$montana->provincia}}</p>
+                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$montana->nombre}}</p>
+                                    <p class="pl-1 text-base">{{$montana->provincia}}</p>
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($montana->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="flex gap-2 items-center justify-between w-full">
+                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                <div class="px-1 flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($montana->email && $montana->email!='')
                                             <a href="mailto:{{$montana->email}}" class="material-symbols-outlined">email</a>
@@ -384,16 +384,16 @@
                             </div>
                             <div class="lg:w-1/2 h-44 lg:h-auto p-2 grid content-between">
                                 <div style="font-family: Righteous">
-                                    <p class="text-xl font-bold cursor-pointer">{{$playa->nombre}}</p>
-                                    <p class="">{{$playa->provincia}}</p>
+                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$playa->nombre}}</p>
+                                    <p class="pl-1 text-base">{{$playa->provincia}}</p>
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($playa->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="flex gap-2 items-center justify-between w-full">
+                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                <div class="px-1 flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($playa->email && $playa->email!='')
                                             <a href="mailto:{{$playa->email}}" class="material-symbols-outlined">email</a>
@@ -442,16 +442,16 @@
                             </div>
                             <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div>
-                                    <p class="text-xl font-bold cursor-pointer">{{$relax->nombre}}</p>
-                                    <p class="text-base">{{$relax->provincia}}</p>
+                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$relax->nombre}}</p>
+                                    <p class="pl-1 text-base">{{$relax->provincia}}</p>
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($relax->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="flex gap-2 items-center justify-between w-full">
+                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                <div class="px-1 flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($relax->email && $relax->email!='')
                                             <a href="mailto:{{$relax->email}}" class="material-symbols-outlined">email</a>
@@ -500,16 +500,16 @@
                             </div>
                             <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div>
-                                    <p class="text-xl font-bold cursor-pointer">{{$fiesta->nombre}}</p>
-                                    <p class="text-base">{{$fiesta->provincia}}</p>
+                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$fiesta->nombre}}</p>
+                                    <p class="pl-1 text-base">{{$fiesta->provincia}}</p>
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($fiesta->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="flex gap-2 items-center justify-between w-full">
+                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                <div class="px-1 flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($fiesta->email && $fiesta->email!='')
                                             <a href="mailto:{{$fiesta->email}}" class="material-symbols-outlined">email</a>
@@ -558,16 +558,16 @@
                             </div>
                             <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div>
-                                    <p class="text-xl font-bold cursor-pointer">{{$deporte->nombre}}</p>
-                                    <p class="text-base">{{$deporte->provincia}}</p>
+                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$deporte->nombre}}</p>
+                                    <p class="pl-1 text-base">{{$deporte->provincia}}</p>
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($deporte->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="flex gap-2 items-center justify-between w-full">
+                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                <div class="px-1 flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($deporte->email && $deporte->email!='')
                                             <a href="mailto:{{$deporte->email}}" class="material-symbols-outlined">email</a>
@@ -616,16 +616,16 @@
                             </div>
                             <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div>
-                                    <p class="text-xl font-bold cursor-pointer">{{$familia->nombre}}</p>
-                                    <p class="text-base">{{$familia->provincia}}</p>
+                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$familia->nombre}}</p>
+                                    <p class="pl-1 text-base">{{$familia->provincia}}</p>
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($familia->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="flex gap-2 items-center justify-between w-full">
+                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                <div class="px-1 flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($familia->email && $familia->email!='')
                                             <a href="mailto:{{$familia->email}}" class="material-symbols-outlined">email</a>
