@@ -336,6 +336,7 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
+                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
                                 <div class="flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($montana->email && $montana->email!='')
