@@ -683,5 +683,13 @@
                 }
             }
         }
+        function getElementsByPrefix(prefix) {
+            return document.querySelectorAll(`[id^='${prefix}']`);
+        }
+
+        var elementsWithBg1 = getElementsByPrefix('btn-bg-0-');
+        elementsWithBg1.forEach(function(element) {
+            element.style.backgroundColor = '#1e293b';
+        });
     </script>
 </div>
