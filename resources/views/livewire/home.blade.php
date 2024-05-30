@@ -335,7 +335,7 @@
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($montana->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
@@ -393,7 +393,7 @@
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($playa->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
@@ -453,7 +453,7 @@
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($relax->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
@@ -513,7 +513,7 @@
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($fiesta->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
@@ -573,7 +573,7 @@
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($deporte->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
@@ -633,7 +633,7 @@
                                 </div>
                                 <div class="flex py-1">
                                     @foreach ($familia->servicios as $servicio)
-                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
                                 <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
