@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white max-h-80 overflow-y-scroll', 'dropdownClasses' => '', 'maintain' => isset($maintain) ? 'true' : 'false'])
+@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white max-h-80 overflow-y-scroll', 'dropdownClasses' => '', 'maintain' => isset($maintain) ? 'true' : 'false', 'w' => isset($w) ? $w : ''])
 
 @php
 switch ($align) {
@@ -20,7 +20,7 @@ switch ($align) {
 
 switch ($width) {
     case '48':
-        $width = 'w-480';
+        $width = 'w-48';
         break;
 }
 switch ($maintain) {
@@ -36,7 +36,7 @@ switch ($maintain) {
 }
 @endphp
 
-<div class="relative" x-data="{ open: false }" @click.away="open = false" @close.stop="open = false">
+<div class="relative {{$w}}" x-data="{ open: false }" @click.away="open = false" @close.stop="open = false">
     <div @click="open = ! open">
         {{ $trigger }}
     </div>

@@ -1,17 +1,18 @@
 <div class="w-full flex-col gap-4 lg:px-4 pb-4 mt-16 lg:mt-0">
     <div class="w-full flex lg:flex-row flex-col pb-4 lg:flex-wrap">
         <div class="w-full px-4 lg:px-0 pt-8 flex flex-col lg:flex-row gap-4 justify-center">
-            <div class="bg-white flex items-center px-2 rounded shadow-lg">
+            <div class="bg-white flex items-center px-2 rounded shadow-lg justify-between">
                 <span class="material-symbols-outlined text-red-400">search</span>
-                <input type="text" wire:model.live.debounce.100ms="search" placeholder="Buscar por Nombre" class="py-1 px-2 outline-none">
+                <input type="text" wire:model.live.debounce.100ms="search" placeholder="Buscar por Nombre" class="w-full lg:w-56 py-1 px-2 outline-none">
+                <span wire:click="$set('province',[])" class="text-base material-symbols-outlined text-red-400 ml-2 hover:text-black transition-all cursor-pointer">close</span>
             </div>
             <div class="bg-white flex justify-between items-center px-2 rounded shadow-lg py-1">
                 <span class="material-symbols-outlined text-red-400">location_city</span>
-                <x-dropdown maintain="true" align="left">
+                <x-dropdown maintain="true" align="left" w="w-full">
                     <x-slot name="trigger">
-                        <div class="w-56 flex gap-2 items-center px-2 cursor-pointer hover:text-red-400 transition-all whitespace-nowrap overflow-hidden">
+                        <div class="w-full lg:w-56 flex gap-2 items-center px-2 cursor-pointer text-gray-400 hover:text-black transition-all whitespace-nowrap overflow-hidden">
                             @if (count($province) == 0)
-                                Filtrar por Provincia
+                                Buscar por Provincia
                             @elseif(count($province) > 3)
                                 {{$province[0]}}, {{$province[0]}}, {{$province[0]}}...
                             @else
@@ -320,17 +321,17 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($montanas as $montana)
                         <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="montana-{{$montana->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$montana->code.'/0.jpg')}}')">
+                            <div id="montana-{{$montana->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$montana->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->code}}','{{asset('storage/'.$montana->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="w-1/2 p-2 grid content-between">
+                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div>
                                     <p class="text-xl font-bold cursor-pointer">{{$montana->nombre}}</p>
                                     <p class="text-base">{{$montana->provincia}}</p>
                                 </div>
-                                <div class="flex">
+                                <div class="flex py-1">
                                     @foreach ($montana->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -358,18 +359,18 @@
                 </a>
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($playas as $playa)
-                        <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="playa-{{$playa->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$playa->code.'/0.jpg')}}')">
+                        <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
+                            <div id="playa-{{$playa->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$playa->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('playa-{{$playa->code}}','{{asset('storage/'.$playa->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="w-1/2 p-2 grid content-between">
+                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div style="font-family: Righteous">
                                     <p class="text-xl font-bold cursor-pointer">{{$playa->nombre}}</p>
                                     <p class="">{{$playa->provincia}}</p>
                                 </div>
-                                <div class="flex">
+                                <div class="flex py-1">
                                     @foreach ($playa->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -398,17 +399,17 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($relaxs as $relax)
                         <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="relax-{{$relax->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$relax->code.'/0.jpg')}}')">
+                            <div id="relax-{{$relax->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$relax->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->code}}','{{asset('storage/'.$relax->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="w-1/2 p-2 grid content-between">
+                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div>
                                     <p class="text-xl font-bold cursor-pointer">{{$relax->nombre}}</p>
                                     <p class="text-base">{{$relax->provincia}}</p>
                                 </div>
-                                <div class="flex">
+                                <div class="flex py-1">
                                     @foreach ($relax->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -437,17 +438,17 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 ">
                     @foreach ($fiestas as $fiesta)
                         <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="fiesta-{{$fiesta->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$fiesta->code.'/0.jpg')}}')">
+                            <div id="fiesta-{{$fiesta->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$fiesta->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->code}}','{{asset('storage/'.$fiesta->code.'/'.($i).'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="w-1/2 p-2 grid content-between">
+                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div>
                                     <p class="text-xl font-bold cursor-pointer">{{$fiesta->nombre}}</p>
                                     <p class="text-base">{{$fiesta->provincia}}</p>
                                 </div>
-                                <div class="flex">
+                                <div class="flex py-1">
                                     @foreach ($fiesta->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -476,17 +477,17 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($deportes as $deporte)
                         <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="deporte-{{$deporte->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$deporte->code.'/0.jpg')}}')">
+                            <div id="deporte-{{$deporte->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$deporte->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->code}}','{{asset('storage/'.$deporte->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="w-1/2 p-2 grid content-between">
+                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div>
                                     <p class="text-xl font-bold cursor-pointer">{{$deporte->nombre}}</p>
                                     <p class="text-base">{{$deporte->provincia}}</p>
                                 </div>
-                                <div class="flex">
+                                <div class="flex py-1">
                                     @foreach ($deporte->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -515,17 +516,17 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($familias as $familia)
                         <div class="mr-4 lg:mr-0 min-w-[85vw] max-w-[85vw] lg:min-w-full lg:max-w-full  lg:w-full flex bg-white rounded min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="familia-{{$familia->code}}" class="w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$familia->code.'/0.jpg')}}')">
+                            <div id="familia-{{$familia->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex" style="background-image: url('{{asset('storage/'.$familia->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->code}}','{{asset('storage/'.$familia->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="w-1/2 p-2 grid content-between">
+                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
                                 <div>
                                     <p class="text-xl font-bold cursor-pointer">{{$familia->nombre}}</p>
                                     <p class="text-base">{{$familia->provincia}}</p>
                                 </div>
-                                <div class="flex">
+                                <div class="flex py-1">
                                     @foreach ($familia->servicios as $servicio)
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
