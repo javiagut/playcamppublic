@@ -35,11 +35,6 @@ class Home extends Component
 
     public function render()
     {
-        $this->optimizerChain = OptimizerChainFactory::create();
-        $this->optimizerChain->useLogger(Log::channel('optimizeImage'));
-        $imagePath = storage_path('app/public/GWWEEAEBXO/2.jpg');
-        $imagePath2 = storage_path('app/public/GWWEEAEBXO/22.jpg');
-        $this->optimizerChain->optimize($imagePath,$imagePath2);
         return view('livewire.home',
             [
                 'montanas' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'montana')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
