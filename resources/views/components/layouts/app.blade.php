@@ -7,10 +7,6 @@
         <meta keywords="campings de montaña, campings para hacer deporte, campings de fiesta, campings familiares, campings de costa, campings de playa, campings con spa">
         <title>PlayCamp - Todos los campings de playa, montaña y deportes</title>
         <meta name="robots" content="index,follow">
-        {{-- TRIX RICH TEXT EDITOR --}}
-        <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
-        <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
-        <link rel="icon" type="image/x-icon" href="{{asset('vectors/playa.png')}}">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
