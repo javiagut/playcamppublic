@@ -33,7 +33,7 @@ class optimizeImageEmpresa extends Command
         $optimizerChain->useLogger(Log::channel('optimizeImage'));
 
         // Ruta base de la carpeta public
-        $publicPath = public_path();
+        $publicPath = asset('storage/public');
 
         // Explora recursivamente la carpeta public en busca de imágenes
         $imagePaths = $this->getImagesInFolder($publicPath);
@@ -48,7 +48,7 @@ class optimizeImageEmpresa extends Command
     }
     protected function getImagesInFolder($folder)
     {
-        $imageExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+        $imageExtensions = ['jpg'];
 
         $imagePaths = [];
 
