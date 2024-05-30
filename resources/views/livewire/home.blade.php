@@ -326,7 +326,7 @@
                                     <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->code}}','{{asset('storage/'.$montana->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
+                            <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
                                 <div>
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$montana->nombre}}</p>
                                     <p class="pl-1 text-base">{{$montana->provincia}}</p>
@@ -440,7 +440,7 @@
                                     <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->code}}','{{asset('storage/'.$relax->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
+                            <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
                                 <div>
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$relax->nombre}}</p>
                                     <p class="pl-1 text-base">{{$relax->provincia}}</p>
@@ -498,7 +498,7 @@
                                     <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->code}}','{{asset('storage/'.$fiesta->code.'/'.($i).'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
+                            <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
                                 <div>
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$fiesta->nombre}}</p>
                                     <p class="pl-1 text-base">{{$fiesta->provincia}}</p>
@@ -556,7 +556,7 @@
                                     <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->code}}','{{asset('storage/'.$deporte->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
+                            <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
                                 <div>
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$deporte->nombre}}</p>
                                     <p class="pl-1 text-base">{{$deporte->provincia}}</p>
@@ -614,7 +614,7 @@
                                     <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->code}}','{{asset('storage/'.$familia->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
+                            <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
                                 <div>
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$familia->nombre}}</p>
                                     <p class="pl-1 text-base">{{$familia->provincia}}</p>
