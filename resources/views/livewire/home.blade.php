@@ -381,11 +381,13 @@
                                             <a href="mailto:{{$playa->email}}" class="material-symbols-outlined">email</a>
                                         @endif
                                         @if ($playa->telefono && count($playa->telefono)>0)
-                                            @for ($i = 0; $i < 2; $i++)
-                                                @if ($playa->telefono[$i][0]==9 || strpos($playa->telefono[$i],'+349') == true || strpos($playa->telefono[$i],'+34 9') == true)
-                                                    <a href="tel:{{$playa->telefono[$i]}}" class="material-symbols-rounded">call</a>
-                                                @else
-                                                    <a href="https://wa.me/{{$playa->telefono[$i]}}" class="material-symbols-rounded">call</a>
+                                            @for ($i = 0; $i < 3; $i++)
+                                                @if (isset($playa->telefono[$i]))
+                                                    @if ($playa->telefono[$i][0]==9 || strpos($playa->telefono[$i],'+349') == true || strpos($playa->telefono[$i],'+34 9') == true)
+                                                        <a href="tel:{{$playa->telefono[$i]}}" class="material-symbols-rounded">call</a>
+                                                    @else
+                                                        <a href="https://wa.me/{{$playa->telefono[$i]}}" class="material-symbols-rounded">call</a>
+                                                    @endif
                                                 @endif
                                             @endfor
                                         @endif
