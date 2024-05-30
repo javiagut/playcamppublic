@@ -345,9 +345,9 @@
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($montana->telefono[$i]))
                                                     @if ($montana->telefono[$i][0]==9 || strpos($montana->telefono[$i],'+349') == true || strpos($montana->telefono[$i],'+34 9') == true)
-                                                        <a href="tel:{{str_replace($montana->telefono[$i],'',' ')}}" class="material-symbols-rounded">call</a>
+                                                        <a href="tel:{{str_replace(' ','',$montana->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace($montana->telefono[$i],'',' ')}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a href="https://wa.me/{{str_replace(' ','',$montana->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -400,9 +400,9 @@
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($playa->telefono[$i]))
                                                     @if ($playa->telefono[$i][0]==9 || strpos($playa->telefono[$i],'+349') == true || strpos($playa->telefono[$i],'+34 9') == true)
-                                                        <a href="tel:{{str_replace($playa->telefono[$i],'',' ')}}" class="material-symbols-rounded">call</a>
+                                                        <a href="tel:{{str_replace(' ','',$playa->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace($playa->telefono[$i],'',' ')}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a href="https://wa.me/{{str_replace(' ','',$playa->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -457,9 +457,9 @@
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($relax->telefono[$i]))
                                                     @if ($relax->telefono[$i][0]==9 || strpos($relax->telefono[$i],'+349') == true || strpos($relax->telefono[$i],'+34 9') == true)
-                                                        <a href="tel:{{str_replace($relax->telefono[$i],'',' ')}}" class="material-symbols-rounded">call</a>
+                                                        <a href="tel:{{str_replace(' ','',$relax->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace($relax->telefono[$i],'',' ')}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a href="https://wa.me/{{str_replace(' ','',$relax->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -514,9 +514,9 @@
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($fiesta->telefono[$i]))
                                                     @if ($fiesta->telefono[$i][0]==9 || strpos($fiesta->telefono[$i],'+349') == true || strpos($fiesta->telefono[$i],'+34 9') == true)
-                                                        <a href="tel:{{str_replace($fiesta->telefono[$i],'',' ')}}" class="material-symbols-rounded">call</a>
+                                                        <a href="tel:{{str_replace(' ','',$fiesta->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace($fiesta->telefono[$i],'',' ')}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a href="https://wa.me/{{str_replace(' ','',$fiesta->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -571,9 +571,9 @@
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($deporte->telefono[$i]))
                                                     @if ($deporte->telefono[$i][0]==9 || strpos($deporte->telefono[$i],'+349') == true || strpos($deporte->telefono[$i],'+34 9') == true)
-                                                        <a href="tel:{{str_replace($deporte->telefono[$i],'',' ')}}" class="material-symbols-rounded">call</a>
+                                                        <a href="tel:{{str_replace(' ','',$deporte->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace($deporte->telefono[$i],'',' ')}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a href="https://wa.me/{{str_replace(' ','',$deporte->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -628,9 +628,9 @@
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($familia->telefono[$i]))
                                                     @if ($familia->telefono[$i][0]==9 || strpos($familia->telefono[$i],'+349') == true || strpos($familia->telefono[$i],'+34 9') == true)
-                                                        <a href="tel:{{str_replace($familia->telefono[$i],'',' ')}}" class="material-symbols-rounded">call</a>
+                                                        <a href="tel:{{str_replace(' ','',$familia->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace($familia->telefono[$i],'',' ')}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a href="https://wa.me/{{str_replace(' ','',$familia->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
