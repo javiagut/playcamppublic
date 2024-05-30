@@ -350,17 +350,17 @@
                                                     @if ($montana->telefono[$i][0]==9 || strpos($montana->telefono[$i],'+349') == true || strpos($montana->telefono[$i],'+34 9') == true)
                                                         <a href="tel:{{str_replace(' ','',$montana->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace(' ','',$montana->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$montana->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
                                         @endif
                                     </div>
                                     @if ($montana->tripadvisor && $montana->tripadvisor!='')
-                                        <a href="{{$montana->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                        <a href="{{$montana->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
                                     @endif
                                     @if ($montana->web && $montana->web!='')
-                                        <a href="{{$montana->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
+                                        <a href="{{$montana->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
                                     @endif
                                 </div>
                             </div>
@@ -408,7 +408,7 @@
                                                     @if ($playa->telefono[$i][0]==9 || strpos($playa->telefono[$i],'+349') == true || strpos($playa->telefono[$i],'+34 9') == true)
                                                         <a href="tel:{{str_replace(' ','',$playa->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace(' ','',$playa->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$playa->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -416,10 +416,10 @@
                                     </div>
                                     <div class="flex gap-2 items-center justify-end w-full">
                                         @if ($playa->tripadvisor && $playa->tripadvisor!='')
-                                            <a href="{{$playa->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                            <a href="{{$playa->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
                                         @endif
                                         @if ($playa->web && $playa->web!='')
-                                            <a href="{{$playa->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
+                                            <a href="{{$playa->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
                                         @endif
                                     </div>
                                 </div>
@@ -468,7 +468,7 @@
                                                     @if ($relax->telefono[$i][0]==9 || strpos($relax->telefono[$i],'+349') == true || strpos($relax->telefono[$i],'+34 9') == true)
                                                         <a href="tel:{{str_replace(' ','',$relax->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace(' ','',$relax->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$relax->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -476,10 +476,10 @@
                                     </div>
                                     <div class="flex gap-2 items-center justify-end w-full">
                                         @if ($relax->tripadvisor && $relax->tripadvisor!='')
-                                            <a href="{{$relax->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                            <a href="{{$relax->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
                                         @endif
                                         @if ($relax->web && $relax->web!='')
-                                            <a href="{{$relax->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
+                                            <a href="{{$relax->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
                                         @endif
                                     </div>
                                 </div>
@@ -528,7 +528,7 @@
                                                     @if ($fiesta->telefono[$i][0]==9 || strpos($fiesta->telefono[$i],'+349') == true || strpos($fiesta->telefono[$i],'+34 9') == true)
                                                         <a href="tel:{{str_replace(' ','',$fiesta->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace(' ','',$fiesta->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$fiesta->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -536,10 +536,10 @@
                                     </div>
                                     <div class="flex gap-2 items-center justify-end w-full">
                                         @if ($fiesta->tripadvisor && $fiesta->tripadvisor!='')
-                                            <a href="{{$fiesta->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                            <a href="{{$fiesta->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
                                         @endif
                                         @if ($fiesta->web && $fiesta->web!='')
-                                            <a href="{{$fiesta->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
+                                            <a href="{{$fiesta->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
                                         @endif
                                     </div>
                                 </div>
@@ -588,7 +588,7 @@
                                                     @if ($deporte->telefono[$i][0]==9 || strpos($deporte->telefono[$i],'+349') == true || strpos($deporte->telefono[$i],'+34 9') == true)
                                                         <a href="tel:{{str_replace(' ','',$deporte->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace(' ','',$deporte->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$deporte->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -596,10 +596,10 @@
                                     </div>
                                     <div class="flex gap-2 items-center justify-end w-full">
                                         @if ($deporte->tripadvisor && $deporte->tripadvisor!='')
-                                            <a href="{{$deporte->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                            <a href="{{$deporte->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
                                         @endif
                                         @if ($deporte->web && $deporte->web!='')
-                                            <a href="{{$deporte->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
+                                            <a href="{{$deporte->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
                                         @endif
                                     </div>
                                 </div>
@@ -648,7 +648,7 @@
                                                     @if ($familia->telefono[$i][0]==9 || strpos($familia->telefono[$i],'+349') == true || strpos($familia->telefono[$i],'+34 9') == true)
                                                         <a href="tel:{{str_replace(' ','',$familia->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{str_replace(' ','',$familia->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$familia->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -656,10 +656,10 @@
                                     </div>
                                     <div class="flex gap-2 items-center justify-end w-full">
                                         @if ($familia->tripadvisor && $familia->tripadvisor!='')
-                                            <a href="{{$familia->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                            <a href="{{$familia->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
                                         @endif
                                         @if ($familia->web && $familia->web!='')
-                                            <a href="{{$familia->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
+                                            <a href="{{$familia->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
                                         @endif
                                     </div>
                                 </div>
