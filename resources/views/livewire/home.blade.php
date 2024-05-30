@@ -357,10 +357,10 @@
                                         @endif
                                     </div>
                                     @if ($montana->tripadvisor && $montana->tripadvisor!='')
-                                        <a href="{{$montana->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                        <a href="{{$montana->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
                                     @endif
                                     @if ($montana->web && $montana->web!='')
-                                        <a href="{{$montana->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
+                                        <a href="{{$montana->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$montana->nombre}}"></a>
                                     @endif
                                 </div>
                             </div>
@@ -416,10 +416,10 @@
                                     </div>
                                     <div class="flex gap-2 items-center justify-end w-full">
                                         @if ($playa->tripadvisor && $playa->tripadvisor!='')
-                                            <a href="{{$playa->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                            <a href="{{$playa->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
                                         @endif
                                         @if ($playa->web && $playa->web!='')
-                                            <a href="{{$playa->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
+                                            <a href="{{$playa->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$playa->nombre}}"></a>
                                         @endif
                                     </div>
                                 </div>
@@ -476,10 +476,10 @@
                                     </div>
                                     <div class="flex gap-2 items-center justify-end w-full">
                                         @if ($relax->tripadvisor && $relax->tripadvisor!='')
-                                            <a href="{{$relax->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                            <a href="{{$relax->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
                                         @endif
                                         @if ($relax->web && $relax->web!='')
-                                            <a href="{{$relax->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
+                                            <a href="{{$relax->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$relax->nombre}}"></a>
                                         @endif
                                     </div>
                                 </div>
@@ -536,10 +536,10 @@
                                     </div>
                                     <div class="flex gap-2 items-center justify-end w-full">
                                         @if ($fiesta->tripadvisor && $fiesta->tripadvisor!='')
-                                            <a href="{{$fiesta->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                            <a href="{{$fiesta->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
                                         @endif
                                         @if ($fiesta->web && $fiesta->web!='')
-                                            <a href="{{$fiesta->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
+                                            <a href="{{$fiesta->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$fiesta->nombre}}"></a>
                                         @endif
                                     </div>
                                 </div>
@@ -596,10 +596,10 @@
                                     </div>
                                     <div class="flex gap-2 items-center justify-end w-full">
                                         @if ($deporte->tripadvisor && $deporte->tripadvisor!='')
-                                            <a href="{{$deporte->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                            <a href="{{$deporte->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
                                         @endif
                                         @if ($deporte->web && $deporte->web!='')
-                                            <a href="{{$deporte->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
+                                            <a href="{{$deporte->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$deporte->nombre}}"></a>
                                         @endif
                                     </div>
                                 </div>
@@ -656,10 +656,10 @@
                                     </div>
                                     <div class="flex gap-2 items-center justify-end w-full">
                                         @if ($familia->tripadvisor && $familia->tripadvisor!='')
-                                            <a href="{{$familia->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                            <a href="{{$familia->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
                                         @endif
                                         @if ($familia->web && $familia->web!='')
-                                            <a href="{{$familia->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="Web"></a>
+                                            <a href="{{$familia->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$familia->nombre}}"></a>
                                         @endif
                                     </div>
                                 </div>
