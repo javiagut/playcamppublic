@@ -72,14 +72,12 @@ class optimizeImageEmpresa extends Command
         $image = Image::load($imagePath);
 
         // Redimensiona la imagen si es más ancha de 1000px
-        if ($image->width() > 950) {
-            $image->resize(950, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
+        if ($image->getWidth() > 950) {
+            $image->width(950);
         }
         // Cambia la extensión a WebP
         $newImagePath = pathinfo($imagePath, PATHINFO_DIRNAME) . '/' . pathinfo($imagePath, PATHINFO_FILENAME) . '.webp';
-        $image->save($newImagePath, 80, 'webp');
+        $image->save($newImagePath, 100, 'webp');
 
         // Optimiza la imagen usando Spatie Image Optimizer
         // $optimizerChain->optimize($imagePath);
