@@ -675,6 +675,8 @@
         function changeImage(id, i, empresa, url){
             document.getElementById(id).style.backgroundImage = `url(${url})`;
             var btn = document.getElementById('btn-bg-'+i+'-'+empresa);
+            console.log(btn)
+            console.log(btn.style.backgroundColor)
             for (let e = 0; e < 5; e++) {
                 if (i==e) {
                     btn.style.backgroundColor = '#1e293b';
