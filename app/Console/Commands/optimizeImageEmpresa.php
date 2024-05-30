@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
 use Spatie\ImageOptimizer\OptimizerChainFactory;
+use Spatie\Image\Image;
 
 class optimizeImageEmpresa extends Command
 {
@@ -28,7 +29,6 @@ class optimizeImageEmpresa extends Command
      */
     public function handle()
     {
-        // Crea la cadena de optimización
         $optimizerChain = OptimizerChainFactory::create();
         $optimizerChain->useLogger(Log::channel('optimizeImage'));
 
@@ -40,7 +40,7 @@ class optimizeImageEmpresa extends Command
 
         // Optimiza cada imagen encontrada
         foreach ($imagePaths as $imagePath) {
-            $optimizerChain->optimize($imagePath);
+            $this->resizeAndOptimizeImage($imagePath, $optimizerChain);
         }
 
         // Registro de finalización
@@ -48,7 +48,7 @@ class optimizeImageEmpresa extends Command
     }
     protected function getImagesInFolder($folder)
     {
-        $imageExtensions = ['jpg'];
+        $imageExtensions = ['jpg','webp'];
 
         $imagePaths = [];
 
@@ -65,5 +65,23 @@ class optimizeImageEmpresa extends Command
         }
 
         return $imagePaths;
+    }
+    protected function resizeAndOptimizeImage($imagePath, $optimizerChain)
+    {
+        // Cargar la imagen usando Intervention Image
+        $image = Image::load($imagePath);
+
+        // Redimensiona la imagen si es más ancha de 1000px
+        if ($image->width() > 950) {
+            $image->resize(950, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+        // Cambia la extensión a WebP
+        $newImagePath = pathinfo($imagePath, PATHINFO_DIRNAME) . '/' . pathinfo($imagePath, PATHINFO_FILENAME) . '.webp';
+        $image->save($newImagePath, 80, 'webp');
+
+        // Optimiza la imagen usando Spatie Image Optimizer
+        // $optimizerChain->optimize($imagePath);
     }
 }
