@@ -323,7 +323,7 @@
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
                             <div id="montana-{{$montana->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$montana->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->code}}','{{$i}}','{{$montana->code}}','{{asset('storage/'.$montana->code.'/'.$i.'.jpg')}}')">
+                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('montana-{{$montana->code}}','{{$i}}','{{$montana->code}}','{{asset('storage/'.$montana->code.'/'.$i.'.jpg')}}')">
                                         <span id="btn-bg-{{$i}}-{{$montana->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
                                     </div>                            
                                 @endfor
@@ -441,7 +441,7 @@
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
                             <div id="relax-{{$relax->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$relax->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->code}}','{{$i}}','{{$relax->code}}','{{asset('storage/'.$relax->code.'/'.$i.'.jpg')}}')">
+                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('relax-{{$relax->code}}','{{$i}}','{{$relax->code}}','{{asset('storage/'.$relax->code.'/'.$i.'.jpg')}}')">
                                         <span id="btn-bg-{{$i}}-{{$relax->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
                                     </div>                            
                                 @endfor
@@ -501,7 +501,7 @@
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
                             <div id="fiesta-{{$fiesta->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$fiesta->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->code}}','{{$i}}','{{$fiesta->code}}','{{asset('storage/'.$fiesta->code.'/'.($i).'.jpg')}}')">
+                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('fiesta-{{$fiesta->code}}','{{$i}}','{{$fiesta->code}}','{{asset('storage/'.$fiesta->code.'/'.($i).'.jpg')}}')">
                                         <span id="btn-bg-{{$i}}-{{$fiesta->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
                                     </div>                            
                                 @endfor
@@ -561,7 +561,7 @@
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
                             <div id="deporte-{{$deporte->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$deporte->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->code}}','{{$i}}','{{$deporte->code}}','{{asset('storage/'.$deporte->code.'/'.$i.'.jpg')}}')">
+                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('deporte-{{$deporte->code}}','{{$i}}','{{$deporte->code}}','{{asset('storage/'.$deporte->code.'/'.$i.'.jpg')}}')">
                                         <span id="btn-bg-{{$i}}-{{$deporte->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
                                     </div>                            
                                 @endfor
@@ -621,7 +621,7 @@
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
                             <div id="familia-{{$familia->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$familia->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->code}}','{{$i}}','{{$familia->code}}','{{asset('storage/'.$familia->code.'/'.$i.'.jpg')}}')">
+                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('familia-{{$familia->code}}','{{$i}}','{{$familia->code}}','{{asset('storage/'.$familia->code.'/'.$i.'.jpg')}}')">
                                         <span id="btn-bg-{{$i}}-{{$familia->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
                                     </div>                            
                                 @endfor
