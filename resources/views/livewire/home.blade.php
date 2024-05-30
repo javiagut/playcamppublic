@@ -381,7 +381,7 @@
                                     <div class="w-1/5" onmouseover="changeImage('playa-{{$playa->code}}','{{asset('storage/'.$playa->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
                             </div>
-                            <div class="lg:w-1/2 h-36 lg:h-auto p-2 grid content-between">
+                            <div class="lg:w-1/2 h-44 lg:h-auto p-2 grid content-between">
                                 <div style="font-family: Righteous">
                                     <p class="text-xl font-bold cursor-pointer">{{$playa->nombre}}</p>
                                     <p class="">{{$playa->provincia}}</p>
@@ -391,6 +391,7 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
+                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
                                 <div class="flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($playa->email && $playa->email!='')
@@ -448,6 +449,7 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
+                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
                                 <div class="flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($relax->email && $relax->email!='')
@@ -505,6 +507,7 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
+                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
                                 <div class="flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($fiesta->email && $fiesta->email!='')
@@ -562,6 +565,7 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
+                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
                                 <div class="flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($deporte->email && $deporte->email!='')
@@ -619,6 +623,7 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
+                                <p class="px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
                                 <div class="flex gap-2 items-center justify-between w-full">
                                     <div class="flex gap-2 items-center justify-start w-full">
                                         @if ($familia->email && $familia->email!='')
