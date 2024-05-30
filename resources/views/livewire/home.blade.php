@@ -336,7 +336,23 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <div class="flex gap-2 items-center justify-end w-full">
+                                <div class="flex gap-2 items-center justify-between w-full">
+                                    <div class="flex gap-2 items-center justify-start w-full">
+                                        @if ($montana->email && $montana->email!='')
+                                            <a href="mailto:{{$montana->email}}" class="material-symbols-outlined">email</a>
+                                        @endif
+                                        @if ($montana->telefono && count($montana->telefono)>0)
+                                            @for ($i = 0; $i < 3; $i++)
+                                                @if (isset($montana->telefono[$i]))
+                                                    @if ($montana->telefono[$i][0]==9 || strpos($montana->telefono[$i],'+349') == true || strpos($montana->telefono[$i],'+34 9') == true)
+                                                        <a href="tel:{{trim($montana->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                    @else
+                                                        <a href="https://wa.me/{{trim($montana->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                    @endif
+                                                @endif
+                                            @endfor
+                                        @endif
+                                    </div>
                                     @if ($montana->tripadvisor && $montana->tripadvisor!='')
                                         <a href="{{$montana->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
                                     @endif
@@ -384,9 +400,9 @@
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($playa->telefono[$i]))
                                                     @if ($playa->telefono[$i][0]==9 || strpos($playa->telefono[$i],'+349') == true || strpos($playa->telefono[$i],'+34 9') == true)
-                                                        <a href="tel:{{$playa->telefono[$i]}}" class="material-symbols-rounded">call</a>
+                                                        <a href="tel:{{trim($playa->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
-                                                        <a href="https://wa.me/{{$playa->telefono[$i]}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        <a href="https://wa.me/{{trim($playa->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
                                                     @endif
                                                 @endif
                                             @endfor
@@ -432,13 +448,31 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <div class="flex gap-2 items-center justify-end w-full">
-                                    @if ($relax->tripadvisor && $relax->tripadvisor!='')
-                                        <a href="{{$relax->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
-                                    @endif
-                                    @if ($relax->web && $relax->web!='')
-                                        <a href="{{$relax->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
-                                    @endif
+                                <div class="flex gap-2 items-center justify-between w-full">
+                                    <div class="flex gap-2 items-center justify-start w-full">
+                                        @if ($relax->email && $relax->email!='')
+                                            <a href="mailto:{{$relax->email}}" class="material-symbols-outlined">email</a>
+                                        @endif
+                                        @if ($relax->telefono && count($relax->telefono)>0)
+                                            @for ($i = 0; $i < 3; $i++)
+                                                @if (isset($relax->telefono[$i]))
+                                                    @if ($relax->telefono[$i][0]==9 || strpos($relax->telefono[$i],'+349') == true || strpos($relax->telefono[$i],'+34 9') == true)
+                                                        <a href="tel:{{trim($relax->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                    @else
+                                                        <a href="https://wa.me/{{trim($relax->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                    @endif
+                                                @endif
+                                            @endfor
+                                        @endif
+                                    </div>
+                                    <div class="flex gap-2 items-center justify-end w-full">
+                                        @if ($relax->tripadvisor && $relax->tripadvisor!='')
+                                            <a href="{{$relax->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                        @endif
+                                        @if ($relax->web && $relax->web!='')
+                                            <a href="{{$relax->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -471,13 +505,31 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <div class="flex gap-2 items-center justify-end w-full">
-                                    @if ($fiesta->tripadvisor && $fiesta->tripadvisor!='')
-                                        <a href="{{$fiesta->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
-                                    @endif
-                                    @if ($fiesta->web && $fiesta->web!='')
-                                        <a href="{{$fiesta->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
-                                    @endif
+                                <div class="flex gap-2 items-center justify-between w-full">
+                                    <div class="flex gap-2 items-center justify-start w-full">
+                                        @if ($fiesta->email && $fiesta->email!='')
+                                            <a href="mailto:{{$fiesta->email}}" class="material-symbols-outlined">email</a>
+                                        @endif
+                                        @if ($fiesta->telefono && count($fiesta->telefono)>0)
+                                            @for ($i = 0; $i < 3; $i++)
+                                                @if (isset($fiesta->telefono[$i]))
+                                                    @if ($fiesta->telefono[$i][0]==9 || strpos($fiesta->telefono[$i],'+349') == true || strpos($fiesta->telefono[$i],'+34 9') == true)
+                                                        <a href="tel:{{trim($fiesta->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                    @else
+                                                        <a href="https://wa.me/{{trim($fiesta->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                    @endif
+                                                @endif
+                                            @endfor
+                                        @endif
+                                    </div>
+                                    <div class="flex gap-2 items-center justify-end w-full">
+                                        @if ($fiesta->tripadvisor && $fiesta->tripadvisor!='')
+                                            <a href="{{$fiesta->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                        @endif
+                                        @if ($fiesta->web && $fiesta->web!='')
+                                            <a href="{{$fiesta->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -510,13 +562,31 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <div class="flex gap-2 items-center justify-end w-full">
-                                    @if ($deporte->tripadvisor && $deporte->tripadvisor!='')
-                                        <a href="{{$deporte->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
-                                    @endif
-                                    @if ($deporte->web && $deporte->web!='')
-                                        <a href="{{$deporte->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
-                                    @endif
+                                <div class="flex gap-2 items-center justify-between w-full">
+                                    <div class="flex gap-2 items-center justify-start w-full">
+                                        @if ($deporte->email && $deporte->email!='')
+                                            <a href="mailto:{{$deporte->email}}" class="material-symbols-outlined">email</a>
+                                        @endif
+                                        @if ($deporte->telefono && count($deporte->telefono)>0)
+                                            @for ($i = 0; $i < 3; $i++)
+                                                @if (isset($deporte->telefono[$i]))
+                                                    @if ($deporte->telefono[$i][0]==9 || strpos($deporte->telefono[$i],'+349') == true || strpos($deporte->telefono[$i],'+34 9') == true)
+                                                        <a href="tel:{{trim($deporte->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                    @else
+                                                        <a href="https://wa.me/{{trim($deporte->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                    @endif
+                                                @endif
+                                            @endfor
+                                        @endif
+                                    </div>
+                                    <div class="flex gap-2 items-center justify-end w-full">
+                                        @if ($deporte->tripadvisor && $deporte->tripadvisor!='')
+                                            <a href="{{$deporte->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                        @endif
+                                        @if ($deporte->web && $deporte->web!='')
+                                            <a href="{{$deporte->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -549,13 +619,31 @@
                                         <span class="material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded flex items-center justify-center">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
                                 </div>
-                                <div class="flex gap-2 items-center justify-end w-full">
-                                    @if ($familia->tripadvisor && $familia->tripadvisor!='')
-                                        <a href="{{$familia->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
-                                    @endif
-                                    @if ($familia->web && $familia->web!='')
-                                        <a href="{{$familia->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
-                                    @endif
+                                <div class="flex gap-2 items-center justify-between w-full">
+                                    <div class="flex gap-2 items-center justify-start w-full">
+                                        @if ($familia->email && $familia->email!='')
+                                            <a href="mailto:{{$familia->email}}" class="material-symbols-outlined">email</a>
+                                        @endif
+                                        @if ($familia->telefono && count($familia->telefono)>0)
+                                            @for ($i = 0; $i < 3; $i++)
+                                                @if (isset($familia->telefono[$i]))
+                                                    @if ($familia->telefono[$i][0]==9 || strpos($familia->telefono[$i],'+349') == true || strpos($familia->telefono[$i],'+34 9') == true)
+                                                        <a href="tel:{{trim($familia->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                    @else
+                                                        <a href="https://wa.me/{{trim($familia->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                    @endif
+                                                @endif
+                                            @endfor
+                                        @endif
+                                    </div>
+                                    <div class="flex gap-2 items-center justify-end w-full">
+                                        @if ($familia->tripadvisor && $familia->tripadvisor!='')
+                                            <a href="{{$familia->tripadvisor}}" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt=""></a>
+                                        @endif
+                                        @if ($familia->web && $familia->web!='')
+                                            <a href="{{$familia->web}}" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt=""></a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
