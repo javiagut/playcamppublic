@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="description" content="Todos los campings de España. Campings de Playa, campings de montaña, campings de costa, campings para practicar deporte o estar de relax, con spa y jacuzzis. Todos los campings de Cataluña, Aragón, Andalucía, Madrid, Cantábria, Andalucía, etc.">
         <title>PlayCamp</title>
 
         {{-- TRIX RICH TEXT EDITOR --}}
