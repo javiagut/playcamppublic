@@ -18,6 +18,14 @@
         @vite(['resources/css/app.css','resources/js/app.js'])
         @livewireStyles
     </head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3DWK6PJTY3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3DWK6PJTY3');
+    </script>
     <body class="font-sans antialiased bg-gray-100 min-h-screen flex flex-col justify-between">
         @livewire('header')
         {{ $slot }}
