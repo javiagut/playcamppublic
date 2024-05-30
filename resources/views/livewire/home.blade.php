@@ -321,7 +321,7 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($montanas as $montana)
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="montana-{{$montana->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg" style="background-image: url('{{asset('storage/'.$montana->code.'/0.jpg')}}')">
+                            <div id="montana-{{$montana->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-t-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$montana->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('montana-{{$montana->code}}','{{asset('storage/'.$montana->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
@@ -360,7 +360,7 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($playas as $playa)
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="playa-{{$playa->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg" style="background-image: url('{{asset('storage/'.$playa->code.'/0.jpg')}}')">
+                            <div id="playa-{{$playa->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-t-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$playa->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('playa-{{$playa->code}}','{{asset('storage/'.$playa->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
@@ -399,7 +399,7 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($relaxs as $relax)
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="relax-{{$relax->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg" style="background-image: url('{{asset('storage/'.$relax->code.'/0.jpg')}}')">
+                            <div id="relax-{{$relax->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-t-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$relax->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('relax-{{$relax->code}}','{{asset('storage/'.$relax->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
@@ -438,7 +438,7 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 ">
                     @foreach ($fiestas as $fiesta)
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="fiesta-{{$fiesta->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg" style="background-image: url('{{asset('storage/'.$fiesta->code.'/0.jpg')}}')">
+                            <div id="fiesta-{{$fiesta->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-t-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$fiesta->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('fiesta-{{$fiesta->code}}','{{asset('storage/'.$fiesta->code.'/'.($i).'.jpg')}}')"></div>                            
                                 @endfor
@@ -477,7 +477,7 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($deportes as $deporte)
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="deporte-{{$deporte->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg" style="background-image: url('{{asset('storage/'.$deporte->code.'/0.jpg')}}')">
+                            <div id="deporte-{{$deporte->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-t-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$deporte->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('deporte-{{$deporte->code}}','{{asset('storage/'.$deporte->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
@@ -516,7 +516,7 @@
                 <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0">
                     @foreach ($familias as $familia)
                         <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow-lg  hover:shadow-2xl transition-all hover:cursor-pointer">
-                            <div id="familia-{{$familia->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg" style="background-image: url('{{asset('storage/'.$familia->code.'/0.jpg')}}')">
+                            <div id="familia-{{$familia->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-t-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$familia->code.'/0.jpg')}}')">
                                 @for ($i = 0; $i < 5; $i++)
                                     <div class="w-1/5" onmouseover="changeImage('familia-{{$familia->code}}','{{asset('storage/'.$familia->code.'/'.$i.'.jpg')}}')"></div>                            
                                 @endfor
