@@ -675,18 +675,17 @@
         function changeImage(id, i, empresa, url){
             document.getElementById(id).style.backgroundImage = `url(${url})`;
             var btn = document.getElementById('btn-bg-'+i+'-'+empresa);
-            console.log(btn)
-            console.log(i)
-            console.log(btn.style.backgroundColor)
+            // console.log(btn)
+            // console.log(i)
+            // console.log(btn.style.backgroundColor)
             for (let e = 0; e < 5; e++) {
                 if (i==e) {
-                    console.log(e)
-                    btn.style.backgroundColor = '#1e293b';
+                    document.getElementById('btn-bg-'+e+'-'+empresa).style.backgroundColor = '#1e293b';
                 }else{
                     document.getElementById('btn-bg-'+e+'-'+empresa).style.backgroundColor = 'white';
                 }
             }
-            console.log(btn.style.backgroundColor)
+            // console.log(btn.style.backgroundColor)
         }
         function getElementsByPrefix(prefix) {
             return document.querySelectorAll(`[id^='${prefix}']`);
