@@ -9,6 +9,7 @@ use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 use App\Models\ServicioTipo;
 use App\Models\Servicio;
+use Spatie\Image\Image;
 
 class AñadirEmpresa extends Component
 {
@@ -85,7 +86,13 @@ class AñadirEmpresa extends Component
         ]);
         Empresa::create($this->empresa);
         for ($i=0; $i < 5 ; $i++) {
-            Storage::disk('public')->put($this->empresa['code'].'/'.$i.'.jpg', file_get_contents($this->files[$i]->getRealPath()));
+            Storage::disk('public')->put($this->empresa['code'].'/'.$i.'.webp', file_get_contents($this->files[$i]->getRealPath()));
+            $imagePath = storage_path($this->empresa['code'].'/'.$i.'.webp');
+            $image = Image::load($imagePath);
+            if ($image->getWidth() > 950) {
+                $image->width(950);
+                $image->save($imagePath, 100, 'webp');
+            }
         }
         foreach ($this->servicios as $servicio) {
             Servicio::create([
