@@ -312,361 +312,375 @@
                 <span wire:click="$set('province',[])" class="text-base material-symbols-outlined text-red-400 ml-2 hover:text-black transition-all cursor-pointer">close</span>
             </div>
         </div>
-        <div class="lg:p-2 w-full lg:w-1/3 order-1 lg:order-none" id="montana">
-            <div class="flex flex-col gap-4 lg:p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'montana'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
-                    <span>porque te mueve la <b class="text-2xl">Montaña</b></span>
-                    <img src="{{asset('vectors/montaña.png')}}" alt="" class="h-12">
-                </a>
-                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
-                    @foreach ($montanas as $montana)
-                        <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
-                            <div id="montana-{{$montana->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$montana->code.'/0.webp')}}')">
-                                @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('montana-{{$montana->code}}','{{$i}}','{{$montana->code}}','{{asset('storage/'.$montana->code.'/'.$i.'.webp')}}')">
-                                        <span id="btn-bg-{{$i}}-{{$montana->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
-                                    </div>                            
-                                @endfor
-                            </div>
-                            <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
-                                <div>
-                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$montana->nombre}}</p>
-                                    <p class="pl-1 text-base">{{$montana->provincia}}</p>
+        <div class="w-full flex flex-wrap">
+            <div class="lg:p-2 w-full lg:w-1/3 max-h-fit order-1 lg:order-none" id="montana">
+                <div class="flex flex-col gap-4 lg:p-2 w-full">
+                    <a href="{{route('tipo',['tipo' => 'montana'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
+                        <span>porque te mueve la <b class="text-2xl">Montaña</b></span>
+                        <img src="{{asset('vectors/montaña.png')}}" alt="" class="h-12">
+                    </a>
+                    <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
+                        @foreach ($montanas as $montana)
+                            <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
+                                <div id="montana-{{$montana->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$montana->code.'/0.webp')}}')">
+                                    @for ($i = 0; $i < 5; $i++)
+                                        <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('montana-{{$montana->code}}','{{$i}}','{{$montana->code}}','{{asset('storage/'.$montana->code.'/'.$i.'.webp')}}')">
+                                            <span id="btn-bg-{{$i}}-{{$montana->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
+                                        </div>                            
+                                    @endfor
                                 </div>
-                                <div class="flex py-1 gap-2 lg:gap-0">
-                                    @foreach ($montana->servicios as $servicio)
-                                        <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
-                                    @endforeach
-                                </div>
-                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="px-1 flex gap-2 items-center justify-between w-full">
-                                    <div class="flex gap-2 items-center justify-start w-full">
-                                        @if ($montana->email && $montana->email!='')
-                                            <a href="mailto:{{$montana->email}}" class="material-symbols-outlined">email</a>
-                                        @endif
-                                        @if ($montana->telefono && count($montana->telefono)>0)
-                                            @for ($i = 0; $i < 3; $i++)
-                                                @if (isset($montana->telefono[$i]))
-                                                    @if ($montana->telefono[$i][0]==9 || str_contains($montana->telefono[$i],'+349') || str_contains($montana->telefono[$i],'+34 9'))
-                                                        <a href="tel:{{str_replace(' ','',$montana->telefono[$i])}}" class="material-symbols-rounded">call</a>
-                                                    @else
-                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$montana->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
+                                    <div>
+                                        <p class="pl-1 text-xl font-bold cursor-pointer">{{$montana->nombre}}</p>
+                                        <p class="pl-1 text-base">{{$montana->provincia}}</p>
+                                    </div>
+                                    <div class="flex py-1 gap-2 lg:gap-0">
+                                        @foreach ($montana->servicios as $servicio)
+                                            <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        @endforeach
+                                    </div>
+                                    <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                    <div class="px-1 flex gap-2 items-center justify-between w-full">
+                                        <div class="flex gap-2 items-center justify-start w-full">
+                                            @if ($montana->email && $montana->email!='')
+                                                <a href="mailto:{{$montana->email}}" class="material-symbols-outlined">email</a>
+                                            @endif
+                                            @if ($montana->telefono && count($montana->telefono)>0)
+                                                @for ($i = 0; $i < 3; $i++)
+                                                    @if (isset($montana->telefono[$i]))
+                                                        @if ($montana->telefono[$i][0]==6 || str_contains($montana->telefono[$i],'+346') || str_contains($montana->telefono[$i],'+34 6'))
+                                                            <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$montana->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        @else
+                                                            <a href="tel:{{str_replace(' ','',$montana->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                        @endif
                                                     @endif
-                                                @endif
-                                            @endfor
+                                                @endfor
+                                            @endif
+                                        </div>
+                                        @if ($montana->tripadvisor && $montana->tripadvisor!='')
+                                            <a href="{{$montana->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
+                                        @endif
+                                        @if ($montana->web && $montana->web!='')
+                                            <a href="{{$montana->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$montana->nombre}}"></a>
                                         @endif
                                     </div>
-                                    @if ($montana->tripadvisor && $montana->tripadvisor!='')
-                                        <a href="{{$montana->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
-                                    @endif
-                                    @if ($montana->web && $montana->web!='')
-                                        <a href="{{$montana->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$montana->nombre}}"></a>
-                                    @endif
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                    {{ $montanas->links() }}
+                        @endforeach
+                    </div>
+                    <div class="w-full">
+                        {{ $montanas->links() }}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="lg:p-2 w-full lg:w-1/3" id="playa">
-            <div class="flex flex-col gap-4 lg:p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'playa'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
-                    <span>porque te mueve la <b class="text-2xl">Playa</b></span>
-                    <img src="{{asset('vectors/playa.png')}}" alt="" class="h-12">
-                </a>
-                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
-                    @foreach ($playas as $playa)
-                        <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
-                            <div id="playa-{{$playa->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$playa->code.'/0.webp')}}')">
-                                @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('playa-{{$playa->code}}','{{$i}}','{{$playa->code}}','{{asset('storage/'.$playa->code.'/'.$i.'.webp')}}')">
-                                        <span id="btn-bg-{{$i}}-{{$playa->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
-                                    </div>                            
-                                @endfor
-                            </div>
-                            <div class="lg:w-1/2 h-44 lg:h-auto p-2 grid content-between">
-                                <div style="font-family: Righteous">
-                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$playa->nombre}}</p>
-                                    <p class="pl-1 text-base">{{$playa->provincia}}</p>
+            <div class="lg:p-2 w-full lg:w-1/3 h-fit" id="playa">
+                <div class="flex flex-col gap-4 lg:p-2 w-full">
+                    <a href="{{route('tipo',['tipo' => 'playa'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
+                        <span>porque te mueve la <b class="text-2xl">Playa</b></span>
+                        <img src="{{asset('vectors/playa.png')}}" alt="" class="h-12">
+                    </a>
+                    <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
+                        @foreach ($playas as $playa)
+                            <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
+                                <div id="playa-{{$playa->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$playa->code.'/0.webp')}}')">
+                                    @for ($i = 0; $i < 5; $i++)
+                                        <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('playa-{{$playa->code}}','{{$i}}','{{$playa->code}}','{{asset('storage/'.$playa->code.'/'.$i.'.webp')}}')">
+                                            <span id="btn-bg-{{$i}}-{{$playa->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
+                                        </div>                            
+                                    @endfor
                                 </div>
-                                <div class="flex py-1 gap-2 lg:gap-0">
-                                    @foreach ($playa->servicios as $servicio)
-                                        <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
-                                    @endforeach
-                                </div>
-                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="px-1 flex gap-2 items-center justify-between w-full">
-                                    <div class="flex gap-2 items-center justify-start w-full">
-                                        @if ($playa->email && $playa->email!='')
-                                            <a href="mailto:{{$playa->email}}" class="material-symbols-outlined">email</a>
-                                        @endif
-                                        @if ($playa->telefono && count($playa->telefono)>0)
-                                            @for ($i = 0; $i < 3; $i++)
-                                                @if (isset($playa->telefono[$i]))
-                                                    @if ($playa->telefono[$i][0]==9 || str_contains($playa->telefono[$i],'+349') !=false || str_contains($playa->telefono[$i],'+34 9'))
-                                                        <a href="tel:{{str_replace(' ','',$playa->telefono[$i])}}" class="material-symbols-rounded">call</a>
-                                                    @else
-                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$playa->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                <div class="lg:w-1/2 h-44 lg:h-auto p-2 grid content-between">
+                                    <div style="font-family: Righteous">
+                                        <p class="pl-1 text-xl font-bold cursor-pointer">{{$playa->nombre}}</p>
+                                        <p class="pl-1 text-base">{{$playa->provincia}}</p>
+                                    </div>
+                                    <div class="flex py-1 gap-2 lg:gap-0">
+                                        @foreach ($playa->servicios as $servicio)
+                                            <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        @endforeach
+                                    </div>
+                                    <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                    <div class="px-1 flex gap-2 items-center justify-between w-full">
+                                        <div class="flex gap-2 items-center justify-start w-full">
+                                            @if ($playa->email && $playa->email!='')
+                                                <a href="mailto:{{$playa->email}}" class="material-symbols-outlined">email</a>
+                                            @endif
+                                            @if ($playa->telefono && count($playa->telefono)>0)
+                                                @for ($i = 0; $i < 3; $i++)
+                                                    @if (isset($playa->telefono[$i]))
+                                                        @if ($playa->telefono[$i][0]==6 || str_contains($playa->telefono[$i],'+346') || str_contains($playa->telefono[$i],'634 6'))
+                                                            <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$playa->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        @else
+                                                            <a href="tel:{{str_replace(' ','',$playa->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                        @endif
                                                     @endif
-                                                @endif
-                                            @endfor
-                                        @endif
-                                    </div>
-                                    <div class="flex gap-2 items-center justify-end w-full">
-                                        @if ($playa->tripadvisor && $playa->tripadvisor!='')
-                                            <a href="{{$playa->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
-                                        @endif
-                                        @if ($playa->web && $playa->web!='')
-                                            <a href="{{$playa->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$playa->nombre}}"></a>
-                                        @endif
+                                                @endfor
+                                            @endif
+                                        </div>
+                                        <div class="flex gap-2 items-center justify-end w-full">
+                                            @if ($playa->tripadvisor && $playa->tripadvisor!='')
+                                                <a href="{{$playa->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
+                                            @endif
+                                            @if ($playa->web && $playa->web!='')
+                                                <a href="{{$playa->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$playa->nombre}}"></a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                    {{ $playas->links() }}
+                        @endforeach
+                    </div>
+                    <div class="w-full">
+                        {{ $playas->links() }}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="lg:p-2 w-full lg:w-1/3" id="relax">
-            <div class="flex flex-col gap-4 lg:p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'relax'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
-                    <span>porque te mueve el <b class="text-2xl">Relax</b></span>
-                    <img src="{{asset('vectors/relax.png')}}" alt="" class="h-12">
-                </a>
-                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
-                    @foreach ($relaxs as $relax)
-                        <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
-                            <div id="relax-{{$relax->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$relax->code.'/0.webp')}}')">
-                                @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('relax-{{$relax->code}}','{{$i}}','{{$relax->code}}','{{asset('storage/'.$relax->code.'/'.$i.'.webp')}}')">
-                                        <span id="btn-bg-{{$i}}-{{$relax->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
-                                    </div>                            
-                                @endfor
-                            </div>
-                            <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
-                                <div>
-                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$relax->nombre}}</p>
-                                    <p class="pl-1 text-base">{{$relax->provincia}}</p>
+            <div class="lg:p-2 w-full lg:w-1/3 h-fit" id="relax">
+                <div class="flex flex-col gap-4 lg:p-2 w-full">
+                    <a href="{{route('tipo',['tipo' => 'relax'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
+                        <span>porque te mueve el <b class="text-2xl">Relax</b></span>
+                        <img src="{{asset('vectors/relax.png')}}" alt="" class="h-12">
+                    </a>
+                    <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
+                        @foreach ($relaxs as $relax)
+                            <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
+                                <div id="relax-{{$relax->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$relax->code.'/0.webp')}}')">
+                                    @for ($i = 0; $i < 5; $i++)
+                                        <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('relax-{{$relax->code}}','{{$i}}','{{$relax->code}}','{{asset('storage/'.$relax->code.'/'.$i.'.webp')}}')">
+                                            <span id="btn-bg-{{$i}}-{{$relax->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
+                                        </div>                            
+                                    @endfor
                                 </div>
-                                <div class="flex py-1 gap-2 lg:gap-0">
-                                    @foreach ($relax->servicios as $servicio)
-                                        <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
-                                    @endforeach
-                                </div>
-                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="px-1 flex gap-2 items-center justify-between w-full">
-                                    <div class="flex gap-2 items-center justify-start w-full">
-                                        @if ($relax->email && $relax->email!='')
-                                            <a href="mailto:{{$relax->email}}" class="material-symbols-outlined">email</a>
-                                        @endif
-                                        @if ($relax->telefono && count($relax->telefono)>0)
-                                            @for ($i = 0; $i < 3; $i++)
-                                                @if (isset($relax->telefono[$i]))
-                                                    @if ($relax->telefono[$i][0]==9 || str_contains($relax->telefono[$i],'+349') || str_contains($relax->telefono[$i],'+34 9'))
-                                                        <a href="tel:{{str_replace(' ','',$relax->telefono[$i])}}" class="material-symbols-rounded">call</a>
-                                                    @else
-                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$relax->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
+                                    <div>
+                                        <p class="pl-1 text-xl font-bold cursor-pointer">{{$relax->nombre}}</p>
+                                        <p class="pl-1 text-base">{{$relax->provincia}}</p>
+                                    </div>
+                                    <div class="flex py-1 gap-2 lg:gap-0">
+                                        @foreach ($relax->servicios as $servicio)
+                                            <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        @endforeach
+                                    </div>
+                                    <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                    <div class="px-1 flex gap-2 items-center justify-between w-full">
+                                        <div class="flex gap-2 items-center justify-start w-full">
+                                            @if ($relax->email && $relax->email!='')
+                                                <a href="mailto:{{$relax->email}}" class="material-symbols-outlined">email</a>
+                                            @endif
+                                            @if ($relax->telefono && count($relax->telefono)>0)
+                                                @for ($i = 0; $i < 3; $i++)
+                                                    @if (isset($relax->telefono[$i]))
+                                                        @if ($relax->telefono[$i][0]==6 || str_contains($relax->telefono[$i],'+346') || str_contains($relax->telefono[$i],'+34 6'))
+                                                            <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$relax->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        @else
+                                                            <a href="tel:{{str_replace(' ','',$relax->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                        @endif
                                                     @endif
-                                                @endif
-                                            @endfor
-                                        @endif
-                                    </div>
-                                    <div class="flex gap-2 items-center justify-end w-full">
-                                        @if ($relax->tripadvisor && $relax->tripadvisor!='')
-                                            <a href="{{$relax->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
-                                        @endif
-                                        @if ($relax->web && $relax->web!='')
-                                            <a href="{{$relax->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$relax->nombre}}"></a>
-                                        @endif
+                                                @endfor
+                                            @endif
+                                        </div>
+                                        <div class="flex gap-2 items-center justify-end w-full">
+                                            @if ($relax->tripadvisor && $relax->tripadvisor!='')
+                                                <a href="{{$relax->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
+                                            @endif
+                                            @if ($relax->web && $relax->web!='')
+                                                <a href="{{$relax->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$relax->nombre}}"></a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                    {{ $relaxs->links() }}
+                        @endforeach
+                    </div>
+                    <div class="w-full">
+                        {{ $relaxs->links() }}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="lg:p-2 w-full lg:w-1/3" id="fiesta">
-            <div class="flex flex-col gap-4 lg:p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'fiesta'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
-                    <span>porque te mueve la <b class="text-2xl">Fiesta</b></span>
-                    <img src="{{asset('vectors/fiesta.png')}}" alt="" class="h-12">
-                </a>
-                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0 ">
-                    @foreach ($fiestas as $fiesta)
-                        <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
-                            <div id="fiesta-{{$fiesta->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$fiesta->code.'/0.webp')}}')">
-                                @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('fiesta-{{$fiesta->code}}','{{$i}}','{{$fiesta->code}}','{{asset('storage/'.$fiesta->code.'/'.($i).'.webp')}}')">
-                                        <span id="btn-bg-{{$i}}-{{$fiesta->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
-                                    </div>                            
-                                @endfor
-                            </div>
-                            <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
-                                <div>
-                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$fiesta->nombre}}</p>
-                                    <p class="pl-1 text-base">{{$fiesta->provincia}}</p>
+            <div class="lg:p-2 w-full lg:w-1/3 h-fit" id="fiesta">
+                <div class="flex flex-col gap-4 lg:p-2 w-full">
+                    <a href="{{route('tipo',['tipo' => 'fiesta'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
+                        <span>porque te mueve la <b class="text-2xl">Fiesta</b></span>
+                        <img src="{{asset('vectors/fiesta.png')}}" alt="" class="h-12">
+                    </a>
+                    <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0 ">
+                        @foreach ($fiestas as $fiesta)
+                            <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
+                                <div id="fiesta-{{$fiesta->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$fiesta->code.'/0.webp')}}')">
+                                    @for ($i = 0; $i < 5; $i++)
+                                        <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('fiesta-{{$fiesta->code}}','{{$i}}','{{$fiesta->code}}','{{asset('storage/'.$fiesta->code.'/'.($i).'.webp')}}')">
+                                            <span id="btn-bg-{{$i}}-{{$fiesta->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
+                                        </div>                            
+                                    @endfor
                                 </div>
-                                <div class="flex py-1 gap-2 lg:gap-0">
-                                    @foreach ($fiesta->servicios as $servicio)
-                                        <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
-                                    @endforeach
-                                </div>
-                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="px-1 flex gap-2 items-center justify-between w-full">
-                                    <div class="flex gap-2 items-center justify-start w-full">
-                                        @if ($fiesta->email && $fiesta->email!='')
-                                            <a href="mailto:{{$fiesta->email}}" class="material-symbols-outlined">email</a>
-                                        @endif
-                                        @if ($fiesta->telefono && count($fiesta->telefono)>0)
-                                            @for ($i = 0; $i < 3; $i++)
-                                                @if (isset($fiesta->telefono[$i]))
-                                                    @if ($fiesta->telefono[$i][0]==9 || str_contains($fiesta->telefono[$i],'+349') || str_contains($fiesta->telefono[$i],'+34 9'))
-                                                        <a href="tel:{{str_replace(' ','',$fiesta->telefono[$i])}}" class="material-symbols-rounded">call</a>
-                                                    @else
-                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$fiesta->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
+                                    <div>
+                                        <p class="pl-1 text-xl font-bold cursor-pointer">{{$fiesta->nombre}}</p>
+                                        <p class="pl-1 text-base">{{$fiesta->provincia}}</p>
+                                    </div>
+                                    <div class="flex py-1 gap-2 lg:gap-0">
+                                        @foreach ($fiesta->servicios as $servicio)
+                                            <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        @endforeach
+                                    </div>
+                                    <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                    <div class="px-1 flex gap-2 items-center justify-between w-full">
+                                        <div class="flex gap-2 items-center justify-start w-full">
+                                            @if ($fiesta->email && $fiesta->email!='')
+                                                <a href="mailto:{{$fiesta->email}}" class="material-symbols-outlined">email</a>
+                                            @endif
+                                            @if ($fiesta->telefono && count($fiesta->telefono)>0)
+                                                @for ($i = 0; $i < 3; $i++)
+                                                    @if (isset($fiesta->telefono[$i]))
+                                                        @if ($fiesta->telefono[$i][0]==6 || str_contains($fiesta->telefono[$i],'+346') || str_contains($fiesta->telefono[$i],'+34 6'))
+                                                            <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$fiesta->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        @else
+                                                            <a href="tel:{{str_replace(' ','',$fiesta->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                        @endif
                                                     @endif
-                                                @endif
-                                            @endfor
-                                        @endif
-                                    </div>
-                                    <div class="flex gap-2 items-center justify-end w-full">
-                                        @if ($fiesta->tripadvisor && $fiesta->tripadvisor!='')
-                                            <a href="{{$fiesta->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
-                                        @endif
-                                        @if ($fiesta->web && $fiesta->web!='')
-                                            <a href="{{$fiesta->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$fiesta->nombre}}"></a>
-                                        @endif
+                                                @endfor
+                                            @endif
+                                        </div>
+                                        <div class="flex gap-2 items-center justify-end w-full">
+                                            @if ($fiesta->tripadvisor && $fiesta->tripadvisor!='')
+                                                <a href="{{$fiesta->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
+                                            @endif
+                                            @if ($fiesta->web && $fiesta->web!='')
+                                                <a href="{{$fiesta->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$fiesta->nombre}}"></a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                    {{ $fiestas->links() }}
+                        @endforeach
+                    </div>
+                    <div class="w-full">
+                        {{ $fiestas->links() }}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="lg:p-2 w-full lg:w-1/3" id="deporte">
-            <div class="flex flex-col gap-4 lg:p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'deporte'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous" >
-                    <span>porque te mueve el <b class="text-2xl">Deporte</b></span>
-                    <img src="{{asset('vectors/deporte.png')}}" alt="" class="h-12">
-                </a>
-                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
-                    @foreach ($deportes as $deporte)
-                        <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
-                            <div id="deporte-{{$deporte->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$deporte->code.'/0.webp')}}')">
-                                @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('deporte-{{$deporte->code}}','{{$i}}','{{$deporte->code}}','{{asset('storage/'.$deporte->code.'/'.$i.'.webp')}}')">
-                                        <span id="btn-bg-{{$i}}-{{$deporte->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
-                                    </div>                            
-                                @endfor
-                            </div>
-                            <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
-                                <div>
-                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$deporte->nombre}}</p>
-                                    <p class="pl-1 text-base">{{$deporte->provincia}}</p>
+            <div class="lg:p-2 w-full lg:w-1/3 h-fit" id="deporte">
+                <div class="flex flex-col gap-4 lg:p-2 w-full">
+                    <a href="{{route('tipo',['tipo' => 'deporte'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous" >
+                        <span>porque te mueve el <b class="text-2xl">Deporte</b></span>
+                        <img src="{{asset('vectors/deporte.png')}}" alt="" class="h-12">
+                    </a>
+                    <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
+                        @foreach ($deportes as $deporte)
+                            <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
+                                <div id="deporte-{{$deporte->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$deporte->code.'/0.webp')}}')">
+                                    @for ($i = 0; $i < 5; $i++)
+                                        <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('deporte-{{$deporte->code}}','{{$i}}','{{$deporte->code}}','{{asset('storage/'.$deporte->code.'/'.$i.'.webp')}}')">
+                                            <span id="btn-bg-{{$i}}-{{$deporte->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
+                                        </div>                            
+                                    @endfor
                                 </div>
-                                <div class="flex py-1 gap-2 lg:gap-0">
-                                    @foreach ($deporte->servicios as $servicio)
-                                        <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
-                                    @endforeach
-                                </div>
-                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="px-1 flex gap-2 items-center justify-between w-full">
-                                    <div class="flex gap-2 items-center justify-start w-full">
-                                        @if ($deporte->email && $deporte->email!='')
-                                            <a href="mailto:{{$deporte->email}}" class="material-symbols-outlined">email</a>
-                                        @endif
-                                        @if ($deporte->telefono && count($deporte->telefono)>0)
-                                            @for ($i = 0; $i < 3; $i++)
-                                                @if (isset($deporte->telefono[$i]))
-                                                    @if ($deporte->telefono[$i][0]==9 || str_contains($deporte->telefono[$i],'+349') || str_contains($deporte->telefono[$i],'+34 9'))
-                                                        <a href="tel:{{str_replace(' ','',$deporte->telefono[$i])}}" class="material-symbols-rounded">call</a>
-                                                    @else
-                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$deporte->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
+                                    <div>
+                                        <p class="pl-1 text-xl font-bold cursor-pointer">{{$deporte->nombre}}</p>
+                                        <p class="pl-1 text-base">{{$deporte->provincia}}</p>
+                                    </div>
+                                    <div class="flex py-1 gap-2 lg:gap-0">
+                                        @foreach ($deporte->servicios as $servicio)
+                                            <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        @endforeach
+                                    </div>
+                                    <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                    <div class="px-1 flex gap-2 items-center justify-between w-full">
+                                        <div class="flex gap-2 items-center justify-start w-full">
+                                            @if ($deporte->email && $deporte->email!='')
+                                                <a href="mailto:{{$deporte->email}}" class="material-symbols-outlined">email</a>
+                                            @endif
+                                            @if ($deporte->telefono && count($deporte->telefono)>0)
+                                                @for ($i = 0; $i < 3; $i++)
+                                                    @if (isset($deporte->telefono[$i]))
+                                                        @if ($deporte->telefono[$i][0]==6 || str_contains($deporte->telefono[$i],'+346') || str_contains($deporte->telefono[$i],'+34 6'))
+                                                            <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$deporte->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        @else
+                                                            <a href="tel:{{str_replace(' ','',$deporte->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                        @endif
                                                     @endif
-                                                @endif
-                                            @endfor
-                                        @endif
-                                    </div>
-                                    <div class="flex gap-2 items-center justify-end w-full">
-                                        @if ($deporte->tripadvisor && $deporte->tripadvisor!='')
-                                            <a href="{{$deporte->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
-                                        @endif
-                                        @if ($deporte->web && $deporte->web!='')
-                                            <a href="{{$deporte->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$deporte->nombre}}"></a>
-                                        @endif
+                                                @endfor
+                                            @endif
+                                        </div>
+                                        <div class="flex gap-2 items-center justify-end w-full">
+                                            @if ($deporte->tripadvisor && $deporte->tripadvisor!='')
+                                                <a href="{{$deporte->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
+                                            @endif
+                                            @if ($deporte->web && $deporte->web!='')
+                                                <a href="{{$deporte->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$deporte->nombre}}"></a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                    {{ $deportes->links() }}
+                        @endforeach
+                    </div>
+                    <div class="w-full">
+                        {{ $deportes->links() }}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="lg:p-2 w-full lg:w-1/3" id="familia">
-            <div class="flex flex-col gap-4 lg:p-2 w-full">
-                <a href="{{route('tipo',['tipo' => 'familia'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
-                    <span>porque te mueve la <b class="text-2xl">Familia</b></span>
-                    <img src="{{asset('vectors/familia.png')}}" alt="" class="h-12">
-                </a>
-                <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
-                    @foreach ($familias as $familia)
-                        <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
-                            <div id="familia-{{$familia->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$familia->code.'/0.webp')}}')">
-                                @for ($i = 0; $i < 5; $i++)
-                                    <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('familia-{{$familia->code}}','{{$i}}','{{$familia->code}}','{{asset('storage/'.$familia->code.'/'.$i.'.webp')}}')">
-                                        <span id="btn-bg-{{$i}}-{{$familia->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
-                                    </div>                            
-                                @endfor
-                            </div>
-                            <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
-                                <div>
-                                    <p class="pl-1 text-xl font-bold cursor-pointer">{{$familia->nombre}}</p>
-                                    <p class="pl-1 text-base">{{$familia->provincia}}</p>
+            <div class="lg:p-2 w-full lg:w-1/3 h-fit" id="familia">
+                <div class="flex flex-col gap-4 lg:p-2 w-full">
+                    <a href="{{route('tipo',['tipo' => 'familia'])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
+                        <span>porque te mueve la <b class="text-2xl">Familia</b></span>
+                        <img src="{{asset('vectors/familia.png')}}" alt="" class="h-12">
+                    </a>
+                    <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 px-4 lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
+                        @foreach ($familias as $familia)
+                            <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
+                                <div id="familia-{{$familia->code}}" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$familia->code.'/0.webp')}}')">
+                                    @for ($i = 0; $i < 5; $i++)
+                                        <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('familia-{{$familia->code}}','{{$i}}','{{$familia->code}}','{{asset('storage/'.$familia->code.'/'.$i.'.webp')}}')">
+                                            <span id="btn-bg-{{$i}}-{{$familia->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
+                                        </div>                            
+                                    @endfor
                                 </div>
-                                <div class="flex py-1 gap-2 lg:gap-0">
-                                    @foreach ($familia->servicios as $servicio)
-                                        <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
-                                    @endforeach
-                                </div>
-                                <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
-                                <div class="px-1 flex gap-2 items-center justify-between w-full">
-                                    <div class="flex gap-2 items-center justify-start w-full">
-                                        @if ($familia->email && $familia->email!='')
-                                            <a href="mailto:{{$familia->email}}" class="material-symbols-outlined">email</a>
-                                        @endif
-                                        @if ($familia->telefono && count($familia->telefono)>0)
-                                            @for ($i = 0; $i < 3; $i++)
-                                                @if (isset($familia->telefono[$i]))
-                                                    @if ($familia->telefono[$i][0]==9 || str_contains($familia->telefono[$i],'+349') || str_contains($familia->telefono[$i],'+34 9'))
-                                                        <a href="tel:{{str_replace(' ','',$familia->telefono[$i])}}" class="material-symbols-rounded">call</a>
-                                                    @else
-                                                        <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$familia->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                <div class="lg:w-1/2 h-40 lg:h-auto p-2 grid content-between">
+                                    <div>
+                                        <p class="pl-1 text-xl font-bold cursor-pointer">{{$familia->nombre}}</p>
+                                        <p class="pl-1 text-base">{{$familia->provincia}}</p>
+                                    </div>
+                                    <div class="flex py-1 gap-2 lg:gap-0">
+                                        @foreach ($familia->servicios as $servicio)
+                                            <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
+                                        @endforeach
+                                    </div>
+                                    <p class="text-sm px-1 pt-1 flex items-center" style="font-family:Righteous">Mas info <span class="ml-1 material-symbols-rounded">keyboard_arrow_down</span></p>
+                                    <div class="px-1 flex gap-2 items-center justify-between w-full">
+                                        <div class="flex gap-2 items-center justify-start w-full">
+                                            @if ($familia->email && $familia->email!='')
+                                                <a href="mailto:{{$familia->email}}" class="material-symbols-outlined">email</a>
+                                            @endif
+                                            @if ($familia->telefono && count($familia->telefono)>0)
+                                                @for ($i = 0; $i < 3; $i++)
+                                                    @if (isset($familia->telefono[$i]))
+                                                        @if ($familia->telefono[$i][0]==6 || str_contains($familia->telefono[$i],'+346') || str_contains($familia->telefono[$i],'+34 6'))
+                                                            <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$familia->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                                        @else
+                                                            <a href="tel:{{str_replace(' ','',$familia->telefono[$i])}}" class="material-symbols-rounded">call</a>
+                                                        @endif
                                                     @endif
-                                                @endif
-                                            @endfor
-                                        @endif
-                                    </div>
-                                    <div class="flex gap-2 items-center justify-end w-full">
-                                        @if ($familia->tripadvisor && $familia->tripadvisor!='')
-                                            <a href="{{$familia->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
-                                        @endif
-                                        @if ($familia->web && $familia->web!='')
-                                            <a href="{{$familia->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$familia->nombre}}"></a>
-                                        @endif
+                                                @endfor
+                                            @endif
+                                        </div>
+                                        <div class="flex gap-2 items-center justify-end w-full">
+                                            @if ($familia->tripadvisor && $familia->tripadvisor!='')
+                                                <a href="{{$familia->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
+                                            @endif
+                                            @if ($familia->web && $familia->web!='')
+                                                <a href="{{$familia->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$familia->nombre}}"></a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                    {{ $familias->links() }}
+                        @endforeach
+                    </div>
+                    <div class="w-full">
+                        {{ $familias->links() }}
+                    </div>
                 </div>
             </div>
         </div>
