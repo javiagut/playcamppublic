@@ -405,7 +405,7 @@
                                         @if ($playa->telefono && count($playa->telefono)>0)
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($playa->telefono[$i]))
-                                                    @if ($playa->telefono[$i][0]==9 || strpos($playa->telefono[$i],'+349') == true || strpos($playa->telefono[$i],'+34 9') == true)
+                                                    @if ($playa->telefono[$i][0]==9 || strpos($playa->telefono[$i],'+349') !=false || strpos($playa->telefono[$i],'+34 9') != false)
                                                         <a href="tel:{{str_replace(' ','',$playa->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
                                                         <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$playa->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
