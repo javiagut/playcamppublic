@@ -347,7 +347,7 @@
                                         @if ($montana->telefono && count($montana->telefono)>0)
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($montana->telefono[$i]))
-                                                    @if ($montana->telefono[$i][0]==9 || strpos($montana->telefono[$i],'+349') != false || strpos($montana->telefono[$i],'+34 9') != false)
+                                                    @if ($montana->telefono[$i][0]==9 || str_contains($montana->telefono[$i],'+349') || str_contains($montana->telefono[$i],'+34 9'))
                                                         <a href="tel:{{str_replace(' ','',$montana->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
                                                         <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$montana->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
@@ -405,7 +405,7 @@
                                         @if ($playa->telefono && count($playa->telefono)>0)
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($playa->telefono[$i]))
-                                                    @if ($playa->telefono[$i][0]==9 || strpos($playa->telefono[$i],'+349') !=false || strpos($playa->telefono[$i],'+34 9') != false)
+                                                    @if ($playa->telefono[$i][0]==9 || str_contains($playa->telefono[$i],'+349') !=false || str_contains($playa->telefono[$i],'+34 9'))
                                                         <a href="tel:{{str_replace(' ','',$playa->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
                                                         <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$playa->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
@@ -465,7 +465,7 @@
                                         @if ($relax->telefono && count($relax->telefono)>0)
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($relax->telefono[$i]))
-                                                    @if ($relax->telefono[$i][0]==9 || strpos($relax->telefono[$i],'+349') != false || strpos($relax->telefono[$i],'+34 9') != false)
+                                                    @if ($relax->telefono[$i][0]==9 || str_contains($relax->telefono[$i],'+349') || str_contains($relax->telefono[$i],'+34 9'))
                                                         <a href="tel:{{str_replace(' ','',$relax->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
                                                         <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$relax->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
@@ -525,7 +525,7 @@
                                         @if ($fiesta->telefono && count($fiesta->telefono)>0)
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($fiesta->telefono[$i]))
-                                                    @if ($fiesta->telefono[$i][0]==9 || strpos($fiesta->telefono[$i],'+349') != false || strpos($fiesta->telefono[$i],'+34 9') != false)
+                                                    @if ($fiesta->telefono[$i][0]==9 || str_contains($fiesta->telefono[$i],'+349') || str_contains($fiesta->telefono[$i],'+34 9'))
                                                         <a href="tel:{{str_replace(' ','',$fiesta->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
                                                         <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$fiesta->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
@@ -585,7 +585,7 @@
                                         @if ($deporte->telefono && count($deporte->telefono)>0)
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($deporte->telefono[$i]))
-                                                    @if ($deporte->telefono[$i][0]==9 || strpos($deporte->telefono[$i],'+349') != false || strpos($deporte->telefono[$i],'+34 9') != false)
+                                                    @if ($deporte->telefono[$i][0]==9 || str_contains($deporte->telefono[$i],'+349') || str_contains($deporte->telefono[$i],'+34 9'))
                                                         <a href="tel:{{str_replace(' ','',$deporte->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
                                                         <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$deporte->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
@@ -645,7 +645,7 @@
                                         @if ($familia->telefono && count($familia->telefono)>0)
                                             @for ($i = 0; $i < 3; $i++)
                                                 @if (isset($familia->telefono[$i]))
-                                                    @if ($familia->telefono[$i][0]==9 || strpos($familia->telefono[$i],'+349') != false || strpos($familia->telefono[$i],'+34 9') != false)
+                                                    @if ($familia->telefono[$i][0]==9 || str_contains($familia->telefono[$i],'+349') || str_contains($familia->telefono[$i],'+34 9'))
                                                         <a href="tel:{{str_replace(' ','',$familia->telefono[$i])}}" class="material-symbols-rounded">call</a>
                                                     @else
                                                         <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$familia->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
