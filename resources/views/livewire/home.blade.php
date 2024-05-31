@@ -333,7 +333,7 @@
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$montana->nombre}}</p>
                                     <p class="pl-1 text-base">{{$montana->provincia}}</p>
                                 </div>
-                                <div class="flex py-1">
+                                <div class="flex py-1 gap-2 lg:gap-0">
                                     @foreach ($montana->servicios as $servicio)
                                         <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -391,7 +391,7 @@
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$playa->nombre}}</p>
                                     <p class="pl-1 text-base">{{$playa->provincia}}</p>
                                 </div>
-                                <div class="flex py-1">
+                                <div class="flex py-1 gap-2 lg:gap-0">
                                     @foreach ($playa->servicios as $servicio)
                                         <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -451,7 +451,7 @@
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$relax->nombre}}</p>
                                     <p class="pl-1 text-base">{{$relax->provincia}}</p>
                                 </div>
-                                <div class="flex py-1">
+                                <div class="flex py-1 gap-2 lg:gap-0">
                                     @foreach ($relax->servicios as $servicio)
                                         <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -511,7 +511,7 @@
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$fiesta->nombre}}</p>
                                     <p class="pl-1 text-base">{{$fiesta->provincia}}</p>
                                 </div>
-                                <div class="flex py-1">
+                                <div class="flex py-1 gap-2 lg:gap-0">
                                     @foreach ($fiesta->servicios as $servicio)
                                         <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -571,7 +571,7 @@
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$deporte->nombre}}</p>
                                     <p class="pl-1 text-base">{{$deporte->provincia}}</p>
                                 </div>
-                                <div class="flex py-1">
+                                <div class="flex py-1 gap-2 lg:gap-0">
                                     @foreach ($deporte->servicios as $servicio)
                                         <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
@@ -631,7 +631,7 @@
                                     <p class="pl-1 text-xl font-bold cursor-pointer">{{$familia->nombre}}</p>
                                     <p class="pl-1 text-base">{{$familia->provincia}}</p>
                                 </div>
-                                <div class="flex py-1">
+                                <div class="flex py-1 gap-2 lg:gap-0">
                                     @foreach ($familia->servicios as $servicio)
                                         <span class="mr-2 lg:mr-0 material-symbols-outlined w-6 h-6 lg:w-8 lg:h-8 roudned text-red-400 hover:bg-red-400 hover:text-white transition-all rounded">{{$servicioTipo[$servicio->tipo]['icon']}}</span>
                                     @endforeach
