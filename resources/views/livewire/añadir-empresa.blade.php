@@ -86,7 +86,11 @@
             @if ($files && count($files)==5)
                 <div class="flex justify-around w-full">
                     @foreach ($files as $file)
-                        <img class="px-2 w-1/5" src="{{ $file->temporaryUrl() }}">
+                        @if ($file->getMimeType() != 'image/avif')
+                            <img class="px-2 w-1/5" src="{{ $file->temporaryUrl() }}">
+                        @else
+                            <div class="border px-2 w-1/5 flex justify-center items-center">{{$file->getClientOriginalName()}}</div>
+                        @endif
                     @endforeach
                 </div>
             @endif

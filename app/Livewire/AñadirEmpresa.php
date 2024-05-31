@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\ServicioTipo;
 use App\Models\Servicio;
 use Spatie\Image\Image;
-
+use File;
 class AñadirEmpresa extends Component
 {
     use WithFileUploads;
@@ -87,11 +87,11 @@ class AñadirEmpresa extends Component
         Empresa::create($this->empresa);
         for ($i=0; $i < 5 ; $i++) {
             Storage::disk('public')->put($this->empresa['code'].'/'.$i.'.webp', file_get_contents($this->files[$i]->getRealPath()));
-            $imagePath = storage_path($this->empresa['code'].'/'.$i.'.webp');
-            $image = Image::load($imagePath);
+            $path = Storage::disk('public')->path($this->empresa['code'].'/'.$i.'.webp');
+            $image = Image::load($path);
             if ($image->getWidth() > 950) {
                 $image->width(950);
-                $image->save($imagePath, 100, 'webp');
+                $image->save($path, 100, 'webp');
             }
         }
         foreach ($this->servicios as $servicio) {
