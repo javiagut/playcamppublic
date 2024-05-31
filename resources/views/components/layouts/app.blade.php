@@ -9,6 +9,8 @@
         <title>PlayCamp - Todos los campings de playa, montaña y deportes</title>
         <meta name="robots" content="index,follow">
 
+        <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico')}}">
+
         @vite(['resources/css/app.css','resources/js/app.js'])
         @livewireStyles
         <style>
