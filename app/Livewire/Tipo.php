@@ -16,16 +16,16 @@ class Tipo extends Component
 
     public function __construct() {
         $this->tipo = request('tipo');
-    }
-
-    public function paginationView()
-    {
         $this->servicioTipo = ServicioTipo::get();
         $this->servicioTipo = ServicioTipo::get()->mapWithKeys(function ($item) {
             $id = $item['id'];
             unset($item['id']);
             return [$id => $item];
         })->toArray();
+    }
+
+    public function paginationView()
+    {
         return 'vendor.livewire.home';
     }
 
@@ -41,7 +41,7 @@ class Tipo extends Component
     }
     public function loadMore($tipo)
     {
-        $this->perPage = $this->perPage + 10;
+        $this->perPage += 10;
     }
     public function setProvinceFilter($province)
     {
