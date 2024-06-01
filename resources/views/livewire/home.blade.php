@@ -429,9 +429,11 @@
                                 </div>
                             </div>
                         @endforeach
-                    </div>
-                    <div class="w-full">
-                        {{ $playas->links() }}
+                        @if ($playas->hasMorePages())
+                            <div class="hidden lg:flex items-center lg:justify-center mr-4 lg:mr-0 lg:min-w-full lg:max-w-full lg:w-full">
+                                <button wire:click="loadMore('playa')" class="px-3 py-1 text-center rounded bg-red-400 text-white transition-all shadow-lg" style="font-family: Righteous">Mostrar más</button>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
