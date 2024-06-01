@@ -30,4 +30,25 @@
             @endif
         </div>
     </div>
+    <script>
+        function changeImage(id, i, empresa, url){
+            document.getElementById(id).style.backgroundImage = `url(${url})`;
+            var btn = document.getElementById('btn-bg-'+i+'-'+empresa);
+            for (let e = 0; e < 5; e++) {
+                if (i==e) {
+                    document.getElementById('btn-bg-'+e+'-'+empresa).style.backgroundColor = '#1e293b';
+                }else{
+                    document.getElementById('btn-bg-'+e+'-'+empresa).style.backgroundColor = 'white';
+                }
+            }
+        }
+        function getElementsByPrefix(prefix) {
+            return document.querySelectorAll(`[id^='${prefix}']`);
+        }
+
+        var elementsWithBg1 = getElementsByPrefix('btn-bg-0-');
+        elementsWithBg1.forEach(function(element) {
+            element.style.backgroundColor = '#1e293b';
+        });
+    </script>
 </div>
