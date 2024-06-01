@@ -19,12 +19,12 @@ class Home extends Component
     public $campings;
     public $search='';
     public $province = [];
-    public $perPageMontana = 1;
-    public $perPagePlaya = 1;
-    public $perPageRelax = 1;
-    public $perPageDeporte = 1;
-    public $perPageFiesta = 1;
-    public $perPageFamilia = 1;
+    public $perPageMontana = 10;
+    public $perPagePlaya = 10;
+    public $perPageRelax = 10;
+    public $perPageDeporte = 10;
+    public $perPageFiesta = 10;
+    public $perPageFamilia = 10;
     public $servicioTipo;
 
     public function paginationView()
@@ -41,42 +41,42 @@ class Home extends Component
     public function render()
     {
         return view('livewire.home',
-            [
-                'montanas' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'montana')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+            [ 'categorias' => [
+                'montana' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'montana')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPageMontana, pageName: 'montana'),
-                'playas' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'playa')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'playa' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'playa')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPagePlaya, pageName: 'playa'),
-                'relaxs' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'relax')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'relax' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'relax')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPageRelax, pageName: 'relax'),
-                'deportes' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'deporte')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'deporte' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'deporte')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPageDeporte, pageName: 'deporte'),
-                'fiestas' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'fiesta')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'fiesta' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'fiesta')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPageFiesta, pageName: 'fiesta'),
-                'familias' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'familia')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'familia' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'familia')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPageFamilia, pageName: 'familia'),
-            ]
+            ]]
         );
     }
     public function loadMore($tipo)
     {
         if ($tipo == 'montana') {
-            $this->perPageMontana += 1;
+            $this->perPageMontana += 10;
         } elseif ($tipo == 'playa') {
-            $this->perPagePlaya += 1;
+            $this->perPagePlaya += 10;
         } elseif ($tipo == 'relax') {
-            $this->perPageRelax += 1;
+            $this->perPageRelax += 10;
         } elseif ($tipo == 'deporte') {
-            $this->perPageDeporte += 1;
+            $this->perPageDeporte += 10;
         } elseif ($tipo == 'fiesta') {
-            $this->perPageFiesta += 1;
+            $this->perPageFiesta += 10;
         } elseif ($tipo == 'familia') {
-            $this->perPageFamilia += 1;
+            $this->perPageFamilia += 10;
         }
     }
     public function setProvinceFilter($province)
