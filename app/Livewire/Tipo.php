@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Empresa;
+use App\Models\ServicioTipo;
 
 class Tipo extends Component
 {
@@ -27,7 +28,7 @@ class Tipo extends Component
         })->toArray();
         return 'vendor.livewire.home';
     }
-    
+
     public function render()
     {
         return view('livewire.tipo',
