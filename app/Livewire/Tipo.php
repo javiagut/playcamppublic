@@ -11,11 +11,23 @@ class Tipo extends Component
     public $tipo;
     public $search = '';
     public $province = [];
+    public $servicioTipo;
 
     public function __construct() {
         $this->tipo = request('tipo');
     }
 
+    public function paginationView()
+    {
+        $this->servicioTipo = ServicioTipo::get();
+        $this->servicioTipo = ServicioTipo::get()->mapWithKeys(function ($item) {
+            $id = $item['id'];
+            unset($item['id']);
+            return [$id => $item];
+        })->toArray();
+        return 'vendor.livewire.home';
+    }
+    
     public function render()
     {
         return view('livewire.tipo',

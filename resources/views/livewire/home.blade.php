@@ -18,7 +18,7 @@
                     </a>
                     <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 {{$item->hasMorePages() ? 'pl-4' : 'px-4'}} lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
                         @foreach ($item as $empresa)
-                            <x-empresa-card :empresa="$empresa" :key="$key"></x-empresa-card>
+                            <x-empresa-card :empresa="$empresa" :key="$key" :servicioTipo="$servicioTipo"></x-empresa-card>
                         @endforeach
                         @if ($item->hasMorePages())
                             <div class="flex items-center justify-center lg:mr-0 lg:min-w-full lg:max-w-full lg:w-full">

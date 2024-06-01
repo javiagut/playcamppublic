@@ -14,7 +14,7 @@
         </div>
         <div class="w-full overflow-x-scroll flex flex-col lg:flex-row gap-4 items-center">
             @forelse ($empresas as $empresa)
-                <x-empresa-card :empresa="$empresa" :key="$tipo"></x-empresa-card>
+                <x-empresa-card :empresa="$empresa" :key="$tipo" :servicioTipo="$servicioTipo"></x-empresa-card>
             @empty
                 <div class="flex flex-col justify-center items-center">
                     <p class="text-center text-red-400 m-2 border border-red-400 bg-red-100 rounded p-2 text-sm">No se han encontrado resultados</p>
