@@ -1,3 +1,36 @@
-<x-layouts.app>
-    @livewire("tipo")
-</x-layouts.app>
+@switch($tipo)
+    @case('deporte')
+        <x-layouts.deporte>
+            @livewire("tipo")
+        </x-layouts.deporte>
+        @break
+    @case('relax')
+        <x-layouts.relax>
+            @livewire("tipo")
+        </x-layouts.relax>
+        @break
+    @case('familia')
+        <x-layouts.familia>
+            @livewire("tipo")
+        </x-layouts.familia>
+        @break
+    @case('fiesta')
+        <x-layouts.fiesta>
+            @livewire("tipo")
+        </x-layouts.fiesta>
+        @break
+    @case('playa')
+        <x-layouts.playa>
+            @livewire("tipo")
+        </x-layouts.playa>
+        @break
+    @case('montana')
+        <x-layouts.montana>
+            @livewire("tipo")
+        </x-layouts.montana>
+        @break
+    @default
+        <x-layouts.app>
+            @livewire("tipo")
+        </x-layouts.app>
+@endswitch

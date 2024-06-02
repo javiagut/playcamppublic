@@ -10,7 +10,9 @@ class AppController extends Controller
         return view('ubicacion');
     }
     function tipo(){
-        return view('tipo');
+        return view('tipo', [
+            'tipo' => request('tipo')
+        ]);
     }
     function añadirEmpresa(){
         return view('añadirEmpresa');
