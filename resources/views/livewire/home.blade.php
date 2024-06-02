@@ -14,7 +14,7 @@
                 <div class="flex flex-col gap-4 lg:p-2 w-full">
                     <a href="{{route('tipo',['tipo' => $key])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
                         <span>porque te mueve la <b class="text-2xl capitalize">{{$key}}</b></span>
-                        <img src="{{asset('vectors/'.$key.'.webp')}}" alt="campings {{$key}}" style="height:3em;">
+                        <img src="{{asset('vectors/'.$key.'.webp')}}" alt="campings {{$key}}" class="h-12">
                     </a>
                     <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 {{$item->hasMorePages() ? 'pl-4' : 'px-4'}} lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
                         @foreach ($item as $empresa)
