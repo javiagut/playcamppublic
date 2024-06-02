@@ -17,9 +17,11 @@
                         <img src="{{asset('vectors/'.$key.'.webp')}}" alt="campings {{$key}}" class="h-12">
                     </a>
                     <div class="w-full overflow-x-scroll flex lg:flex-col lg:gap-4 {{$item->hasMorePages() ? 'pl-4' : 'px-4'}} lg:px-0 pt-2 pb-3 lg:pb-0 lg:py-0">
-                        @foreach ($item as $empresa)
+                        @forelse ($item as $empresa)
                             <x-empresa-card :empresa="$empresa" :key="$key" :servicioTipo="$servicioTipo"></x-empresa-card>
-                        @endforeach
+                        @empty
+                            <div class="w-full p-4 text-center border border-red-400 text-red-400 bg-red-50 rounded-lg" style="font-family: Righteous">Nada por aquí</div>
+                        @endforelse
                         @if ($item->hasMorePages())
                             <div class="flex items-center justify-center lg:mr-0 lg:min-w-full lg:max-w-full lg:w-full">
                                 <button wire:click="loadMore('{{$key}}')" class="px-3 py-1 text-center rounded-l lg:rounded-r bg-red-400 text-white transition-all shadow-lg" style="font-family: Righteous">

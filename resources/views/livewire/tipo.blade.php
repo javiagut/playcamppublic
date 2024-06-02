@@ -16,9 +16,9 @@
             @forelse ($empresas as $empresa)
                 <x-empresa-card :empresa="$empresa" :key="$tipo" :servicioTipo="$servicioTipo"></x-empresa-card>
             @empty
-                <div class="flex flex-col justify-center items-center">
-                    <p class="text-center text-red-400 m-2 border border-red-400 bg-red-100 rounded p-2 text-sm">No se han encontrado resultados</p>
-                    <span wire:click="cleanFilters()" class="animate-pulse mt-2 cursor-pointer" style="font-family:Righteous;">Limpiar filtros</span>
+                <div class="flex flex-col justify-center items-center" style="font-family:Righteous;">
+                    <p class="text-center text-red-400 m-2 border border-red-400 bg-red-50 rounded-lg p-2 text-sm">Nada por aquí</p>
+                    <span wire:click="cleanFilters()" class="animate-pulse mt-2 cursor-pointer" >Limpiar filtros</span>
                 </div>
             @endforelse
             @if ($empresas->hasMorePages())
