@@ -2,7 +2,7 @@
     <div class="flex flex-col gap-4 lg:p-2 w-full">
         <a class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
             <span>porque te mueve la <b class="text-2xl capitalize">{{$tipo}}</b></span>
-            <img src="{{asset('vectors/'.$tipo.'.png')}}" alt="" class="h-12">
+            <img src="{{asset('vectors/'.$tipo.'.webp')}}" alt="" class="h-12">
         </a>
         <div class="w-full px-4 lg:px-0 pt-3 flex flex-col lg:flex-row gap-4 justify-center" wire:loading.class="opacity-50">
             <div class="bg-white flex items-center px-2 rounded shadow-lg justify-between">
