@@ -17,12 +17,12 @@
             
                 <x-slot name="content">
                     <div class="py-1">
-                        <a href="#playa" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Playa</a>
-                        <a href="#relax" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relax</a>
-                        <a href="#fiesta" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fiesta</a>
-                        <a href="#deporte" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Deporte</a>
-                        <a href="#familia" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Familia</a>
-                        <a href="#montana" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Montaña</a>
+                        <a href="{{route('tipo',['tipo' => 'playa'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Playa</a>
+                        <a href="{{route('tipo',['tipo' => 'montana'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Montaña</a>
+                        <a href="{{route('tipo',['tipo' => 'relax'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relax</a>
+                        <a href="{{route('tipo',['tipo' => 'fiesta'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fiesta</a>
+                        <a href="{{route('tipo',['tipo' => 'deporte'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Deporte</a>
+                        <a href="{{route('tipo',['tipo' => 'familia'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Familia</a>
                     </div>
                 </x-slot>
             </x-dropdown>

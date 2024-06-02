@@ -26,7 +26,7 @@
                     @for ($i = 0; $i < 3; $i++)
                         @if (isset($empresa->telefono[$i]))
                             @if ($empresa->telefono[$i][0]==6 || str_contains($empresa->telefono[$i],'+346') || str_contains($empresa->telefono[$i],'634 6'))
-                                <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$empresa->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.png')}}" alt=""></a>
+                                <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$empresa->telefono[$i])}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.webp')}}" alt=""></a>
                             @else
                                 <a href="tel:{{str_replace(' ','',$empresa->telefono[$i])}}" class="material-symbols-rounded">call</a>
                             @endif
@@ -36,10 +36,10 @@
             </div>
             <div class="flex gap-2 items-center justify-end w-full">
                 @if ($empresa->tripadvisor && $empresa->tripadvisor!='')
-                    <a href="{{$empresa->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.png')}}" alt="Reservar bungalow o parcela"></a>
+                    <a href="{{$empresa->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.webp')}}" alt="Reservar bungalow o parcela"></a>
                 @endif
                 @if ($empresa->web && $empresa->web!='')
-                    <a href="{{$empresa->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.png')}}" alt="{{$empresa->nombre}}"></a>
+                    <a href="{{$empresa->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.webp')}}" alt="{{$empresa->nombre}}"></a>
                 @endif
             </div>
         </div>
