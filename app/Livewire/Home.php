@@ -42,22 +42,22 @@ class Home extends Component
     {
         return view('livewire.home',
             [ 'categorias' => [
-                'montana' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'montana')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'montana' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono')->whereJsonContains('etiquetas', 'montana')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPageMontana, pageName: 'montana'),
-                'playa' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'playa')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'playa' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono')->whereJsonContains('etiquetas', 'playa')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPagePlaya, pageName: 'playa'),
-                'relax' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'relax')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'relax' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono')->whereJsonContains('etiquetas', 'relax')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPageRelax, pageName: 'relax'),
-                'deporte' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'deporte')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'deporte' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono')->whereJsonContains('etiquetas', 'deporte')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPageDeporte, pageName: 'deporte'),
-                'fiesta' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'fiesta')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'fiesta' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono')->whereJsonContains('etiquetas', 'fiesta')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPageFiesta, pageName: 'fiesta'),
-                'familia' => Empresa::select('code','nombre','provincia','etiquetas','web','tripadvisor','provincia','email','telefono')->whereJsonContains('etiquetas', 'familia')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'familia' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono')->whereJsonContains('etiquetas', 'familia')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
                                                                                 })->paginate($this->perPageFamilia, pageName: 'familia'),
             ]]

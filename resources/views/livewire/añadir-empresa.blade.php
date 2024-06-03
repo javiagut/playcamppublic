@@ -63,10 +63,10 @@
                 <input wire:model.defer="empresa.web" type="text" class="px-3 py-1 outline-none w-full border shadow">
             </div>
             <div class="w-full flex gap-2">
-                <p class="w-full text-red-400 font-bold">Tripadvisor</p>
+                <p class="w-full text-red-400 font-bold">Booking</p>
             </div>
             <div class="w-full flex gap-2 mb-4">
-                <input wire:model.defer="empresa.tripadvisor" type="text" class="px-3 py-1 outline-none w-full border shadow">
+                <input wire:model.defer="empresa.booking" type="text" class="px-3 py-1 outline-none w-full border shadow">
             </div>
             <div class="w-full flex gap-2">
                 <p class="w-full text-red-400 font-bold">5 Fotos</p>

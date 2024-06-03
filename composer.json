@@ -11,6 +11,10 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
         "spatie/image": "^3.6",
+        "symfony/browser-kit": "^7.1",
+        "symfony/css-selector": "^6.0",
+        "symfony/http-client": "^7.1",
+        "symfony/mime": "^7.0",
         "yoeunes/toastr": "^3.0"
     },
     "require-dev": {

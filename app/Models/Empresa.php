@@ -23,7 +23,7 @@ class Empresa extends Model
         'mapa',
         'tipo',
         'web',
-        'tripadvisor',
+        'booking',
     ];
     public $timestamps = false;
     protected function casts(): array

@@ -10,7 +10,7 @@
         <meta name="robots" content="index,follow">
 
         <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico')}}">
-
+        <script src="resenas.js"></script>
         @vite(['resources/css/app.css','resources/js/app.js'])
         @livewireStyles
         <style>

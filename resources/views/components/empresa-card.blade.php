@@ -35,8 +35,8 @@
                 @endif
             </div>
             <div class="flex gap-2 items-center justify-end w-full">
-                @if ($empresa->tripadvisor && $empresa->tripadvisor!='')
-                    <a href="{{$empresa->tripadvisor}}" title="Ver página de tripadvisor del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/tripadvisor.webp')}}" alt="Reservar bungalow o parcela"></a>
+                @if ($empresa->booking && $empresa->booking!='')
+                    <a href="{{$empresa->booking}}" title="Ver página de booking del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/booking.webp')}}" alt="Reservar bungalow o parcela"></a>
                 @endif
                 @if ($empresa->web && $empresa->web!='')
                     <a href="{{$empresa->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.webp')}}" alt="{{$empresa->nombre}}"></a>

@@ -36,7 +36,7 @@ class AñadirEmpresa extends Component
             'mapa' => false,
             'tipo' => 1,
             'web' => '',
-            'tripadvisor' => '',
+            'booking' => '',
         ];
     }
 
@@ -117,7 +117,7 @@ class AñadirEmpresa extends Component
             'mapa' => false,
             'tipo' => 1,
             'web' => '',
-            'tripadvisor' => '',
+            'booking' => '',
         ];
     }
 }
