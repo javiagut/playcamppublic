@@ -24,6 +24,7 @@ class Empresa extends Model
         'tipo',
         'web',
         'booking',
+        'puntuacion'
     ];
     public $timestamps = false;
     protected function casts(): array

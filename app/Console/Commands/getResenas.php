@@ -40,5 +40,6 @@ class getResenas extends Command
                 }
             }
         }
+        echo 'Reseñas actualizadas correctamente.';
     }
 }
