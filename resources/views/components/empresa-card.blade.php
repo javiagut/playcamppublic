@@ -6,7 +6,7 @@
             </div>
         @endfor
         @if ($empresa->puntuacion)
-            <div class="h-10 min-w-8 w-fit px-2 text-white rounded-r-lg rounded-tl-lg p-1  flex items-center justify-center" style="background: #00367F">
+            <div class="h-10 min-w-8 px-2 text-white rounded-r-lg rounded-tl-lg p-1  flex items-center justify-center" style="background: #00367F">
                 <span class=" font-bold flex flex-col">
                     <span class="text-xl">{{$empresa->puntuacion}}</span>
                 </span>
