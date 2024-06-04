@@ -34,9 +34,10 @@ class getResenas extends Command
                 $client = new HttpBrowser(HttpClient::create());
                 $crawler = $client->request('GET', $empresa->booking);
 
-                $element = $crawler->filter('[data-testid="review-score-right-component"] > div > div')->text();
-                if ($element && count(explode(':',$element)) > 1){
-                    $empresa->update(['puntuacion' => trim(explode(':',$element)[1])]);
+                $element = $crawler->filter('[data-testid="review-score-right-component"] > div > div');
+                if ($element) $text = $element->text();
+                if (count(explode(':',$text)) > 1){
+                    $empresa->update(['puntuacion' => trim(explode(':',$text)[1])]);
                 }
             }
         }
