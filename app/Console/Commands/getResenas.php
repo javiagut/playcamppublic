@@ -36,7 +36,7 @@ class getResenas extends Command
                     $crawler = $client->request('GET', $empresa->booking);
     
                     $element = $crawler->filter('[data-testid="review-score-right-component"] > div > div');
-                    echo 'Empresa: '.$empresa->nombre.' - Puntaución: '.$element;
+                    echo 'Empresa: '.$empresa->nombre;
                     if ($element){
                         $text = $element->text();
                         if (count(explode(':',$text)) > 1){
