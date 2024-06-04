@@ -2,7 +2,7 @@
     @if (!$valid)
         <div class="lg:w-3/12 mx-auto p-4 flex justify-center items-center flex-col gap-4">
             <p class="text-3xl" style="font-family: Righteous">Introducir código</p>
-            <input type="text" wire:keydown.enter="isValid()" wire:model="code" class="px-4 py-2 outline-none rounded bg-red-400 text-white shadow mx-auto">
+            <input type="password" wire:keydown.enter="isValid()" wire:model="code" class="px-4 py-2 outline-none rounded bg-red-400 text-white shadow mx-auto">
         </div>
     @else
         <div class="w-3/12 my-8 flex flex-col items-center">
