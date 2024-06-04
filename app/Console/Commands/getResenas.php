@@ -29,19 +29,25 @@ class getResenas extends Command
     public function handle()
     {
         $empresas = Empresa::get();
-        foreach ($empresas as $empresa) {
-            if ($empresa->booking && $empresa->booking != '') {
-                $client = new HttpBrowser(HttpClient::create());
-                $crawler = $client->request('GET', $empresa->booking);
-
-                $element = $crawler->filter('[data-testid="review-score-right-component"] > div > div');
-                echo 'Empresa: '.$empresa->nombre.' - Puntaución: '.$element->text();
-                if ($element) $text = $element->text();
-                if (count(explode(':',$text)) > 1){
-                    $empresa->update(['puntuacion' => trim(explode(':',$text)[1])]);
+        try {
+            foreach ($empresas as $empresa) {
+                if ($empresa->booking && $empresa->booking != '') {
+                    $client = new HttpBrowser(HttpClient::create());
+                    $crawler = $client->request('GET', $empresa->booking);
+    
+                    $element = $crawler->filter('[data-testid="review-score-right-component"] > div > div');
+                    echo 'Empresa: '.$empresa->nombre.' - Puntaución: '.$element;
+                    if ($element){
+                        $text = $element->text();
+                        if (count(explode(':',$text)) > 1){
+                            $empresa->update(['puntuacion' => trim(explode(':',$text)[1])]);
+                        }
+                    }
                 }
             }
+            echo 'Reseñas actualizadas correctamente.';
+        } catch (\Throwable $th) {
+            echo 'none';
         }
-        echo 'Reseñas actualizadas correctamente.';
     }
 }
