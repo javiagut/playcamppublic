@@ -40,6 +40,7 @@ class AñadirEmpresa extends Component
             'tipo' => 1,
             'web' => '',
             'booking' => '',
+            'puntuacion' => '',
         ];
     }
 
@@ -121,6 +122,7 @@ class AñadirEmpresa extends Component
             'tipo' => 1,
             'web' => '',
             'booking' => '',
+            'puntuacion' => '',
         ];
     }
     public function cargarEmpresa($id){
@@ -137,6 +139,7 @@ class AñadirEmpresa extends Component
             'tipo' => $empresa['tipo'],
             'web' => $empresa['web'],
             'booking' => $empresa['booking'],
+            'puntuacion' => $empresa['puntuacion'],
         
         ];
         
@@ -180,6 +183,7 @@ class AñadirEmpresa extends Component
             'tipo' => 1,
             'web' => '',
             'booking' => '',
+            'puntuacion' => '',
         ];
         $this->edit = false;
     }
@@ -198,6 +202,7 @@ class AñadirEmpresa extends Component
             'tipo' => 1,
             'web' => '',
             'booking' => '',
+            'puntuacion' => '',
         ];
         $this->servicios = [];
         $this->files = [];

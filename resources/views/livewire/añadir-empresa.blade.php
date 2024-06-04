@@ -99,6 +99,12 @@
                     <input wire:model.defer="empresa.booking" type="text" class="px-3 py-1 outline-none w-full border shadow">
                 </div>
                 <div class="w-full flex gap-2">
+                    <p class="w-full text-red-400 font-bold">Valoración Booking</p>
+                </div>
+                <div class="w-full flex gap-2 mb-4">
+                    <input wire:model.defer="empresa.puntuacion" type="text" class="px-3 py-1 outline-none w-full border shadow">
+                </div>
+                <div class="w-full flex gap-2">
                     <p class="w-full text-red-400 font-bold">5 Fotos</p>
                 </div>
                 @if ($edit)
