@@ -1,9 +1,9 @@
-<div class="w-full flex-col lg:flex-row mt-16">
-    <div class="h-[10em] mb-2 shadow">
+<div class="w-full flex-col lg:flex-row mt-16 lg:w-7/12 mx-auto lg:min-h-[80vh]">
+    <div class="h-[10em] lg:h-[20em] mb-2 shadow">
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @for ($i = 0; $i < 5; $i++)
-                    <div class="carousel-item {{$i==0 ? 'active' : ''}} h-[10em]" data-bs-interval="3000">
+                    <div class="carousel-item {{$i==0 ? 'active' : ''}} h-[10em] lg:h-[20em]" data-bs-interval="3000">
                         <img class="w-full" src="{{asset('storage/'.$camping->code.'/'.$i.'.webp')}}" alt="First slide">
                     </div>
                 @endfor
@@ -19,7 +19,7 @@
           </div>
     </div>
     <div class=" py-2 flex flex-col">
-        <h1 class="px-4 text-xl font-bold" style="font-family: Righteous">{{$camping->nombre}}</h1>
+        <h1 class="px-4 text-2xl font-bold lg:text-3xl" style="font-family: Righteous">{{$camping->nombre}}</h1>
         @if ($camping->descripcion)
             <div class="px-4 text-sm my-1">
                 {{$camping->descripcion}}
