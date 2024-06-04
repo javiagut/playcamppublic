@@ -140,7 +140,7 @@ class AñadirEmpresa extends Component
         
         ];
         
-        $this->phones = isset($empresa['telefono']) ? $empresa['telefono'] : [];
+        $this->phones = isset($empresa['telefono']) ? implode(',',$empresa['telefono']) : '';
 
         $this->servicios = Servicio::where('empresa',$this->empresa['code'])->pluck('tipo')->toArray();
     }
