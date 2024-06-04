@@ -22,6 +22,9 @@ class AñadirEmpresa extends Component
     public $files = [];
     public $servicioTipo = [];
     public $servicios = [];
+    public $empresasAll;
+    public $search = '';
+    public $edit = false;
 
     public function __construct(){
         $this->servicioTipo = ServicioTipo::all();
@@ -42,6 +45,7 @@ class AñadirEmpresa extends Component
 
     public function render()
     {
+        $this->empresasAll = Empresa::where('nombre','LIKE','%'.$this->search.'%')->orderBy('nombre','ASC')->get();
         return view('livewire.añadir-empresa');
     }
 
@@ -119,5 +123,82 @@ class AñadirEmpresa extends Component
             'web' => '',
             'booking' => '',
         ];
+    }
+    public function cargarEmpresa($id){
+        $this->edit = true;
+        $empresa = Empresa::find($id)->toArray();
+        $this->empresa = [
+            'code' => $empresa['code'],
+            'nombre' => $empresa['nombre'],
+            'email' => $empresa['email'],
+            'direccion' => $empresa['direccion'],
+            'provincia' => $empresa['provincia'],
+            'etiquetas' => isset($empresa['etiquetas']) ? $empresa['etiquetas'] : [],
+            'telefono' => isset($empresa['telefono']) ? $empresa['telefono'] : [],
+            'mapa' => $empresa['mapa'],
+            'tipo' => $empresa['tipo'],
+            'web' => $empresa['web'],
+            'booking' => $empresa['booking'],
+        
+        ];
+
+        $this->servicios = Servicio::where('empresa',$this->empresa['code'])->pluck('tipo')->toArray();
+    }
+    public function guardarEmpresa(){
+        $this->validate([
+            'empresa.nombre' => 'required',
+            'empresa.provincia' => 'required',
+            'empresa.etiquetas' => 'required',
+            'empresa.email' => 'email',
+        ]);
+        $empresa = Empresa::where('code',$this->empresa['code'])->first();
+        $empresa->update($this->empresa);
+        $empresa->servicios()->delete();
+        foreach ($this->servicios as $servicio) {
+            Servicio::create([
+                'empresa' => $this->empresa['code'],
+                'tipo' => $servicio,
+                'visible' => true,
+                'descripcion' => ''
+            ]);
+        }
+        toastr()->success('Empresa actualizada');
+        $this->servicios=[];
+        $this->files=[];
+        $this->phones='';
+        $this->empresa = [
+            'code' => Str::upper(Str::random(10)),
+            'nombre' => '',
+            'email' => '',
+            'direccion' => '',
+            'provincia' => '',
+            'etiquetas' => [],
+            'telefono' => [],
+            'mapa' => false,
+            'tipo' => 1,
+            'web' => '',
+            'booking' => '',
+        ];
+        $this->edit = false;
+    }
+
+    public function resetForm(){
+        $this->edit = false;
+        $this->empresa = [
+            'code' => Str::upper(Str::random(10)),
+            'nombre' => '',
+            'email' => '',
+            'direccion' => '',
+            'provincia' => '',
+            'etiquetas' => [],
+            'telefono' => [],
+            'mapa' => false,
+            'tipo' => 1,
+            'web' => '',
+            'booking' => '',
+        ];
+        $this->servicios = [];
+        $this->files = [];
+        toastr()->info('Formulario reseteado');
     }
 }
