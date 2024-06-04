@@ -39,6 +39,7 @@ class getResenas extends Command
                     echo 'Empresa: '.$empresa->nombre;
                     if ($element){
                         $text = $element->text();
+                        echo $text;
                         if (count(explode(':',$text)) > 1){
                             $empresa->update(['puntuacion' => trim(explode(':',$text)[1])]);
                         }
