@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\BrowserKit\HttpBrowser;
 use Symfony\Component\HttpClient\HttpClient;
 use App\Models\Empresa;
+use Illuminate\Support\Facades\Log;
 
 class getResenas extends Command
 {
@@ -36,10 +37,8 @@ class getResenas extends Command
                     $crawler = $client->request('GET', $empresa->booking);
     
                     $element = $crawler->filter('[data-testid="review-score-right-component"] > div > div');
-                    echo 'Empresa: '.$empresa->nombre;
                     if ($element){
                         $text = $element->text();
-                        echo $text;
                         if (count(explode(':',$text)) > 1){
                             $empresa->update(['puntuacion' => trim(explode(':',$text)[1])]);
                         }
