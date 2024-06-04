@@ -133,14 +133,14 @@ class AñadirEmpresa extends Component
             'direccion' => $empresa['direccion'],
             'provincia' => $empresa['provincia'],
             'etiquetas' => isset($empresa['etiquetas']) ? $empresa['etiquetas'] : [],
-            'telefono' => isset($empresa['telefono']) ? $empresa['telefono'] : [],
             'mapa' => $empresa['mapa'],
             'tipo' => $empresa['tipo'],
             'web' => $empresa['web'],
             'booking' => $empresa['booking'],
         
         ];
-        $this->empresa['telefono'] = explode(',', $this->empresa);
+        
+        $this->phones = isset($empresa['telefono']) ? $empresa['telefono'] : [];
 
         $this->servicios = Servicio::where('empresa',$this->empresa['code'])->pluck('tipo')->toArray();
     }
