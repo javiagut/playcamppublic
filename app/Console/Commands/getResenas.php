@@ -29,10 +29,10 @@ class getResenas extends Command
     public function handle()
     {
         $empresas = Empresa::get();
-        // try {
-            foreach ($empresas as $empresa) {
-                if ($empresa->booking && $empresa->booking != '') {
-                    $client = new HttpBrowser(HttpClient::create());
+        foreach ($empresas as $empresa) {
+            if ($empresa->booking && $empresa->booking != '') {
+                $client = new HttpBrowser(HttpClient::create());
+                try {
                     $crawler = $client->request('GET', $empresa->booking);
     
                     $element = $crawler->filter('[data-testid="review-score-right-component"] > div > div');
@@ -44,11 +44,12 @@ class getResenas extends Command
                             $empresa->update(['puntuacion' => trim(explode(':',$text)[1])]);
                         }
                     }
+                } catch (\Throwable $th) {
+                    Log::error('Error al obtener la puntuación de la empresa: '.$empresa->nombre.' - '.$empresa->booking);
+                    continue;
                 }
             }
-            echo 'Reseñas actualizadas correctamente.';
-        // } catch (\Throwable $th) {
-        //     dd($th->getMessage());
-        // }
+        }
+        echo 'Reseñas actualizadas correctamente.';
     }
 }
