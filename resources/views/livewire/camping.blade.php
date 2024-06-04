@@ -3,8 +3,7 @@
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @for ($i = 0; $i < 5; $i++)
-                    <div class="carousel-item {{$i==0 ? 'active' : ''}} h-[10em] lg:h-[20em]" data-bs-interval="3000">
-                        <img class="w-full" src="{{asset('storage/'.$camping->code.'/'.$i.'.webp')}}" alt="First slide">
+                    <div class="carousel-item {{$i==0 ? 'active' : ''}} h-[10em] lg:h-[20em] bg-center bg-cover" data-bs-interval="3000" style="background-image: url('{{asset('storage/'.$camping->code.'/'.$i.'.webp')}}')">
                     </div>
                 @endfor
             </div>
