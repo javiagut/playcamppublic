@@ -145,6 +145,7 @@ class AñadirEmpresa extends Component
         $this->servicios = Servicio::where('empresa',$this->empresa['code'])->pluck('tipo')->toArray();
     }
     public function guardarEmpresa(){
+        $this->empresa['etiquetas'] = array_values($this->empresa['etiquetas']);
         $this->validate([
             'empresa.nombre' => 'required',
             'empresa.provincia' => 'required',
