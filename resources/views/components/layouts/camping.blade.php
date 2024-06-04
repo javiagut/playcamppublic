@@ -3,12 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Todos los campings de España. Campings de Playa, campings de montaña, campings de costa, campings para practicar deporte o estar de relax, con spa y jacuzzis. Todos los campings de Cataluña, Aragón, Andalucía, Madrid, Cantábria, Andalucía, etc.">
+        <meta name="description" content="{{$descripcionCamping!= '' ? $descripcionCamping : 'Todos los campings de España. Campings de Playa, campings de montaña, campings de costa, campings para practicar deporte o estar de relax, con spa y jacuzzis. Todos los campings de Cataluña, Aragón, Andalucía, Madrid, Cantábria, Andalucía, etc.'}}">
         <meta keywords="campings de montaña, campings para hacer deporte, campings de fiesta, campings familiares, campings de costa, campings de playa, campings con spa">
-        
-        <title>PlayCamp - Todos los campings de playa, montaña y deportes</title>
+        <link rel="stylesheet" href="/bootstrap.css">
+        <title>{{$nombreCamping}} - PlayCamp</title>
         <meta name="robots" content="index,follow">
-
         <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico')}}">
         @vite(['resources/css/app.css','resources/js/app.js'])
         @livewireStyles
@@ -92,6 +91,7 @@
         @livewire('header')
         {{ $slot }}
         @livewireScripts
+        
     </body>
     <footer class="w-full flex justify-center items-center bg-black p-4 text-white flex-col">
         © 2024 PlayCamp™. All Rights Reserved.

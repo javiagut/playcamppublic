@@ -15,7 +15,7 @@
     </div>
     <div class="lg:w-1/2 h-44 lg:h-auto p-2 grid content-between">
         <div style="font-family: Righteous">
-            <p class="pl-1 text-xl font-bold cursor-pointer">{{$empresa->nombre}}</p>
+            <a href="{{route('camping', ['camping' => str_replace(' ','-',$empresa->nombre)])}}" class="hover:text-gray-700 pl-1 text-xl font-bold cursor-pointer">{{$empresa->nombre}}</a>
             <p class="pl-1 text-base">{{$empresa->provincia}}</p>
         </div>
         <div class="flex py-1 gap-2 lg:gap-0">
