@@ -10,7 +10,7 @@
         </div>
         <div class="w-full flex flex-wrap">
             @foreach ($categorias as $key => $item)
-            <div class="lg:p-2 w-full lg:w-1/3 h-fit sticky top-0 {{$key=='playa' ? 'order-1' : 'order-2'}}" id="{{$key}}">
+            <div class="lg:p-2 w-full lg:w-1/3 h-fit sticky bottom-0 {{$key=='playa' ? 'order-1' : 'order-2'}}" id="{{$key}}">
                 <div class="flex flex-col gap-4 lg:p-2 w-full">
                     <a href="{{route('tipo',['tipo' => $key])}}" class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
                         <span>porque te mueve la <b class="text-2xl capitalize">{{$key}}</b></span>
