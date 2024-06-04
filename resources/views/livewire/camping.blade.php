@@ -1,4 +1,4 @@
-<div class="w-full flex-col lg:flex-row mt-16 lg:w-7/12 mx-auto lg:min-h-[80vh]">
+<div class="w-full flex-col lg:flex-row mt-16 lg:w-5/12 mx-auto lg:min-h-[80vh]">
     <div class="h-[10em] lg:h-[20em] mb-2 shadow">
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
