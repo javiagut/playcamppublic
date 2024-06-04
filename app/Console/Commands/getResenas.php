@@ -29,7 +29,7 @@ class getResenas extends Command
     public function handle()
     {
         $empresas = Empresa::get();
-        try {
+        // try {
             foreach ($empresas as $empresa) {
                 if ($empresa->booking && $empresa->booking != '') {
                     $client = new HttpBrowser(HttpClient::create());
@@ -46,8 +46,8 @@ class getResenas extends Command
                 }
             }
             echo 'Reseñas actualizadas correctamente.';
-        } catch (\Throwable $th) {
-            echo 'none';
-        }
+        // } catch (\Throwable $th) {
+        //     dd($th->getMessage());
+        // }
     }
 }
