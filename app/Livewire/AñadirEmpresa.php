@@ -79,7 +79,6 @@ class AñadirEmpresa extends Component
     }
     public function añadirEmpresa()
     {
-        // dd($this->empresa);
         if($this->phones!='') $this->empresa['telefono'] = explode(',', $this->phones);
         $this->validate([
             'empresa.nombre' => 'required',
@@ -141,6 +140,7 @@ class AñadirEmpresa extends Component
             'booking' => $empresa['booking'],
         
         ];
+        $this->empresa['telefono'] = explode(',', $this->empresa);
 
         $this->servicios = Servicio::where('empresa',$this->empresa['code'])->pluck('tipo')->toArray();
     }
@@ -152,6 +152,7 @@ class AñadirEmpresa extends Component
             'empresa.email' => 'email',
         ]);
         $empresa = Empresa::where('code',$this->empresa['code'])->first();
+        if($this->phones!='') $this->empresa['telefono'] = explode(',', $this->phones);
         $empresa->update($this->empresa);
         $empresa->servicios()->delete();
         foreach ($this->servicios as $servicio) {
