@@ -44,22 +44,22 @@ class Home extends Component
             [ 'categorias' => [
                 'montana' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'montana')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion")->paginate($this->perPageMontana, pageName: 'montana'),
+                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->paginate($this->perPageMontana, pageName: 'montana'),
                 'playa' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'playa')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion")->orderBy('nombre','DESC')->paginate($this->perPagePlaya, pageName: 'playa'),
+                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPagePlaya, pageName: 'playa'),
                 'relax' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'relax')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion")->orderBy('nombre','DESC')->paginate($this->perPageRelax, pageName: 'relax'),
+                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageRelax, pageName: 'relax'),
                 'deporte' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'deporte')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion")->orderBy('nombre','DESC')->paginate($this->perPageDeporte, pageName: 'deporte'),
+                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageDeporte, pageName: 'deporte'),
                 'fiesta' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'fiesta')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion")->orderBy('nombre','DESC')->paginate($this->perPageFiesta, pageName: 'fiesta'),
+                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageFiesta, pageName: 'fiesta'),
                 'familia' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'familia')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                                                                                     return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion")->orderBy('nombre','DESC')->paginate($this->perPageFamilia, pageName: 'familia'),
+                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageFamilia, pageName: 'familia'),
             ]]
         );
     }

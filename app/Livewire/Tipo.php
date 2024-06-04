@@ -38,7 +38,7 @@ class Tipo extends Component
             [
                 'empresas' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', $this->tipo)->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                     return $q->whereIn('provincia', $this->province);
-                })->orderBy('puntuacion','DESC')->orderBy('nombre','DESC')->paginate($this->perPage),
+                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPage),
             ]
         );
     }
