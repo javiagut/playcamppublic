@@ -13,9 +13,12 @@ class Tipo extends Component
     public $search = '';
     public $province = [];
     public $servicioTipo;
+    public $categorias = ['playa','montana','relax','deporte','fiesta','familia'];
 
     public function __construct() {
         $this->tipo = request('tipo');
+        if (!in_array($this->tipo, $this->categorias)) return $this->redirect('/');
+        
         $this->servicioTipo = ServicioTipo::get();
         $this->servicioTipo = ServicioTipo::get()->mapWithKeys(function ($item) {
             $id = $item['id'];
@@ -33,9 +36,9 @@ class Tipo extends Component
     {
         return view('livewire.tipo',
             [
-                'empresas' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono')->whereJsonContains('etiquetas', $this->tipo)->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                'empresas' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', $this->tipo)->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
                     return $q->whereIn('provincia', $this->province);
-                })->paginate($this->perPage),
+                })->orderBy('puntuacion','DESC')->orderBy('nombre','DESC')->paginate($this->perPage),
             ]
         );
     }

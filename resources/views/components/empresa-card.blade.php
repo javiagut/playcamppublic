@@ -1,10 +1,17 @@
 <div class="mr-4 lg:mr-0 min-w-[80vw] max-w-[80vw] lg:min-w-full lg:max-w-full  lg:w-full flex flex-col lg:flex-row bg-white rounded-lg min-h-40 shadow  hover:shadow-red-200 transition-all">
-    <div id="{{$key}}-{{$empresa->code}}" onmouseleave="changeImage('{{$key}}-{{$empresa->code}}','0','{{$empresa->code}}','{{asset('storage/'.$empresa->code.'/0.webp')}}')" class="w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$empresa->code.'/0.webp')}}')">
+    <div id="{{$key}}-{{$empresa->code}}" onmouseleave="changeImage('{{$key}}-{{$empresa->code}}','0','{{$empresa->code}}','{{asset('storage/'.$empresa->code.'/0.webp')}}')" class="p-2 w-full h-40 lg:h-auto lg:w-1/2 bg-center bg-cover flex rounded-t-lg lg:rounded-tr-none lg:rounded-l-lg" style="background-image: url('{{asset('storage/'.$empresa->code.'/0.webp')}}')">
         @for ($i = 0; $i < 5; $i++)
             <div class="w-1/5 flex items-end justify-center pb-2" onmouseover="changeImage('{{$key}}-{{$empresa->code}}','{{$i}}','{{$empresa->code}}','{{asset('storage/'.$empresa->code.'/'.$i.'.webp')}}')">
                 <span id="btn-bg-{{$i}}-{{$empresa->code}}" class="shadow opacity-50 lg:hidden rounded-full p-1" style="background-color: white"></span>
-            </div>                            
+            </div>
         @endfor
+        @if ($empresa->puntuacion)
+            <div class="h-10 w-fit px-2 text-white bg-blue-500 rounded-r-lg rounded-tl-lg p-1  flex items-center justify-center">
+                <span class=" font-bold flex flex-col">
+                    <span class="text-xl">{{$empresa->puntuacion}}</span>
+                </span>
+            </div>
+        @endif
     </div>
     <div class="lg:w-1/2 h-44 lg:h-auto p-2 grid content-between">
         <div style="font-family: Righteous">
