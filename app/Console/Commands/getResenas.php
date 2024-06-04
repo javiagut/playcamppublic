@@ -30,12 +30,12 @@ class getResenas extends Command
     {
         $empresas = Empresa::get();
         foreach ($empresas as $empresa) {
-            if ($empresa->booking) {
+            if ($empresa->booking && $empresa->booking != '') {
                 $client = new HttpBrowser(HttpClient::create());
                 $crawler = $client->request('GET', $empresa->booking);
 
                 $element = $crawler->filter('[data-testid="review-score-right-component"] > div > div')->text();
-                if ($element) {
+                if ($element && count(explode(':',$element)) > 1){
                     $empresa->update(['puntuacion' => trim(explode(':',$element)[1])]);
                 }
             }
