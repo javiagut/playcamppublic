@@ -12,9 +12,18 @@
                 <input type="text" wire:model.live.debounce.250ms="search" placeholder="Buscar por Nombre" class="w-full lg:w-56 py-1 px-2 outline-none">
                 <span wire:click="$set('search','')" class="text-base material-symbols-outlined text-red-400 ml-2 hover:text-black transition-all cursor-pointer">close</span>
             </div>
-            <div class="flex flex-col gap-2 w-full text-center">
+            <div class="flex flex-col gap-2 w-full items-center">
                 @foreach ($empresasAll as $item)
-                    <p class="cursor-pointer hover:text-red-400 {{$empresa['code']==$item->code ? 'text-red-400' : ''}}" wire:click="cargarEmpresa('{{$item->id}}')">{{$item->nombre}}</p>
+                    <div class="flex gap-2">
+                        <p class="cursor-pointer hover:text-red-400 {{$empresa['code']==$item->code ? 'text-red-400' : ''}}" wire:click="cargarEmpresa('{{$item->id}}')">{{$item->nombre}}</p>
+                        @if ($item->puntuacion)
+                            <div class="h-7 w-fit px-2 text-white rounded-r-lg rounded-tl-lg p-1  flex items-center justify-center" style="background: #00367F">
+                                <span class=" font-bold flex flex-col">
+                                    <span class="text-sm">{{$item->puntuacion}}</span>
+                                </span>
+                            </div>
+                        @endif
+                    </div>
                 @endforeach
             </div>
         </div>

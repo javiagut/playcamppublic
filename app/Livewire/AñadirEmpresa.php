@@ -45,7 +45,7 @@ class AñadirEmpresa extends Component
 
     public function render()
     {
-        $this->empresasAll = Empresa::where('nombre','LIKE','%'.$this->search.'%')->orderBy('nombre','ASC')->get();
+        $this->empresasAll = Empresa::where('nombre','LIKE','%'.$this->search.'%')->orderBy('puntuacion','DESC')->orderBy('nombre','ASC')->get();
         return view('livewire.añadir-empresa');
     }
 
