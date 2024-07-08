@@ -52,7 +52,7 @@ class AñadirEmpresa extends Component
 
     public function isValid()
     {
-        if ($this->code == env('passAdmin')) $this->valid = true;
+        if ($this->code == env('PASS_ADMIN')) $this->valid = true;
     }
     public function servicio($servicio)
     {
