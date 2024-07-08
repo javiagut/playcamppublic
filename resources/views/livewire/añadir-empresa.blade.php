@@ -6,7 +6,7 @@
         </div>
     @else
         <div class="w-3/12 my-8 flex flex-col items-center">
-            <p class="text-2xl font-bold mb-4 w-full text-center" style="font-family: Righteous">Buscar empresa</p>
+            <p class="text-2xl font-bold mb-4 w-full text-center" style="font-family: Righteous">Buscar empresa ({{count($empresasAll)}})</p>
             <div class="bg-white flex items-center px-2 rounded shadow-lg justify-between mb-4">
                 <span class="material-symbols-outlined text-red-400">search</span>
                 <input type="text" wire:model.live.debounce.250ms="search" placeholder="Buscar por Nombre" class="w-full lg:w-56 py-1 px-2 outline-none">
