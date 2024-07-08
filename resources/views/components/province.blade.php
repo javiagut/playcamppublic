@@ -18,12 +18,19 @@
     <optgroup label="Asturias">
         <option value="Asturias">Asturias</option>
     </optgroup>
-    <optgroup label="Baleares">
-        <option value="Islas Baleares">Islas Baleares</option>
+    <optgroup label="Islas Baleares">
+        <option value="Ibiza">Ibiza</option>
+        <option value="Mallorca">Mallorca</option>
+        <option value="Formentera">Formentera</option>
+        <option value="Menorca">Menorca</option>
     </optgroup>
-    <optgroup label="Canarias">
-        <option value="Las Palmas">Las Palmas</option>
-        <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+    <optgroup label="Islas Canarias">
+        <option value="Tenerife">Tenerife</option>
+        <option value="Gran Canaria">Gran Canaria</option>
+        <option value="Lanzarote">Lanzarote</option>
+        <option value="Fuerteventura">Fuerteventura</option>
+        <option value="La Gomera">La Gomera</option>
+        <option value="Las Palma">Las Palma</option>
     </optgroup>
     <optgroup label="Cantabria">
         <option value="Cantabria">Cantabria</option>

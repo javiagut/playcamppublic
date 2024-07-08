@@ -5,9 +5,12 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Empresa;
 use App\Models\ServicioTipo;
+use Livewire\WithPagination;
 
 class Tipo extends Component
 {
+    use WithPagination;
+
     public $perPage = 10;
     public $tipo;
     public $search = '';
