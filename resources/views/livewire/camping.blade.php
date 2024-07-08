@@ -18,7 +18,17 @@
           </div>
     </div>
     <div class=" py-2 flex flex-col">
-        <h1 class="px-4 text-2xl font-bold lg:text-3xl" style="font-family: Righteous">{{$camping->nombre}}</h1>
+        <div class="flex justify-between">
+            <h1 class="px-4 text-2xl font-bold lg:text-3xl" style="font-family: Righteous">{{$camping->nombre}}</h1>
+            <div class="flex gap-3">
+                @if ($camping->booking)
+                    <a href="{{$camping->booking}}" title="Ver página de booking del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/booking.webp')}}" alt="Reservar bungalow o parcela"></a>
+                @endif
+                @if ($camping->web)
+                    <a href="{{$camping->web}}" title="Ver web oficial de reservas,servicios y actividades del camping" target="_blank" class="w-8 hover:scale-105"><img src="{{asset('img/web.webp')}}" alt="{{$camping->nombre}}"></a>
+                @endif
+            </div>
+        </div>
         @if ($camping->descripcion)
             <div class="px-4 text-sm my-1">
                 {{$camping->descripcion}}
@@ -39,8 +49,31 @@
         @if ($camping->puntuacion)
             <h2 class="px-4 text-lg font-bold mt-2" style="font-family: Righteous">Valoraciones</h2>
             <div class="px-4 flex gap-2 my-2 items-center">
-                <img class="w-10" src="{{asset('img/booking.webp')}}" alt="">
-                <span class="font-bold text-xl tracking-wider	" style="font-family: Righteous">{{$camping->puntuacion}}/10</span>
+                @if ($camping->booking)
+                    <a href="{{$camping->booking}}" target="_blank" class="bg-blue-900 font-bold px-2 py-1 rounded text-white hover:scale-105">booking.com</a>
+                @else
+                    <span class="bg-blue-900 font-bold px-2 py-1 rounded text-white">Google Maps/Tripadvisor</span>
+                @endif
+                <span class="font-bold text-xl tracking-wider" style="font-family: Righteous">{{$camping->puntuacion}}/10</span>
+            </div>
+        @endif
+        @if ($camping->email || count($camping->telefono)>0)
+            <h2 class="px-4 text-lg font-bold mt-2" style="font-family: Righteous">Contacto</h2>
+            <div class="px-4 my-2 flex flex-col gap-2">
+                <div class="flex gap-3 items-start">
+                    <a href="mailto:{{$camping->email}}" class="material-symbols-outlined text-red-400">email</a>
+                    <p>{{$camping->email}}</p>
+                </div>
+                @foreach ($camping->telefono as $phone)
+                    <div class="flex gap-3 items-center">
+                        @if ($phone[0]==6 || str_contains($phone,'+346') || str_contains($phone,'634 6'))
+                            <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$phone)}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.webp')}}" alt=""></a>
+                        @else
+                            <a href="tel:{{str_replace(' ','',$phone)}}" class="material-symbols-rounded text-red-400">call</a>
+                        @endif
+                        <span>{{$phone}}</span>
+                    </div>
+                @endforeach
             </div>
         @endif
     </div>
