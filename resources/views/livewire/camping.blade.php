@@ -52,7 +52,7 @@
                 @if ($camping->booking)
                     <a href="{{$camping->booking}}" target="_blank" class="bg-blue-900 font-bold px-2 py-1 rounded text-white hover:scale-105">booking.com</a>
                 @else
-                    <span class="bg-blue-900 font-bold px-2 py-1 rounded text-white">Google Maps/Tripadvisor</span>
+                    <span class="bg-rose-400 font-bold px-2 py-1 rounded text-white">Google Maps/Tripadvisor</span>
                 @endif
                 <span class="font-bold text-xl tracking-wider" style="font-family: Righteous">{{$camping->puntuacion}}/10</span>
             </div>
