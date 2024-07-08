@@ -18,8 +18,8 @@
           </div>
     </div>
     <div class=" py-2 flex flex-col">
-        <div class="flex justify-between">
-            <h1 class="px-4 text-2xl font-bold lg:text-3xl" style="font-family: Righteous">{{$camping->nombre}}</h1>
+        <div class="px-4 flex justify-between">
+            <h1 class=" text-2xl font-bold lg:text-3xl" style="font-family: Righteous">{{$camping->nombre}}</h1>
             <div class="flex gap-3">
                 @if ($camping->booking)
                     <a href="{{$camping->booking}}" title="Ver página de booking del camping" target="_blank" class="w-10 hover:scale-105"><img src="{{asset('img/booking.webp')}}" alt="Reservar bungalow o parcela"></a>
