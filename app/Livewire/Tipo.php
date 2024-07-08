@@ -20,7 +20,7 @@ class Tipo extends Component
 
     public function __construct() {
         $this->tipo = request('tipo');
-        if (!in_array($this->tipo, $this->categorias)) return $this->redirect('/');
+        if (request('tipo') && !in_array($this->tipo, $this->categorias)) return $this->redirect('/');
         
         $this->servicioTipo = ServicioTipo::get();
         $this->servicioTipo = ServicioTipo::get()->mapWithKeys(function ($item) {
@@ -40,12 +40,12 @@ class Tipo extends Component
         return view('livewire.tipo',
             [
                 'empresas' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', $this->tipo)->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
-                    return $q->whereIn('provincia', $this->province);
+                    $q->whereIn('provincia', $this->province);
                 })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPage),
             ]
         );
     }
-    public function loadMore($tipo)
+    public function loadMore()
     {
         $this->perPage += 10;
     }

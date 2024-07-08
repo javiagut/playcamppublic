@@ -23,7 +23,7 @@
             @endforelse
             @if ($empresas->hasMorePages())
                 <div class="flex items-center justify-center lg:mr-0 lg:min-w-full lg:max-w-full lg:w-full">
-                    <button wire:click="loadMore('{{$tipo}}')" class="px-3 py-1 text-center rounded bg-red-400 text-white transition-all shadow-lg" style="font-family: Righteous">
+                    <button wire:click="loadMore()" class="px-3 py-1 text-center rounded bg-red-400 text-white transition-all shadow-lg" style="font-family: Righteous">
                         Mostrar más
                     </button>
                 </div>

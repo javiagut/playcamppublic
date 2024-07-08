@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="{{$descripcionCamping!= '' ? $descripcionCamping : 'Todos los campings de España. Campings de Playa, campings de montaña, campings de costa, campings para practicar deporte o estar de relax, con spa y jacuzzis. Todos los campings de Cataluña, Aragón, Andalucía, Madrid, Cantábria, Andalucía, etc.'}}">
+        <meta name="description" content="{{$descripcionCamping!= '' ? $descripcionCamping : 'Descubre el mejor sitio para pasar tus vacaciones. Campings de Playa, campings de montaña, campings de costa, campings para practicar deporte o estar de relax, con spa y jacuzzis. Descubre el mejor sitio para pasar tus vacaciones de Cataluña, Aragón, Andalucía, Madrid, Cantábria, Andalucía, etc.'}}">
         <meta keywords="campings de montaña, campings para hacer deporte, campings de fiesta, campings familiares, campings de costa, campings de playa, campings con spa">
         <link rel="stylesheet" href="/bootstrap.css">
         <title>{{$nombreCamping}} - PlayCamp</title>
