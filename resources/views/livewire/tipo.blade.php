@@ -1,6 +1,6 @@
-<div class="mt-16 lg:mt-0 mb-8 lg:p-2 w-full lg:w-7/12 h-fit lg:min-h-[35em] mx-auto" id="{{$tipo}}">
-    <div class="flex flex-col gap-4 lg:p-2 w-full">
-        <a class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2" style="font-family: Righteous">
+<div class="mt-16 lg:mt-0 mb-8 lg:p-2 w-full lg:w-11/12 h-fit lg:min-h-[35em] mx-auto" id="{{$tipo}}">
+    <div class="flex flex-col  gap-4 lg:p-2 w-full">
+        <a class="px-4 pt-4 lg:p-0 text-xl flex items-end gap-2 justify-center" style="font-family: Righteous">
             <span>porque te mueve la <b class="text-2xl capitalize">{{$tipo}}</b></span>
             <img src="{{asset('vectors/'.$tipo.'.webp')}}" alt="camping de {{$tipo}}" class="h-12">
         </a>
@@ -12,9 +12,11 @@
             </div>
             <x-province-select :province="$province"></x-province-select>
         </div>
-        <div class="w-full overflow-x-scroll flex flex-col gap-4 items-center">
+        <div class="w-full overflow-x-scroll flex flex-col lg:flex-row lg:justify-around lg:flex-wrap gap-4 items-center">
             @forelse ($empresas as $empresa)
-                <x-empresa-card :empresa="$empresa" :key="$tipo" :servicioTipo="$servicioTipo"></x-empresa-card>
+                <div class="lg:w-[46%] flex justify-center ml-4 lg:ml-0">
+                    <x-empresa-card :empresa="$empresa" :key="$tipo" :servicioTipo="$servicioTipo"></x-empresa-card>
+                </div>
             @empty
                 <div class="flex flex-col justify-center items-center" style="font-family:Righteous;">
                     <p class="text-center text-red-400 m-2 border border-red-400 bg-red-50 rounded-lg p-2 text-sm">Nada por aquí</p>

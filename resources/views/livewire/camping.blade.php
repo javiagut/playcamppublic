@@ -67,7 +67,7 @@
                 @foreach ($camping->telefono as $phone)
                     <div class="flex gap-3 items-center">
                         @if ($phone[0]==6 || str_contains($phone,'+346') || str_contains($phone,'634 6'))
-                            <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$phone)}}" class="w-8 hover:scale-105"><img src="{{asset('vectors/whatsapp.webp')}}" alt=""></a>
+                            <a title="Contactar con el camping por whatsapp para reservar bungalow" href="https://wa.me/{{str_replace(' ','',$phone)}}" class="w-6 hover:scale-105"><img src="{{asset('vectors/whatsapp.webp')}}" alt=""></a>
                         @else
                             <a href="tel:{{str_replace(' ','',$phone)}}" class="material-symbols-rounded text-red-400">call</a>
                         @endif
