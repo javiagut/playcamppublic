@@ -78,8 +78,9 @@
         @endif
     </div>
     @if ($camping->direccion)
-            <h2 class="px-4 text-lg font-bold mt-2" style="font-family: Righteous">Ubicación</h2>
-        <div id="map" style="width: 100%;height:200px" class="mt-2 mb-4"></div>
+        <h2 class="px-4 text-lg font-bold mt-2" style="font-family: Righteous">Ubicación</h2>
+        <p class="px-4 mb-2">{{$camping->direccion}}, {{$camping->provincia}}</p>
+        <div id="map" style="width: 100%;height:200px" class="t-2 mb-4"></div>
     @endif
     <script>
         var address = '{{$camping->direccion}}, {{$camping->provincia}}';
@@ -97,7 +98,6 @@
       function geocodeAddress(geocoder, resultsMap) {
         geocoder.geocode({ address: address }, (results, status) => {
           if (status === "OK") {
-            console.log(results[0].geometry.location);
             resultsMap.setCenter(results[0].geometry.location);
             new google.maps.Marker({
               map: resultsMap,
