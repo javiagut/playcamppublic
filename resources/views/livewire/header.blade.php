@@ -17,17 +17,23 @@
             
                 <x-slot name="content">
                     <div class="py-1">
-                        <a href="{{route('tipo',['tipo' => 'playa'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Playa</a>
-                        <a href="{{route('tipo',['tipo' => 'montana'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Montaña</a>
-                        <a href="{{route('tipo',['tipo' => 'relax'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relax</a>
-                        <a href="{{route('tipo',['tipo' => 'fiesta'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fiesta</a>
-                        <a href="{{route('tipo',['tipo' => 'deporte'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Deporte</a>
-                        <a href="{{route('tipo',['tipo' => 'familia'])}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Familia</a>
+                        @if (env('APP_DEBUG'))
+                        <a href="{{route('blog')}}" class="flex items-center justify-between px-4 py-2 text-sm text-red-400">Blog <img src="{{asset('img/blog.webp')}}" class="ml-2 h-5" alt=""></a>
+                        @endif
+                        <a href="{{route('tipo',['tipo' => 'playa'])}}" class="flex items-center justify-between px-4 py-2 text-sm text-gray-700">Playa <img src="{{asset('vectors/playa.webp')}}" class="ml-2 h-5" alt=""></a>
+                        <a href="{{route('tipo',['tipo' => 'montana'])}}" class="flex items-center justify-between px-4 py-2 text-sm text-gray-700">Montaña <img src="{{asset('vectors/montana.webp')}}" class="ml-2 h-5" alt=""></a>
+                        <a href="{{route('tipo',['tipo' => 'relax'])}}" class="flex items-center justify-between px-4 py-2 text-sm text-gray-700 ">Relax <img src="{{asset('vectors/relax.webp')}}" class="ml-2 h-5" alt=""></a>
+                        <a href="{{route('tipo',['tipo' => 'fiesta'])}}" class="flex items-center justify-between px-4 py-2 text-sm text-gray-700 ">Fiesta <img src="{{asset('vectors/fiesta.webp')}}" class="ml-2 h-5" alt=""></a>
+                        <a href="{{route('tipo',['tipo' => 'deporte'])}}" class="flex items-center justify-between px-4 py-2 text-sm text-gray-700 ">Deporte <img src="{{asset('vectors/deporte.webp')}}" class="ml-2 h-5" alt=""></a>
+                        <a href="{{route('tipo',['tipo' => 'familia'])}}" class="flex items-center justify-between px-4 py-2 text-sm text-gray-700">Familia <img src="{{asset('vectors/familia.webp')}}" class="ml-2 h-5" alt=""></a>
                     </div>
                 </x-slot>
             </x-dropdown>
         </div>
         <div class="hidden lg:flex justify-between gap-3 pr-8">
+            @if (env('APP_DEBUG'))
+            <a href="{{route('blog')}}" class="ml-4 hover:bg-red-500 transition-all text-white bg-red-400 rounded px-3 {{request()->url()==route('blog') ? 'text-red-400': ''}}">/ Blog</a>
+            @endif
             <a href="{{route('tipo',['tipo' => 'montana'])}}" class="ml-4 hover:text-red-400 transition-all {{request()->url()==route('tipo',['tipo' => 'montana']) ? 'text-red-400': ''}}"><span class="text-red-400">/</span> Montaña</a>
             <a href="{{route('tipo',['tipo' => 'playa'])}}" class="ml-4 hover:text-red-400 transition-all {{request()->url()==route('tipo',['tipo' => 'playa']) ? 'text-red-400': ''}}"><span class="text-red-400">/</span> Playa</a>
             <a href="{{route('tipo',['tipo' => 'relax'])}}" class="ml-4 hover:text-red-400 transition-all {{request()->url()==route('tipo',['tipo' => 'relax']) ? 'text-red-400': ''}}"><span class="text-red-400">/</span> Relax</a>
