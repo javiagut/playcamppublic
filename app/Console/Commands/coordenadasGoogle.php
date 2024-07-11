@@ -28,7 +28,7 @@ class coordenadasGoogle extends Command
     public function handle()
     {
         $apiKey = env('GOOGLE_MAPS_API_KEY');
-        // print($apiKey);
+        print($apiKey);
         // URL de la API de Geocoding de Google
         $url = "https://maps.googleapis.com/maps/api/geocode/json";
 
@@ -51,6 +51,7 @@ class coordenadasGoogle extends Command
                     $empresa->latitud = $coordenadas['lat'];
                     $empresa->longitud = $coordenadas['lng'];
                     $empresa->save();
+                    print("Empresa: " . $empresa->nombre . " - Latitud: " . $empresa->latitud . " - Longitud: " . $empresa->longitud . "\n");
                 }
             }
         }
