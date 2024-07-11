@@ -83,7 +83,7 @@
         <div id="map" style="width: 100%;height:200px" class="t-2 mb-4"></div>
     @endif
     <script>
-        var address = '{{$camping->direccion}}, {{$camping->provincia}}';
+        var address = '{{$camping->nombre}}, {{$camping->provincia}}';
         function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 15,
