@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use App\Models\Empresa;
+use Illuminate\Support\Facades\Log;
 
 class coordenadasGoogle extends Command
 {
@@ -35,7 +36,7 @@ class coordenadasGoogle extends Command
         $empresas = Empresa::all();
 
         foreach ($empresas as $empresa) {
-            if ((!$empresa->latitud || $empresa->latitud=='') || (!$empresa->longitud || $empresa->longitud=='')) {
+            if (!$empresa->latitud || $empresa->latitud=='' || !$empresa->longitud || $empresa->longitud=='') {
                 // Realizar la solicitud a la API de Google
                 $response = Http::get($url,[
                     'address' => $empresa->nombre . ', ' . $empresa->provincia,
@@ -52,6 +53,9 @@ class coordenadasGoogle extends Command
                     $empresa->longitud = $coordenadas['lng'];
                     $empresa->save();
                     print("Empresa: " . $empresa->nombre . " - Latitud: " . $empresa->latitud . " - Longitud: " . $empresa->longitud . "\n");
+                }else{
+                    print("Error al obtener las coordenadas de la empresa: " . $empresa->nombre . "\n");
+                    Log::error("Error al obtener las coordenadas de la empresa: " . $empresa->nombre. "\n". $data);
                 }
             }
         }
