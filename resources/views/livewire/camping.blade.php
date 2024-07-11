@@ -77,38 +77,30 @@
             </div>
         @endif
     </div>
-    @if ($camping->direccion)
+    @if ($camping->direccion && ($camping->latitud && $camping->latitud!='') && ($camping->longitud && $camping->longitud!=''))
         <h2 class="px-4 text-lg font-bold mt-2" style="font-family: Righteous">Ubicación</h2>
         <p class="px-4 mb-2">{{$camping->direccion}}, {{$camping->provincia}}</p>
         <div id="map" style="width: 100%;height:200px" class="t-2 mb-4"></div>
     @endif
     <script>
         var address = '{{$camping->nombre}}, {{$camping->provincia}}';
+        var latitud = '{{$camping->latitud}}';
+        var longitud = '{{$camping->longitud}}';
         function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 15,
-          center: { lat: -34.397, lng: 150.644 }, 
-        });
-
-        const geocoder = new google.maps.Geocoder();
-
-        geocodeAddress(geocoder, map);
-      }
-      
-      function geocodeAddress(geocoder, resultsMap) {
-        geocoder.geocode({ address: address }, (results, status) => {
-          if (status === "OK") {
-            resultsMap.setCenter(results[0].geometry.location);
-            new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location,
+            const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: { lat: 41.42243183214581, lng: 2.1195058671404334 }, 
             });
-          } else {
-            alert("Geocode was not successful for the following reason: " + status);
-          }
-        });
-      }
-
-      window.onload = initMap;
+            if (latitud != '' && longitud != '') {
+                var location = { lat: parseFloat(latitud), lng: parseFloat(longitud) }
+                console.log(location)
+                map.setCenter(location);
+                new google.maps.Marker({
+                    map: map,
+                    position: location,
+                });
+            }
+        }
+        window.onload = initMap;
     </script>
 </div>
