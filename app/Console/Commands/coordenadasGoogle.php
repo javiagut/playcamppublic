@@ -55,7 +55,7 @@ class coordenadasGoogle extends Command
                     print("Empresa: " . $empresa->nombre . " - Latitud: " . $empresa->latitud . " - Longitud: " . $empresa->longitud . "\n");
                 }else{
                     print("Error al obtener las coordenadas de la empresa: " . $empresa->nombre . "\n");
-                    Log::error("Error al obtener las coordenadas de la empresa: " . $empresa->nombre. "\n". $data);
+                    Log::error("Error al obtener las coordenadas de la empresa: " . $empresa->nombre. "\n". $data['status']);
                 }
             }
         }
