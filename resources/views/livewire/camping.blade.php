@@ -77,4 +77,38 @@
             </div>
         @endif
     </div>
+    @if ($camping->direccion)
+            <h2 class="px-4 text-lg font-bold mt-2" style="font-family: Righteous">Ubicación</h2>
+        <div id="map" style="width: 100%;height:200px" class="mt-2 mb-4"></div>
+    @endif
+    <script>
+        var address = '{{$camping->direccion}}, {{$camping->provincia}}';
+        function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: { lat: -34.397, lng: 150.644 }, 
+        });
+
+        const geocoder = new google.maps.Geocoder();
+
+        geocodeAddress(geocoder, map);
+      }
+      
+      function geocodeAddress(geocoder, resultsMap) {
+        geocoder.geocode({ address: address }, (results, status) => {
+          if (status === "OK") {
+            console.log(results[0].geometry.location);
+            resultsMap.setCenter(results[0].geometry.location);
+            new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location,
+            });
+          } else {
+            alert("Geocode was not successful for the following reason: " + status);
+          }
+        });
+      }
+
+      window.onload = initMap;
+    </script>
 </div>

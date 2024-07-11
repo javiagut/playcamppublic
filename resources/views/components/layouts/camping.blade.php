@@ -11,6 +11,7 @@
         <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico')}}">
         @vite(['resources/css/app.css','resources/js/app.js'])
         @livewireStyles
+        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5XTc_MnqHTh_k4ZK3SOw188lqc_nR0XQ&callback=console.debug&libraries=maps,marker&v=beta"></script>
         <style>
             @font-face {
             font-family: 'Righteous';
