@@ -89,7 +89,7 @@
         gtag('js', new Date());
         gtag('config', 'G-3DWK6PJTY3');
     </script>
-    <body class="font-sans antialiased bg-gray-100 min-h-screen flex flex-col justify-between">
+    <body class="font-sans antialiased bg-gray-100 min-h-screen flex flex-col justify-between" style="background-image: url('fondo.png')">
         @livewire('header')
         {{ $slot }}
         @livewireScripts

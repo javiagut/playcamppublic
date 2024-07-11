@@ -1,6 +1,6 @@
 <x-layouts.app>
-    <div class="p-4 w-6/12 mx-auto">
-        <p class="w-100 ml-4 py-2 text-5xl" style="font-family: Righteous;">Política de cookies</p>
+    <div class="p-4 lg:w-6/12 mx-auto mt-16 lg:mt-0 w-11/12">
+        <p class="w-100 ml-4 py-2 text-3xl lg:text-5xl" style="font-family: Righteous;">Política de cookies</p>
         <div class="px-4 py-b flex flex-col gap-3">
             <p class="text-sm mt-2">
                 Este Sitio Web utiliza cookies y otra tecnologías similares para proporcionar al usuario una mejor experiencia de navegación, más rápida y más segura, pero también para obtener información estadística sobre la navegación que realiza, mostrar publicidad personalizada a través del análisis de dicha navegación, así como para interactuar en redes sociales. A continuación proporcionamos información más detallada al respecto.
