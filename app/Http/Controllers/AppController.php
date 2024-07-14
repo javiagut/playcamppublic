@@ -29,4 +29,7 @@ class AppController extends Controller
             'descripcion' => $empresa ? $empresa->descripcion : ''
         ]);
     }
+    function blog(){
+        return view('blog');
+    }
 }

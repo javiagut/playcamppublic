@@ -18,3 +18,4 @@ Route::get('/ubicacion/{ubicacion?}', [AppController::class, 'ubicacion'])->name
 Route::get('/tipo/{tipo}', [AppController::class, 'tipo'])->name('tipo');
 Route::get('/camping/{camping}', [AppController::class, 'camping'])->name('camping');
 Route::get('/empresa/añadir', [AppController::class, 'añadirEmpresa'])->name('añadirEmpresa');
+Route::get('/blog', [AppController::class, 'blog'])->name('blog');

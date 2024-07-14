@@ -26,6 +26,7 @@ class Home extends Component
     public $perPageFiesta = 10;
     public $perPageFamilia = 10;
     public $servicioTipo;
+    public $modo = 'mapa';
 
     public function paginationView()
     {
