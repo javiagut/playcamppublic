@@ -9,6 +9,9 @@
         <title>PlayCamp - Descubre el mejor sitio para pasar tus vacaciones</title>
         <meta name="robots" content="index,follow">
 
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"  />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" ></script>
+
         <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico')}}">
         @vite(['resources/css/app.css','resources/js/app.js'])
         @livewireStyles

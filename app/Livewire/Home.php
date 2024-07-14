@@ -26,6 +26,7 @@ class Home extends Component
     public $perPageFiesta = 10;
     public $perPageFamilia = 10;
     public $servicioTipo;
+    public $modo = 'mapa';
 
     public function paginationView()
     {
@@ -40,28 +41,37 @@ class Home extends Component
 
     public function render()
     {
-        return view('livewire.home',
-            [ 'categorias' => [
-                'montana' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'montana')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
-                                                                                    return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->paginate($this->perPageMontana, pageName: 'montana'),
-                'playa' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'playa')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
-                                                                                    return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPagePlaya, pageName: 'playa'),
-                'relax' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'relax')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
-                                                                                    return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageRelax, pageName: 'relax'),
-                'deporte' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'deporte')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
-                                                                                    return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageDeporte, pageName: 'deporte'),
-                'fiesta' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'fiesta')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
-                                                                                    return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageFiesta, pageName: 'fiesta'),
-                'familia' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'familia')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
-                                                                                    return $q->whereIn('provincia', $this->province);
-                                                                                })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageFamilia, pageName: 'familia'),
-            ]]
-        );
+        if ($this->modo == 'lista') {
+            return view('livewire.home',
+                [ 'categorias' => [
+                    'montana' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'montana')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                                                                                        return $q->whereIn('provincia', $this->province);
+                                                                                    })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->paginate($this->perPageMontana, pageName: 'montana'),
+                    'playa' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'playa')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                                                                                        return $q->whereIn('provincia', $this->province);
+                                                                                    })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPagePlaya, pageName: 'playa'),
+                    'relax' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'relax')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                                                                                        return $q->whereIn('provincia', $this->province);
+                                                                                    })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageRelax, pageName: 'relax'),
+                    'deporte' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'deporte')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                                                                                        return $q->whereIn('provincia', $this->province);
+                                                                                    })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageDeporte, pageName: 'deporte'),
+                    'fiesta' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'fiesta')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                                                                                        return $q->whereIn('provincia', $this->province);
+                                                                                    })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageFiesta, pageName: 'fiesta'),
+                    'familia' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'familia')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                                                                                        return $q->whereIn('provincia', $this->province);
+                                                                                    })->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageFamilia, pageName: 'familia'),
+                ]]
+            );
+        }else{
+            return view('livewire.home',
+                [ 'empresas' => Empresa::select('code','nombre','provincia','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereNotNull('etiquetas')->where('nombre','ILIKE',"%$this->search%")->when(count($this->province)>0, function ($q) {
+                                                                                        return $q->whereIn('provincia', $this->province);
+                                                                                    })->get()->toArray(),
+                ]
+            );
+        }
     }
     public function loadMore($tipo)
     {

@@ -18,7 +18,7 @@
                 <x-slot name="content">
                     <div class="py-1">
                         @if (env('APP_DEBUG'))
-                        <a href="{{route('blog')}}" class="flex items-center justify-between px-4 py-2 text-sm text-red-400">Blog <img src="{{asset('img/blog.webp')}}" class="ml-2 h-5" alt=""></a>
+                        {{-- <a href="{{route('blog')}}" class="flex items-center justify-between px-4 py-2 text-sm text-red-400">Blog <img src="{{asset('img/blog.webp')}}" class="ml-2 h-5" alt=""></a> --}}
                         @endif
                         <a href="{{route('tipo',['tipo' => 'playa'])}}" class="flex items-center justify-between px-4 py-2 text-sm text-gray-700">Playa <img src="{{asset('vectors/playa.webp')}}" class="ml-2 h-5" alt=""></a>
                         <a href="{{route('tipo',['tipo' => 'montana'])}}" class="flex items-center justify-between px-4 py-2 text-sm text-gray-700">Montaña <img src="{{asset('vectors/montana.webp')}}" class="ml-2 h-5" alt=""></a>
@@ -32,7 +32,7 @@
         </div>
         <div class="hidden lg:flex justify-between gap-3 pr-8">
             @if (env('APP_DEBUG'))
-            <a href="{{route('blog')}}" class="ml-4 hover:bg-red-500 transition-all text-white bg-red-400 rounded px-3 {{request()->url()==route('blog') ? 'text-red-400': ''}}">/ Blog</a>
+            {{-- <a href="{{route('blog')}}" class="ml-4 hover:bg-red-500 transition-all text-white bg-red-400 rounded px-3 {{request()->url()==route('blog') ? 'text-red-400': ''}}">/ Blog</a> --}}
             @endif
             <a href="{{route('tipo',['tipo' => 'montana'])}}" class="ml-4 hover:text-red-400 transition-all {{request()->url()==route('tipo',['tipo' => 'montana']) ? 'text-red-400': ''}}"><span class="text-red-400">/</span> Montaña</a>
             <a href="{{route('tipo',['tipo' => 'playa'])}}" class="ml-4 hover:text-red-400 transition-all {{request()->url()==route('tipo',['tipo' => 'playa']) ? 'text-red-400': ''}}"><span class="text-red-400">/</span> Playa</a>
