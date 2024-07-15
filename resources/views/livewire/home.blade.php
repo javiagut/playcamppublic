@@ -8,12 +8,14 @@
             </div>
             <x-province-select :province="$province"></x-province-select>
             <div class="flex items-center bg-white rounded border-[3px] border-red-400 w-fit mx-auto lg:ml-4 lg:mr-0 shadow">
-                <span wire:click="$set('modo','lista')" class="cursor-pointer transition-all px-2 h-full {{$modo == 'lista' ? 'text-white bg-red-400 ' : 'text-red-400'}} material-symbols-outlined">list</span>
-                <span wire:click="$set('modo','mapa')" class="cursor-pointer transition-all px-2 h-full {{$modo == 'mapa' ? 'text-white bg-red-400 ' : 'text-red-400'}} material-symbols-outlined">location_on</span>
+                <span onclick="setView()" id="btnMapa" class="cursor-pointer transition-all px-2 h-full bg-red-400 text-white material-symbols-outlined">location_on</span>
             </div>
         </div>
         <div class="w-full flex flex-wrap">
-            @if ($modo == 'lista')
+            <div id="mapa" class="w-full flex flex-wrap">
+                <div class="w-11/12 lg:w-8/12 lg:h-[40em] h-96 mx-auto my-4" id="map"></div>
+            </div>
+            <div id="lista" class="w-full flex flex-wrap">
                 @foreach ($categorias as $key => $item)
                     <div class="lg:p-2 w-full lg:w-1/3 h-fit {{$key=='playa' ? 'order-1' : 'order-2'}}" id="{{$key}}">
                         <div class="flex flex-col gap-4 lg:p-2 w-full">
@@ -39,28 +41,21 @@
                         </div>
                     </div>
                 @endforeach
-            @else
-                <div class="w-11/12 lg:w-8/12 lg:h-[40em] h-96 mx-auto my-4" id="map"></div>
-                <script>
-                    var map = L.map('map').setView([40.418, -3.702], 6);
-
-                    L.tileLayer('https://playcamp.es', {
-                        attribution: '&copy; <a href="https://playcamp.es">PlayCamp</a> 2024'
-                    }).addTo(map);
-
-                    var empresas = @json($empresas);
-                    console.log(empresas);
-                    empresas.forEach(element => {
-                        console.log(element.latitud);
-                        L.marker([element.latitud, element.longitud]).addTo(map)
-                            .bindPopup('<b>'+element.nombre+'</b>')
-                            .openPopup();
-                    });
-                </script>
-            @endif
+            </div>
         </div>
     </div>
     <script>
+        // MAPA
+        var map = L.map('map').setView([40.418, -3.702], 6);
+        L.tileLayer('https://playcamp.es', {
+            attribution: 'PlayCamp 2024'
+        }).addTo(map);
+        var empresas = @json($empresas);
+        empresas.forEach(element => {
+            L.marker([element.latitud, element.longitud]).addTo(map)
+                .bindPopup('<b>'+element.nombre+'</b><br><small>'+element.provincia+'</small>');
+        });
+        // FOTOS DE EMPRESAS
         function changeImage(id, i, empresa, url){
             document.getElementById(id).style.backgroundImage = `url(${url})`;
             var btn = document.getElementById('btn-bg-'+i+'-'+empresa);
@@ -80,5 +75,12 @@
         elementsWithBg1.forEach(function(element) {
             element.style.backgroundColor = '#1e293b';
         });
+        // CAMBIAR VISTA ENTRE LISTA Y MAPA
+        function setView(){
+            $("#mapa").slideToggle();
+            $("#btnMapa").toggleClass('text-white');
+            $("#btnMapa").toggleClass('bg-red-400');
+            $("#btnMapa").toggleClass('text-red-400');
+        }
     </script>
 </div>
