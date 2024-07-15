@@ -53,7 +53,7 @@ class Home extends Component
                 'familia' => Empresa::select('code','nombre','etiquetas','web','booking','provincia','email','telefono','puntuacion')->whereJsonContains('etiquetas', 'familia')                                                                                    
                                                                                 ->orderByRaw("CASE WHEN puntuacion IS NULL OR puntuacion = '' THEN 1 ELSE 0 END, puntuacion DESC")->orderBy('nombre','DESC')->paginate($this->perPageFamilia, pageName: 'familia')
             ],
-            'empresas' => Empresa::select('latitud','longitud','nombre','provincia')->whereNotNull('etiquetas')->get()->toArray(),
+            'empresas' => Empresa::select('latitud','longitud','nombre','provincia','etiquetas')->whereNotNull('etiquetas')->get()->toArray(),
             ]
         );
         

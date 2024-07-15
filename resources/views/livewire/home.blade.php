@@ -1,11 +1,14 @@
 <div class="w-full flex-col gap-4 lg:px-4 pb-4 mt-16 lg:mt-0">
     <div class="w-full flex lg:flex-row flex-col pb-4 lg:flex-wrap">
         <div class="mt-4 text-center w-full">
-            {{-- j --}}
         </div>
         <div class="w-full flex flex-wrap">
             <div id="mapa" class="w-full flex flex-wrap">
+                <div class="hidden lg:flex lg:w-3/12 p-4">
+                    
+                </div>
                 <div class="rounded-lg w-11/12 lg:w-6/12 lg:h-[40em] h-96 mx-auto my-4" id="map"></div>
+                <div class="hidden lg:flex lg:w-3/12 p-4"></div>
             </div>
             <div id="lista" class="w-full flex flex-wrap">
                 @foreach ($categorias as $key => $item)
@@ -51,8 +54,11 @@
         var empresas = @json($empresas);
         empresas.forEach(element => {
             if (element.latitud != '' && element.longitud != '') {
+                ruta = "{{route('home')}}/camping/"+element.nombre.replace(' ','-');
+                console.log(element.etiquetas)
+                etiquetas = element.etiquetas[0].charAt(0).toUpperCase() + element.etiquetas[0].slice(1)+ (element.etiquetas[1] ? ' y '+ element.etiquetas[1].charAt(0).toUpperCase() + element.etiquetas[1].slice(1) : '');
                 L.marker([element.latitud, element.longitud]).addTo(map)
-                    .bindPopup('<b>'+element.nombre+'</b><br><small><b>'+element.provincia+'</b></small>');
+                    .bindPopup('<a href="'+ruta+'"><b>'+element.nombre+"</b></a><br><small><b>"+element.provincia+"</b></small><br><small>"+etiquetas+"</small>");
                 
             }
         });
