@@ -1,5 +1,5 @@
 
-<div class="bg-white flex justify-between items-center px-2 rounded shadow-lg py-1">
+<div class="bg-white flex justify-between items-center px-2 rounded shadow-lg py-1" style="z-index: 9999">
     <span class="material-symbols-outlined text-red-400">location_city</span>
     <x-dropdown maintain="true" align="left" w="w-full">
         <x-slot name="trigger">

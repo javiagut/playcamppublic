@@ -46,14 +46,23 @@
     </div>
     <script>
         // MAPA
-        var map = L.map('map').setView([40.418, -3.702], 6);
+        var osmUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+		osmAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
+
+        var map = L.map('map').setView([40.418, -3.702], 6).addLayer(osm);
         L.tileLayer('https://playcamp.es', {
-            attribution: 'PlayCamp 2024'
+            attribution: 'PlayCamp 2024',
+            minZoom: 6,
+            maxZoom: 10,
         }).addTo(map);
         var empresas = @json($empresas);
         empresas.forEach(element => {
-            L.marker([element.latitud, element.longitud]).addTo(map)
-                .bindPopup('<b>'+element.nombre+'</b><br><small>'+element.provincia+'</small>');
+            if (element.latitud != '' && element.longitud != '') {
+                L.marker([element.latitud, element.longitud]).addTo(map)
+                    .bindPopup('<b>'+element.nombre+'</b><br><small>'+element.provincia+'</small>');
+                
+            }
         });
         // FOTOS DE EMPRESAS
         function changeImage(id, i, empresa, url){
