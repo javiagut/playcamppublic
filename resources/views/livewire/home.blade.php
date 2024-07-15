@@ -1,19 +1,11 @@
 <div class="w-full flex-col gap-4 lg:px-4 pb-4 mt-16 lg:mt-0">
     <div class="w-full flex lg:flex-row flex-col pb-4 lg:flex-wrap">
-        <div class="w-full px-4 lg:px-0 pt-8 flex flex-col lg:flex-row gap-4 justify-center" wire:loading.class="opacity-50">
-            <div class="bg-white flex items-center px-2 rounded shadow-lg justify-between">
-                <span class="material-symbols-outlined text-red-400">search</span>
-                <input type="text" wire:model.live.debounce.250ms="search" placeholder="Buscar por Nombre" class="w-full lg:w-56 py-1 px-2 outline-none">
-                <span wire:click="$set('province',[])" class="text-base material-symbols-outlined text-red-400 ml-2 hover:text-black transition-all cursor-pointer">close</span>
-            </div>
-            <x-province-select :province="$province"></x-province-select>
-            <div class="flex items-center bg-white rounded border-[3px] border-red-400 w-fit mx-auto lg:ml-4 lg:mr-0 shadow">
-                <span onclick="setView()" id="btnMapa" class="cursor-pointer transition-all px-2 h-full bg-red-400 text-white material-symbols-outlined">location_on</span>
-            </div>
+        <div class="mt-4 text-center w-full">
+            {{-- j --}}
         </div>
         <div class="w-full flex flex-wrap">
             <div id="mapa" class="w-full flex flex-wrap">
-                <div class="w-11/12 lg:w-8/12 lg:h-[40em] h-96 mx-auto my-4" id="map"></div>
+                <div class="rounded-lg w-11/12 lg:w-6/12 lg:h-[40em] h-96 mx-auto my-4" id="map"></div>
             </div>
             <div id="lista" class="w-full flex flex-wrap">
                 @foreach ($categorias as $key => $item)
@@ -60,7 +52,7 @@
         empresas.forEach(element => {
             if (element.latitud != '' && element.longitud != '') {
                 L.marker([element.latitud, element.longitud]).addTo(map)
-                    .bindPopup('<b>'+element.nombre+'</b><br><small>'+element.provincia+'</small>');
+                    .bindPopup('<b>'+element.nombre+'</b><br><small><b>'+element.provincia+'</b></small>');
                 
             }
         });
@@ -84,12 +76,5 @@
         elementsWithBg1.forEach(function(element) {
             element.style.backgroundColor = '#1e293b';
         });
-        // CAMBIAR VISTA ENTRE LISTA Y MAPA
-        function setView(){
-            $("#mapa").slideToggle();
-            $("#btnMapa").toggleClass('text-white');
-            $("#btnMapa").toggleClass('bg-red-400');
-            $("#btnMapa").toggleClass('text-red-400');
-        }
     </script>
 </div>
