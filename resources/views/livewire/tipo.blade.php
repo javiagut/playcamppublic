@@ -8,7 +8,7 @@
             <div class="bg-white flex items-center px-2 rounded shadow-lg justify-between">
                 <span class="material-symbols-outlined text-red-400">search</span>
                 <input type="text" wire:model.live.debounce.250ms="search" placeholder="Buscar por Nombre" class="w-full lg:w-56 py-1 px-2 outline-none">
-                <span wire:click="$set('province',[])" class="text-base material-symbols-outlined text-red-400 ml-2 hover:text-black transition-all cursor-pointer">close</span>
+                <span wire:click="$set('search','')" class="text-base material-symbols-outlined text-red-400 ml-2 hover:text-black transition-all cursor-pointer">close</span>
             </div>
             <x-province-select :province="$province"></x-province-select>
         </div>
