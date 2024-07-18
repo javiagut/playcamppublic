@@ -44,8 +44,10 @@
         var osmUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
 		osmAttrib = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
+        
+        var zoom = window.innerWidth < 750 ? 5 : 6;
 
-        var map = L.map('map').setView([40.418, -3.702], 6).addLayer(osm);
+        var map = L.map('map').setView([40.418, -3.702], zoom).addLayer(osm);
         L.tileLayer('https://playcamp.es', {
             attribution: 'PlayCamp 2024',
             minZoom: 6,
