@@ -3,7 +3,7 @@
         <div class="mt-4 text-center w-full">
         </div>
         <div class="w-full flex flex-wrap">
-            <div id="mapa" class="w-full flex flex-wrap">
+            <div wire:ignore id="mapa" class="w-full flex flex-wrap">
                 <div class="hidden lg:flex lg:w-3/12 p-4">
                     
                 </div>
